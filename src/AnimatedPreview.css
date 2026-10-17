@@ -144,3 +144,10 @@
   ~ text:nth-of-type(-n + 2) {
   fill: #264b43;
 }
+
+/* Keep the small-screen preview unobstructed; playback controls remain available. */
+@media (max-width: 760px) {
+  .animated-preview .preview-state {
+    display: none;
+  }
+}
