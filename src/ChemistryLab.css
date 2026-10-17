@@ -1,0 +1,460 @@
+.chemistry-lab {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr) 310px;
+  min-height: calc(100vh - 76px);
+  background: var(--ui-paper);
+  color: var(--ui-ink);
+}
+.chem-nav,
+.chem-notes {
+  padding: 24px 20px;
+  background: var(--ui-surface);
+  border-right: 1px solid var(--ui-line);
+}
+.chem-notes {
+  border-left: 1px solid var(--ui-line);
+  border-right: 0;
+  line-height: 1.85;
+}
+.chem-brand {
+  font-size: 18px;
+  margin: 32px 0;
+  color: var(--ui-primary);
+}
+.chem-brand small {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 2px;
+  margin-top: 8px;
+}
+.chem-main {
+  padding: 28px;
+  min-width: 0;
+}
+.chem-main header > span,
+.chem-main header > p,
+.chem-time-note,
+.chem-nav > p {
+  color: var(--ui-muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+.chem-main h1 {
+  font:
+    30px Georgia,
+    "Noto Serif SC",
+    serif;
+  margin: 12px 0;
+}
+.chem-main header > p {
+  margin-bottom: 24px;
+}
+.chemistry-lab button,
+.chemistry-lab select {
+  background: var(--ui-surface);
+  color: var(--ui-ink);
+  border: 1px solid var(--ui-line);
+  border-radius: 5px;
+  min-height: 40px;
+  padding: 8px 12px;
+  font: inherit;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.chemistry-lab button:hover {
+  background: var(--ui-selected);
+}
+.chemistry-lab button[aria-pressed="true"],
+.chemistry-lab button[aria-current] {
+  background: var(--ui-selected);
+  border-color: var(--ui-primary);
+}
+.chemistry-lab button:focus-visible,
+.chemistry-lab input:focus-visible {
+  outline: 2px solid var(--ui-primary);
+  outline-offset: 3px;
+}
+.chemistry-lab button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+.chemistry-lab .microscope-chapters {
+  margin-top: 28px;
+}
+.chemistry-lab .microscope-chapters button {
+  color: var(--ui-ink);
+  font-size: 14px;
+  min-height: 55px;
+}
+.chemistry-lab .microscope-chapters small {
+  color: var(--ui-muted);
+}
+.chemistry-lab .topic-picker select {
+  max-width: 100%;
+  width: 100%;
+}
+.chem-apparatus {
+  border: 1px solid var(--ui-line);
+  background: var(--ui-surface);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.chem-scene {
+  display: block;
+  width: 100%;
+  height: auto;
+  color: var(--ui-ink);
+}
+.chem-label {
+  font-size: 17px;
+  fill: var(--ui-ink);
+  font-family: inherit;
+}
+.chem-stage-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 18px;
+  border-bottom: 1px solid var(--ui-line);
+  color: var(--ui-muted);
+  font-size: 12px;
+}
+.chem-stage-head button {
+  min-height: 32px;
+  font-size: 12px;
+}
+.chem-playbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 16px;
+  border-top: 1px solid var(--ui-line);
+  font-size: 14px;
+}
+.chemistry-lab .chem-primary {
+  background: var(--ui-primary);
+  color: var(--ui-paper);
+  border-color: var(--ui-primary);
+}
+.chem-playbar label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  min-width: 170px;
+}
+.chem-playbar input {
+  width: 100%;
+  min-width: 70px;
+}
+.chem-playbar output {
+  min-width: 72px;
+  font-variant-numeric: tabular-nums;
+}
+.chemistry-lab input {
+  accent-color: var(--ui-primary);
+}
+.chem-readings {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 20px 0;
+  border: 1px solid var(--ui-line);
+  border-radius: 6px;
+  background: var(--ui-surface);
+}
+.chem-readings div {
+  padding: 18px;
+  border-right: 1px solid var(--ui-line);
+}
+.chem-readings div:last-child {
+  border: 0;
+}
+.chem-readings small {
+  display: block;
+  color: var(--ui-muted);
+  margin-bottom: 10px;
+}
+.chem-readings strong {
+  font-size: 20px;
+  font-weight: 500;
+}
+.chem-kicker {
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: var(--ui-primary);
+}
+.chem-notes h2 {
+  font:
+    23px Georgia,
+    "Noto Serif SC",
+    serif;
+  margin: 16px 0 22px;
+}
+.chem-notes p {
+  font-size: 15px;
+}
+.chem-task {
+  padding: 14px 16px;
+  border-left: 2px solid var(--ui-primary);
+  background: var(--ui-paper);
+  margin: 24px 0;
+}
+.chem-task strong {
+  font-size: 13px;
+}
+.chem-task p {
+  margin: 8px 0 0;
+}
+.chemistry-lab fieldset {
+  border: 0;
+  padding: 0;
+  margin: 20px 0;
+}
+.chemistry-lab legend {
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+.chem-choices {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+.chem-choices button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.chem-choices i {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+.chem-range {
+  display: block;
+  margin: 24px 0;
+  font-size: 14px;
+}
+.chem-range strong {
+  float: right;
+}
+.chem-range input {
+  display: block;
+  width: 100%;
+  margin-top: 15px;
+}
+.chem-formula {
+  border: 1px solid var(--ui-line);
+  padding: 14px;
+  margin: 28px 0;
+  font-size: 15px;
+  line-height: 1.9;
+  background: var(--ui-paper);
+}
+.chem-next {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 24px 0;
+}
+.chem-notes details {
+  font-size: 13px;
+  border-top: 1px solid var(--ui-line);
+  padding-top: 18px;
+}
+.chem-notes details p {
+  font-size: 13px;
+}
+.chem-notes summary {
+  cursor: pointer;
+}
+.chem-notes a {
+  color: var(--ui-primary);
+}
+.flame-shape {
+  animation: chem-flame 0.85s ease-in-out infinite alternate;
+}
+.chem-bubble {
+  animation: chem-rise 2s linear infinite;
+}
+.chem-vapor {
+  animation: chem-vapor 1.5s linear infinite;
+}
+.chem-drop {
+  animation: chem-drip 0.8s linear infinite;
+}
+.is-paused :is(.flame-shape, .chem-bubble, .chem-vapor, .chem-drop) {
+  animation-play-state: paused;
+}
+@keyframes chem-flame {
+  from {
+    transform: scale(0.97, 1) skewX(-2deg);
+  }
+  to {
+    transform: scale(1.04, 0.96) skewX(2deg);
+  }
+}
+@keyframes chem-rise {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.75;
+  }
+  100% {
+    transform: translateY(-140px);
+    opacity: 0;
+  }
+}
+@keyframes chem-vapor {
+  to {
+    stroke-dashoffset: -56;
+  }
+}
+@keyframes chem-drip {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(38px);
+    opacity: 0;
+  }
+}
+@media (max-width: 1150px) {
+  .chemistry-lab {
+    grid-template-columns: 180px minmax(0, 1fr) 270px;
+  }
+  .chem-main {
+    padding: 20px 14px;
+  }
+  .chem-nav,
+  .chem-notes {
+    padding: 20px 14px;
+  }
+  .chem-readings strong {
+    font-size: 16px;
+  }
+}
+@media (max-width: 850px) {
+  .chemistry-lab {
+    grid-template-columns: 1fr;
+  }
+  .chem-nav {
+    border-bottom: 1px solid var(--ui-line);
+  }
+  .chem-brand {
+    margin: 18px 0;
+  }
+  .chem-nav .microscope-chapters {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  .chem-nav .nav-heading {
+    grid-column: 1/-1;
+  }
+  .chem-notes {
+    border: 0;
+  }
+  .chem-main h1 {
+    font-size: 25px;
+  }
+  .chem-readings div {
+    padding: 12px;
+  }
+  .chem-readings strong {
+    font-size: 15px;
+  }
+}
+.chemistry-lab .chem-primary:hover {
+  background: var(--ui-primary);
+  color: var(--ui-paper);
+  filter: brightness(0.94);
+}
+.chemistry-lab .microscope-chapters button {
+  display: flex;
+  gap: 12px;
+  text-align: left;
+  align-items: center;
+}
+.chemistry-lab .chem-playbar label {
+  white-space: nowrap;
+}
+.chem-3d {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 900/580;
+  background: var(--ui-paper);
+  overflow: hidden;
+}
+.chem-3d canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+}
+.chem-3d-label {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: var(--ui-surface);
+  border: 1px solid var(--ui-line);
+  color: var(--ui-ink);
+  padding: 4px 8px;
+  font-size: 12px;
+  pointer-events: none;
+  white-space: nowrap;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px #0001;
+}
+.chem-3d-tools {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  max-width: calc(100% - 24px);
+}
+.chem-3d-tools button {
+  min-height: 34px;
+  padding: 5px 9px;
+  font-size: 12px;
+}
+.chem-3d-hint {
+  position: absolute;
+  bottom: 12px;
+  left: 14px;
+  padding: 5px 9px;
+  background: var(--ui-surface);
+  color: var(--ui-muted);
+  font-size: 11px;
+  border-radius: 4px;
+}
+.chem-view-choice {
+  display: flex;
+  gap: 6px;
+}
+.chem-3d-error,
+.chem-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+.chem-3d-error {
+  position: absolute;
+  inset: 0;
+  background: var(--ui-surface);
+}
+
+.chem-3d canvas:focus-visible {
+  outline: 2px solid var(--ui-primary);
+  outline-offset: -4px;
+}

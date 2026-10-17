@@ -1,0 +1,39 @@
+.triangle-proof {
+  padding: 24px;
+  margin-top: 24px;
+  background: var(--ui-surface);
+  color: var(--ui-ink);
+  border: 1px solid var(--ui-line);
+  border-radius: 8px;
+  min-width: 0;
+}
+.triangle-proof h3 {
+  font-size: 24px;
+  margin: 0 0 12px;
+}
+.triangle-proof p {
+  font-size: 16px;
+  line-height: 1.85;
+}
+.triangle-proof-scroll {
+  overflow: auto;
+  margin-top: 16px;
+  border: 1px solid var(--ui-line);
+  background: var(--ui-paper);
+}
+.triangle-proof svg {
+  display: block;
+  width: 100%;
+  min-width: 480px;
+}
+.triangle-proof-explanation {
+  padding: 16px;
+  border-left: 3px solid var(--ui-primary);
+  background: var(--ui-paper);
+  min-height: 6em;
+}
+@media (max-width: 760px) {
+  .triangle-proof {
+    padding: 16px;
+  }
+}

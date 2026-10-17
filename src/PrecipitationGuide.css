@@ -1,0 +1,180 @@
+.precipitation-guide {
+  padding: 16px 20px;
+  border-top: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--ink);
+}
+.reaction-phase-heading {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 13px;
+}
+.reaction-phase-heading span,
+.precipitation-guide small {
+  color: var(--muted);
+  font-size: 12px;
+}
+.reaction-phase-buttons {
+  display: flex;
+  gap: 8px;
+  margin: 12px 0;
+  flex-wrap: wrap;
+}
+.reaction-phase-buttons button {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--white);
+  color: var(--ink);
+  min-height: 40px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+.reaction-phase-buttons button[aria-pressed="true"] {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+.reaction-phase-buttons button:focus-visible,
+.precipitation-guide summary:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+.precipitation-guide p {
+  font-size: 13px;
+  line-height: 1.7;
+  margin: 8px 0;
+}
+.precipitation-guide summary {
+  cursor: pointer;
+  font-size: 12px;
+  padding: 10px 0;
+}
+.precipitation-guide dl {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin: 8px 0;
+}
+.precipitation-guide dt {
+  color: var(--muted);
+  font-size: 12px;
+}
+.precipitation-guide dd {
+  margin: 4px 0;
+  font-size: 18px;
+  font-variant-numeric: tabular-nums;
+}
+
+.reaction-dose-controls {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 12px 14px;
+  margin: 12px 0;
+}
+.reaction-dose-controls legend,
+.reaction-dose-controls label {
+  font-size: 13px;
+}
+.reaction-dose-controls label {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+.reaction-dose-controls input[type="range"] {
+  width: 100%;
+  margin: 12px 0 2px;
+}
+.reaction-dose-readout {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 16px;
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.reaction-dose-readout strong {
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+.reaction-dose-slider {
+  position: relative;
+  margin-inline: 8px;
+}
+.reaction-equivalence-tick {
+  position: absolute;
+  top: 26px;
+  height: 8px;
+  width: 2px;
+  background: var(--ink);
+  transform: translateX(-1px);
+  pointer-events: none;
+}
+.reaction-scale-key {
+  margin-top: 10px;
+}
+.reaction-dose-slider input::-moz-range-thumb {
+  box-sizing: border-box;
+  width: 22px;
+  height: 22px;
+}
+.reaction-dose-controls button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.reaction-dose-controls small {
+  display: block;
+  line-height: 1.6;
+}
+
+@media (min-width: 1150px) {
+  body:has([data-scene="precipitation"]) .topbar {
+    min-height: 56px;
+    height: 56px;
+    padding-block: 8px;
+  }
+  [data-scene="precipitation"] .lab-main {
+    padding: 16px 20px 35px;
+  }
+  [data-scene="precipitation"] .lab-heading {
+    margin-bottom: 14px;
+  }
+  [data-scene="precipitation"] .stage {
+    display: flex;
+    flex-direction: column;
+    min-height: 470px;
+    height: calc(100dvh - 190px);
+  }
+  [data-scene="precipitation"] .stage .three-wrap:not(.small) {
+    flex: 1;
+    min-height: 240px;
+    height: auto;
+    aspect-ratio: auto;
+  }
+  [data-scene="precipitation"] .stage > :not(.three-wrap) {
+    flex-shrink: 0;
+  }
+  [data-scene="precipitation"] .stage-tools {
+    padding: 8px 12px;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  [data-scene="precipitation"] .simulation-timeline {
+    padding: 8px 12px;
+  }
+  [data-scene="precipitation"] .simulation-timeline label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  [data-scene="precipitation"] .simulation-timeline label span {
+    white-space: nowrap;
+  }
+}
+[data-scene="precipitation"] .stage + .precipitation-guide {
+  margin-top: 14px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}

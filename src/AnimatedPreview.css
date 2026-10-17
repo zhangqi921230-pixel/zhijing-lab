@@ -1,0 +1,146 @@
+.preview-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: 16px 0 22px;
+  color: var(--muted);
+  font-size: 14px;
+}
+.preview-controls p {
+  margin: 0;
+}
+.preview-controls .btn {
+  min-height: 42px;
+}
+.animated-preview {
+  position: relative;
+  aspect-ratio: 8/5;
+  overflow: hidden;
+  background: var(--paper);
+  width: 100%;
+}
+.course-card .animated-preview .poster {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  aspect-ratio: 8/5;
+}
+.preview-state {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  padding: 4px 9px;
+  border-radius: 5px;
+  background: #142b29e8;
+  color: #f1f6ec;
+  font-size: 12px;
+  line-height: 1.5;
+  pointer-events: none;
+}
+.course-card:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 4px;
+}
+
+/* All cards use one frame. The legacy screenshot footer is not a second title. */
+.preview-poster,
+.science-preview,
+.spatial-preview {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  background: var(--ui-paper);
+}
+.course-card .preview-poster-legacy .poster {
+  height: 109.59%;
+  max-height: none;
+  object-fit: fill;
+}
+.animated-preview .poster svg,
+.science-preview svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  min-width: 0;
+  max-height: 100%;
+}
+.science-preview .science-wrap {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  margin: 0;
+  border: 0;
+}
+.science-preview .science-svg {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+}
+.science-preview svg text,
+.preview-diagram {
+  fill: var(--ui-ink);
+  font-family: inherit;
+}
+.preview-diagram text {
+  font-size: 23px;
+}
+.preview-diagram .preview-diagram-title {
+  font-size: 28px;
+  font-weight: 650;
+}
+.science-preview .science-svg > rect {
+  fill: var(--ui-paper);
+}
+.science-preview .science-svg text {
+  fill: var(--ui-ink);
+}
+.spatial-preview .three-wrap.small {
+  height: 100%;
+  min-height: 0;
+  width: 100%;
+  border: 0;
+  border-radius: 0;
+}
+.spatial-preview .three-host {
+  height: 100%;
+  min-height: 0;
+}
+.spatial-preview {
+  pointer-events: none;
+}
+.preview-caption {
+  position: absolute;
+  left: 12px;
+  top: 12px;
+  background: var(--ui-paper);
+  color: var(--ui-muted);
+  font-size: 12px;
+  padding: 5px 8px;
+  border-radius: 5px;
+}
+.animated-preview .poster {
+  background: var(--ui-paper);
+}
+.course-card .card-copy h3 {
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.45;
+  gap: 14px;
+}
+.course-card .card-copy h3 svg {
+  flex-shrink: 0;
+}
+
+/* Bright specimen slides and probability tiles retain dark local ink. */
+.science-preview.preview-microscope .science-svg g[clip-path] text,
+.science-preview.preview-inheritance .science-svg g > rect ~ text,
+.science-preview.preview-foodweb
+  .science-svg
+  g
+  > rect
+  ~ text:nth-of-type(-n + 2) {
+  fill: #264b43;
+}

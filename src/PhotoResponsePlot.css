@@ -1,0 +1,121 @@
+.photo-response {
+  margin: 20px 0;
+  padding-top: 16px;
+  border-top: 1px solid #a5b4a64d;
+}
+.photo-response header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: space-between;
+  font-size: 14px;
+}
+.photo-response header span {
+  opacity: 0.65;
+}
+.photo-response svg {
+  width: 100%;
+  display: block;
+  margin-top: 12px;
+  touch-action: none;
+  cursor: crosshair;
+  border-radius: 5px;
+}
+.photo-response svg:focus-visible {
+  outline: 2px solid #c08828;
+  outline-offset: 3px;
+}
+.photo-response svg text {
+  fill: currentColor;
+  font:
+    14px "Microsoft YaHei",
+    sans-serif;
+}
+.photo-grid {
+  stroke: currentColor;
+  opacity: 0.12;
+}
+.photo-guide-line {
+  stroke: #bd934a;
+  stroke-dasharray: 3 3;
+}
+.photo-response p {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--ui-muted);
+}
+.photo-response .photo-current {
+  font-size: 16px;
+  opacity: 1;
+  font-variant-numeric: tabular-nums;
+}
+.titration-curve .acid-equivalence {
+  display: flex;
+  gap: 6px;
+  margin-top: 12px;
+}
+.titration-curve .btn[aria-pressed="true"] {
+  border-color: var(--primary);
+  box-shadow: inset 0 -2px var(--primary);
+}
+
+.photo-scan-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0;
+}
+.photo-scan-controls button {
+  min-height: 40px;
+  padding: 8px 10px;
+  border: 1px solid var(--ui-line);
+  color: var(--ui-ink);
+  background: var(--ui-surface);
+  border-radius: 5px;
+  cursor: pointer;
+}
+.photo-scan-controls button[aria-pressed="true"] {
+  background: var(--ui-selected);
+  border-color: var(--ui-primary);
+}
+.photo-scan-controls button:focus-visible {
+  outline: 3px solid var(--ui-gold);
+  outline-offset: 3px;
+}
+.photo-reference {
+  border-left: 3px dashed var(--ui-gold);
+  padding-left: 10px;
+}
+
+.photo-response {
+  padding: 24px;
+  border: 1px solid var(--ui-line);
+  border-radius: 8px;
+  background: var(--ui-surface);
+  color: var(--ui-ink);
+}
+.photo-response-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+.photo-response header strong {
+  font-size: 20px;
+  line-height: 1.7;
+}
+.photo-response .photo-rate-compare {
+  padding: 12px;
+  border: 1px solid var(--ui-line);
+  color: var(--ui-ink);
+  font-size: 16px;
+}
+@media (max-width: 900px) {
+  .photo-response-layout {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .photo-response {
+    padding: 16px;
+  }
+}

@@ -1,0 +1,194 @@
+[
+  {
+    "id": "acid",
+    "fps": 24,
+    "bytes": 18228,
+    "source": "browser-captured states with preview-only blended transitions"
+  },
+  {
+    "id": "biodiversity",
+    "fps": 24,
+    "bytes": 26867,
+    "source": "browser-captured states with preview-only blended transitions"
+  },
+  {
+    "id": "cell",
+    "fps": 24,
+    "bytes": 104635,
+    "source": "browser-captured states with preview-only blended transitions"
+  },
+  {
+    "id": "circle",
+    "fps": 24,
+    "bytes": 55288,
+    "source": "browser-captured states with preview-only blended transitions"
+  },
+  {
+    "id": "conics",
+    "fps": 24,
+    "bytes": 42993,
+    "source": "browser-captured states with preview-only blended transitions"
+  },
+  {
+    "id": "contour",
+    "fps": 24,
+    "bytes": 41345,
+    "source": "browser-captured states with preview-only blended transitions"
+  },
+  {
+    "id": "cube",
+    "fps": 24,
+    "bytes": 103305,
+    "source": "browser-captured states with preview-only blended transitions"
+  },
+  {
+    "id": "dilution",
+    "fps": 24,
+    "bytes": 17859,
+    "source": "browser-captured states with preview-only blended transitions"
+  },
+  {
+    "id": "displacement",
+    "fps": 24,
+    "bytes": 32271,
+    "source": "browser-captured states with preview-only blended transitions"
+  },
+  {
+    "id": "distillation",
+    "fps": 24,
+    "bytes": 27418,
+    "source": "browser-captured states with preview-only blended transitions"
+  },
+  {
+    "id": "electrolysis",
+    "fps": 24,
+    "bytes": 24406,
+    "source": "browser-captured states with preview-only blended transitions"
+  },
+  {
+    "id": "flame",
+    "fps": 24,
+    "bytes": 59417,
+    "source": "browser-captured states with preview-only blended transitions"
+  },
+  {
+    "id": "foodweb",
+    "fps": 24,
+    "bytes": 29586,
+    "source": "browser-captured states with preview-only blended transitions"
+  },
+  {
+    "id": "fractions",
+    "fps": 24,
+    "bytes": 74065,
+    "source": "browser-captured states with preview-only blended transitions"
+  },
+  {
+    "id": "gas",
+    "fps": 24,
+    "bytes": 57080,
+    "source": "browser-captured states with preview-only blended transitions"
+  },
+  {
+    "id": "incline",
+    "fps": 24,
+    "bytes": 69418,
+    "source": "browser-captured states with preview-only blended transitions"
+  },
+  {
+    "id": "inheritance",
+    "fps": 24,
+    "bytes": 48549,
+    "source": "browser-captured states with preview-only blended transitions"
+  },
+  {
+    "id": "lens",
+    "fps": 24,
+    "bytes": 72582,
+    "source": "browser-captured states with preview-only blended transitions"
+  },
+  {
+    "id": "lever",
+    "fps": 24,
+    "bytes": 48627,
+    "source": "browser-captured states with preview-only blended transitions"
+  },
+  {
+    "id": "linear",
+    "fps": 24,
+    "bytes": 50446,
+    "source": "browser-captured states with preview-only blended transitions"
+  },
+  {
+    "id": "microscope",
+    "fps": 24,
+    "bytes": 48852,
+    "source": "browser-captured states with preview-only blended transitions"
+  },
+  {
+    "id": "molecule",
+    "fps": 24,
+    "bytes": 46983,
+    "source": "browser-captured states with preview-only blended transitions"
+  },
+  {
+    "id": "ohm",
+    "fps": 24,
+    "bytes": 41483,
+    "source": "browser-captured states with preview-only blended transitions"
+  },
+  {
+    "id": "photosynthesis",
+    "fps": 24,
+    "bytes": 28603,
+    "source": "browser-captured states with preview-only blended transitions"
+  },
+  {
+    "id": "plates",
+    "fps": 24,
+    "bytes": 128720,
+    "source": "browser-captured states with preview-only blended transitions"
+  },
+  {
+    "id": "probability",
+    "fps": 24,
+    "bytes": 36328,
+    "source": "browser-captured states with preview-only blended transitions"
+  },
+  {
+    "id": "projectile",
+    "fps": 24,
+    "bytes": 98899,
+    "source": "browser-captured states with preview-only blended transitions"
+  },
+  {
+    "id": "refraction",
+    "fps": 24,
+    "bytes": 56751,
+    "source": "browser-captured states with preview-only blended transitions"
+  },
+  {
+    "id": "seasons",
+    "fps": 24,
+    "bytes": 54114,
+    "source": "browser-captured states with preview-only blended transitions"
+  },
+  {
+    "id": "water",
+    "fps": 24,
+    "bytes": 21967,
+    "source": "browser-captured states with preview-only blended transitions"
+  },
+  {
+    "id": "waves",
+    "fps": 24,
+    "bytes": 54021,
+    "source": "consecutive browser-captured teaching states, no interpolated frames"
+  },
+  {
+    "id": "buoyancy",
+    "fps": 24,
+    "bytes": 22183,
+    "source": "consecutive browser-captured teaching states, no interpolated frames"
+  }
+]

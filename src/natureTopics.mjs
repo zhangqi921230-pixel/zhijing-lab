@@ -1,0 +1,52 @@
+import { extensionTopics } from "./natureExtensionTopics.mjs";
+export const natureTopics = [
+  {
+    id: "combustion",
+    subject: "chemistry",
+    title: "燃烧的条件与灭火",
+    grade: "初中 9 年级",
+    tag: "燃烧与控制变量",
+    description: "分别改变可燃物、供氧与温度，对照燃烧所需的三个条件。",
+  },
+  {
+    id: "filtration",
+    subject: "chemistry",
+    title: "过滤与混合物分离",
+    grade: "初中 9 年级",
+    tag: "分离与微观解释",
+    description: "跟随液滴穿过滤纸，分辨泥沙截留与溶解物通过。",
+  },
+  {
+    id: "breathing",
+    subject: "biology",
+    title: "呼吸运动与肺的通气",
+    grade: "初中 7 年级",
+    tag: "结构与呼吸",
+    description: "联动膈肌、胸廓和气流，观察吸气与呼气的先后关系。",
+  },
+  {
+    id: "germination",
+    subject: "biology",
+    title: "种子萌发的对照实验",
+    grade: "初中 7 年级",
+    tag: "生命与实验设计",
+    description: "并排观察对照组与实验组，探究水分、空气和适宜温度。",
+  },
+  {
+    id: "sea-breeze",
+    subject: "geography",
+    title: "海陆风与热力环流",
+    grade: "高中 高一",
+    tag: "大气运动",
+    description: "切换白昼与夜晚，沿完整环流追踪近地面和高空气流。",
+  },
+  {
+    id: "river-deposition",
+    subject: "geography",
+    title: "流水搬运与沉积",
+    grade: "高中 高一",
+    tag: "地貌与流水",
+    description: "改变坡度与水量，比较不同粒径在河道中的搬运和沉积。",
+  },
+  ...extensionTopics,
+];

@@ -1,0 +1,502 @@
+/* Appearance is global; subject and lazily loaded page styles cannot override it. */
+html[data-theme] .apparatus {
+  background: var(--ui-paper) !important;
+}
+html[data-theme] .apparatus text[x="510"][y="178"] {
+  fill: #243d36;
+}
+html[data-theme] .exploration-task strong {
+  color: var(--ui-gold);
+}
+html[data-theme] .moon-views {
+  background: var(--ui-paper);
+  color: var(--ui-ink);
+}
+html[data-theme] .moon-views text {
+  fill: var(--ui-ink);
+}
+html[data-theme] .moon-observer p {
+  color: var(--ui-muted);
+}
+html[data-theme="light"] {
+  --ui-primary: #176b59;
+  --ui-ink: #203e36;
+  --ui-muted: #536a62;
+  --ui-paper: #f3f4ee;
+  --ui-surface: #fffef9;
+  --ui-line: #d4ddd4;
+  --ui-selected: #e4ede2;
+  --ui-gold: #896325;
+  color-scheme: light;
+}
+html[data-theme="dark"] {
+  --ui-primary: #b8d9be;
+  --ui-ink: #edf0e8;
+  --ui-muted: #b0c1bc;
+  --ui-paper: #10191e;
+  --ui-surface: #18252c;
+  --ui-line: #384a50;
+  --ui-selected: #2b4144;
+  --ui-gold: #e5c88d;
+  color-scheme: dark;
+}
+html[data-theme],
+html[data-theme] :is(.laboratory, .geo-workspace, .exploration-lab) {
+  --primary: var(--ui-primary) !important;
+  --ink: var(--ui-ink) !important;
+  --muted: var(--ui-muted) !important;
+  --paper: var(--ui-paper) !important;
+  --surface: var(--ui-surface) !important;
+  --line: var(--ui-line) !important;
+  --gold: var(--ui-gold) !important;
+}
+html[data-theme] body,
+html[data-theme]
+  :is(
+    .laboratory,
+    .lab-main,
+    .geo-workspace,
+    .geo-stage,
+    .exploration-lab,
+    .library
+  ) {
+  color: var(--ui-ink) !important;
+  background: var(--ui-paper) !important;
+}
+html[data-theme]
+  :is(
+    .topbar,
+    .lesson-nav,
+    .control-panel,
+    .stage,
+    .stage-bar,
+    .stage-tools,
+    .inquiry,
+    .readouts,
+    .course-card,
+    .exploration-nav,
+    .exploration-notes,
+    .exploration-stage,
+    .exploration-chart,
+    .geo-chapters,
+    .geo-notes,
+    .geo-panel,
+    .geo-settings,
+    .geo-map
+  ) {
+  background: var(--ui-surface) !important;
+  color: var(--ui-ink) !important;
+  border-color: var(--ui-line) !important;
+}
+html[data-theme]
+  :is(
+    .lesson-nav,
+    .control-panel,
+    .topbar,
+    .geo-chapters,
+    .geo-notes,
+    .geo-panel,
+    .geo-settings
+  )
+  :is(
+    p,
+    h1,
+    h2,
+    h3,
+    strong,
+    label,
+    legend,
+    summary,
+    a,
+    button,
+    select,
+    .nav-heading,
+    .subject-identity small,
+    .micro-kicker
+  ) {
+  color: var(--ui-ink) !important;
+}
+html[data-theme]
+  :is(
+    .lab-heading p,
+    .breadcrumb,
+    .header-note,
+    .card-meta,
+    .card-grade,
+    .nav-note,
+    .geo-shortcut,
+    .geo-title > span,
+    .topic-hint,
+    .exploration-status
+  ) {
+  color: var(--ui-muted) !important;
+}
+html[data-theme]
+  :is(
+    .btn,
+    .topic-picker select,
+    .theme-switch,
+    .geo-chapter,
+    .geo-views button,
+    .geo-step button,
+    .geo-settings button,
+    .choice-field button,
+    .view-switch button,
+    .course-units button
+  ) {
+  background: var(--ui-surface) !important;
+  color: var(--ui-ink) !important;
+  border-color: var(--ui-line) !important;
+}
+html[data-theme]
+  :is(
+    .equation,
+    .micro-task,
+    .topic-explanation,
+    .exploration-task,
+    .exploration-formula,
+    .readout,
+    .geo-level-chip,
+    .geo-surface-legend
+  ) {
+  background: var(--ui-paper) !important;
+  color: var(--ui-ink) !important;
+  border-color: var(--ui-line) !important;
+}
+html[data-theme] :is(.equation, .micro-task) :is(p, strong) {
+  color: var(--ui-ink) !important;
+}
+html[data-theme]
+  :is(
+    .lesson-nav nav,
+    .course-units,
+    .microscope-chapters,
+    .subject-tabs,
+    .geo-chapters,
+    .geo-views,
+    .theme-switch,
+    .phase-presets
+  )
+  :is([aria-current], .selected, .active, [aria-pressed="true"]) {
+  background: var(--ui-selected) !important;
+  color: var(--ui-ink) !important;
+  border-color: var(--ui-primary) !important;
+}
+html[data-theme]
+  :is(.lesson-nav, .geo-chapters)
+  :is(.selected, [aria-current])
+  small {
+  color: var(--ui-ink) !important;
+}
+html[data-theme] .btn.primary,
+html[data-theme] .brand-mark {
+  background: var(--ui-primary) !important;
+  color: var(--ui-paper) !important;
+}
+html[data-theme] :is(.lesson-nav, .geo-chapters) button:hover {
+  background: var(--ui-selected) !important;
+  color: var(--ui-ink) !important;
+}
+html[data-theme] .geo-chapter {
+  color: var(--ui-ink) !important;
+}
+html[data-theme] .geo-title {
+  color: var(--ui-ink) !important;
+}
+html[data-theme] .geo-settings :is(select, input) {
+  color: var(--ui-ink) !important;
+  background: var(--ui-surface) !important;
+}
+.theme-switch {
+  display: flex;
+  gap: 3px;
+  padding: 3px;
+  border: 1px solid var(--ui-line);
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+.theme-switch button {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+  min-height: 36px;
+  padding: 6px 10px;
+  border: 0;
+  border-radius: 5px;
+  background: transparent;
+  color: var(--ui-muted);
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+.theme-switch button[aria-pressed="true"] {
+  font-weight: 600;
+}
+.geo-chapters .theme-switch {
+  margin-bottom: 20px;
+}
+@media (max-width: 650px) {
+  .topbar {
+    gap: 8px !important;
+    flex-wrap: wrap;
+    height: auto !important;
+    min-height: 70px;
+    padding: 12px !important;
+  }
+  .theme-switch button {
+    padding: 5px 7px;
+  }
+  .topbar .header-note {
+    display: none;
+  }
+  .topbar .header-links {
+    margin-left: auto;
+  }
+  .topbar .brand small {
+    display: none;
+  }
+}
+html[data-theme] .nav-subjects button[aria-pressed="true"] {
+  background: var(--ui-selected) !important;
+  color: var(--ui-ink) !important;
+}
+html[data-theme] .control-panel .btn.primary {
+  color: var(--ui-paper) !important;
+}
+html[data-theme]
+  :is(
+    .linear-studio,
+    .circle-studio,
+    .fraction-studio,
+    .function-notes,
+    .linear-tools,
+    .proof-caption,
+    .function-domain-summary,
+    .function-rates
+  ) {
+  background: var(--ui-paper) !important;
+  color: var(--ui-ink) !important;
+}
+html[data-theme]
+  :is(
+    .linear-title,
+    .linear-insights,
+    .linear-tools,
+    .linear-help,
+    .proof-caption,
+    .function-domain-summary,
+    .function-rates
+  )
+  :is(span, strong, small, p, label, summary) {
+  color: var(--ui-ink) !important;
+}
+html[data-theme] .subject-math .stage button {
+  background: var(--ui-surface);
+  color: var(--ui-ink);
+  border-color: var(--ui-line);
+}
+html[data-theme] .subject-math .stage button[aria-pressed="true"] {
+  background: var(--ui-selected);
+  color: var(--ui-ink);
+}
+html[data-theme="dark"] .subject-math svg text {
+  fill: var(--ui-ink);
+}
+html[data-theme="dark"] .subject-math svg :is(rect, circle)[fill="#fffdf7"],
+html[data-theme="dark"]
+  .subject-math
+  svg
+  rect:is(
+    [fill="#fdfcf6"],
+    [fill="#f5f3ee"],
+    [fill="#f7f5ec"],
+    [fill="#f9f7ea"],
+    [fill="#faf7eb"]
+  ) {
+  fill: var(--ui-paper);
+}
+html[data-theme="dark"] .subject-math svg [stroke="#d4ddce"],
+html[data-theme="dark"] .subject-math svg [stroke="#e9eddf"] {
+  stroke: var(--ui-line);
+}
+html[data-theme="dark"] .subject-math svg text[stroke] {
+  stroke: var(--ui-paper);
+}
+html[data-theme="dark"] .subject-math svg [stroke="#23745f"] {
+  stroke: #72cbb0;
+}
+html[data-theme] :is(.linear-help, .linear-tools select) {
+  background: var(--ui-paper);
+  color: var(--ui-muted);
+}
+html[data-theme] .library input {
+  background: var(--ui-surface);
+  color: var(--ui-ink);
+  border-color: var(--ui-line);
+}
+html[data-theme] .library input::placeholder {
+  color: var(--ui-muted);
+}
+html[data-theme] .library .search {
+  background: var(--ui-surface);
+  color: var(--ui-muted);
+}
+.animated-preview .preview-state {
+  bottom: 36px;
+}
+html[data-theme] :is(.geo-panel, .geo-notes, .geo-chapters) :is(button, select),
+html[data-theme] .geo-instruction {
+  background: var(--ui-surface) !important;
+  color: var(--ui-ink) !important;
+  border-color: var(--ui-line);
+}
+html[data-theme] .geo-level-chip strong,
+html[data-theme] .geo-instruction > span {
+  color: var(--ui-gold);
+}
+html[data-theme] :is(.geo-session, .geo-map) small {
+  color: var(--ui-muted);
+}
+/* Pair foreground and surface on shared controls, including lazy lesson panels. */
+html[data-theme]
+  :is(.control-panel, .exploration-notes, .stage-tools)
+  :where(
+    button,
+    select,
+    input:not([type="range"]):not([type="checkbox"]):not([type="radio"])
+  ) {
+  background: var(--ui-surface) !important;
+  color: var(--ui-ink) !important;
+  border-color: var(--ui-line) !important;
+}
+html[data-theme]
+  :is(.geo-panel, .control-panel, .exploration-notes, .stage-tools)
+  button:is([aria-pressed="true"], [aria-current], .selected, .active) {
+  background: var(--ui-selected) !important;
+  color: var(--ui-ink) !important;
+  border-color: var(--ui-primary) !important;
+}
+html[data-theme]
+  :is(.control-panel, .stage-tools, .exploration-notes)
+  .btn.primary {
+  background: var(--ui-primary) !important;
+  color: var(--ui-paper) !important;
+}
+html[data-theme]
+  :is(.geo-panel, .control-panel, .exploration-notes, .stage-tools)
+  :is(button, select):focus-visible {
+  outline: 2px solid var(--ui-primary);
+  outline-offset: 3px;
+}
+html[data-theme]
+  :is(.lesson-nav, .control-panel, .geo-chapters, .geo-map, .exploration-notes)
+  small,
+html[data-theme] .geo-map p {
+  color: var(--ui-muted) !important;
+}
+html[data-theme] :is(.stage, .geo-map, .inquiry-tabs) button {
+  background: var(--ui-surface) !important;
+  color: var(--ui-ink) !important;
+  border-color: var(--ui-line) !important;
+}
+html[data-theme]
+  :is(.stage, .inquiry-tabs)
+  button:is([aria-pressed="true"], .active) {
+  background: var(--ui-selected) !important;
+  color: var(--ui-ink) !important;
+  border-color: var(--ui-primary) !important;
+}
+html[data-theme] .stage .btn.primary {
+  background: var(--ui-primary) !important;
+  color: var(--ui-paper) !important;
+}
+html[data-theme] .inquiry-tabs button :is(span, small) {
+  color: inherit !important;
+}
+html[data-theme] .stage :is(p, small) {
+  color: var(--ui-muted);
+}
+html[data-theme]
+  :is(
+    .cube-guide,
+    .solids-guide,
+    .incline-guide,
+    .rc-guide,
+    .refraction-workspace,
+    .lever-workspace,
+    .projectile-workspace,
+    .conic-plot,
+    .biodiversity-inspector
+  ) {
+  background: var(--ui-paper) !important;
+  color: var(--ui-ink) !important;
+  border-color: var(--ui-line) !important;
+}
+html[data-theme]
+  :is(
+    .cube-guide,
+    .solids-guide,
+    .incline-guide,
+    .rc-guide,
+    .refraction-workspace,
+    .lever-workspace,
+    .projectile-workspace,
+    .conic-plot
+  )
+  :is(p, small, label, summary, strong, span, h3) {
+  color: var(--ui-ink) !important;
+}
+html[data-theme] .circle-unroll-control {
+  color: var(--ui-ink);
+}
+html[data-theme] .three-wrap {
+  background: var(--ui-paper);
+}
+html[data-theme] .conic-plot-host {
+  background: var(--ui-surface) !important;
+  color: var(--ui-ink) !important;
+}
+html[data-theme] .conic-plot-host small {
+  color: var(--ui-muted) !important;
+}
+html[data-theme]
+  :is(.temperature-scan-note, .microscope-field, .ecology-observation) {
+  background: var(--ui-surface) !important;
+  color: var(--ui-ink) !important;
+  border-color: var(--ui-line) !important;
+}
+html[data-theme]
+  :is(.microscope-field, .ecology-observation)
+  :is(small, p, span, strong) {
+  color: var(--ui-ink) !important;
+}
+html[data-theme]
+  :is(.bisection-workbench, .function-exact-input, .pythagoras-studio) {
+  background: var(--ui-paper) !important;
+  color: var(--ui-ink) !important;
+  border-color: var(--ui-line) !important;
+}
+html[data-theme]
+  :is(.bisection-workbench, .function-exact-input, .pythagoras-studio)
+  :is(p, small, summary, label, input) {
+  color: var(--ui-ink) !important;
+}
+html[data-theme] :is(.bisection-workbench, .function-exact-input) input {
+  background: var(--ui-surface);
+  border-color: var(--ui-line);
+}
+html[data-theme] .reaction-phase-buttons button {
+  background: var(--ui-surface) !important;
+  color: var(--ui-ink) !important;
+  border-color: var(--ui-line) !important;
+}
+html[data-theme] .reaction-phase-buttons button[aria-pressed="true"] {
+  background: var(--ui-selected) !important;
+  border-color: var(--ui-primary) !important;
+}
+
+/* Button labels follow their control surface, not surrounding lesson prose. */
+html[data-theme] button.btn > span.lab-button-label {
+  color: inherit !important;
+}

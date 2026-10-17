@@ -1,0 +1,84 @@
+.probability-comparison {
+  margin-top: 24px;
+  border: 1px solid var(--ui-line);
+  background: var(--ui-surface);
+  border-radius: 12px;
+  padding: 22px;
+  color: var(--ui-ink);
+}
+.probability-comparison header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.probability-comparison header span {
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: var(--ui-muted);
+}
+.probability-comparison h2 {
+  font-size: 22px;
+  margin: 10px 0;
+}
+.probability-comparison svg {
+  display: block;
+  width: 100%;
+  margin: 16px 0;
+}
+.probability-comparison svg text {
+  fill: var(--ui-ink);
+  font:
+    16px "Microsoft YaHei",
+    sans-serif;
+}
+.probability-legend,
+.probability-summaries {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  font-size: 13px;
+  line-height: 1.7;
+}
+.probability-summaries {
+  border-top: 1px solid var(--ui-line);
+  border-bottom: 1px solid var(--ui-line);
+}
+.probability-summaries strong {
+  display: block;
+  color: var(--ui-ink);
+  font-size: 19px;
+  font-variant-numeric: tabular-nums;
+}
+.probability-comparison p {
+  line-height: 1.8;
+  font-size: 14px;
+  color: var(--ui-muted);
+}
+.probability-chart {
+  overflow-x: auto;
+  scrollbar-gutter: stable;
+}
+.probability-chart:focus-visible {
+  outline: 2px solid var(--ui-gold);
+  outline-offset: 3px;
+}
+@media (max-width: 700px) {
+  .probability-chart svg {
+    min-width: 560px;
+  }
+  .probability-chart svg text {
+    font-size: 20px;
+  }
+}
+
+.probability-probe-control {
+  display: grid;
+  gap: 12px;
+  margin-block: 20px;
+}
+.probability-probe-control input {
+  width: 100%;
+  accent-color: var(--ui-primary);
+}

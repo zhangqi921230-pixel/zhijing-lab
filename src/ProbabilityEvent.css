@@ -1,0 +1,106 @@
+.probability-event {
+  padding: 24px;
+  margin: 24px 0;
+  border: 1px solid var(--ui-line);
+  border-radius: 8px;
+  background: var(--ui-surface);
+  color: var(--ui-ink);
+  min-width: 0;
+}
+.probability-event h2 {
+  font-size: 22px;
+  margin: 0 0 12px;
+}
+.probability-event p,
+.probability-event summary {
+  font-size: 15px;
+  line-height: 1.85;
+}
+.probability-event-actions {
+  display: flex;
+  gap: 8px;
+  margin: 16px 0;
+}
+.probability-event button {
+  min-height: 44px;
+  padding: 10px 14px;
+  background: var(--ui-paper);
+  color: var(--ui-ink);
+  border: 1px solid var(--ui-line);
+  border-radius: 5px;
+  cursor: pointer;
+}
+.probability-event button[aria-pressed="true"] {
+  outline: 2px solid var(--ui-gold);
+  outline-offset: -2px;
+}
+.probability-event label {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 16px 0;
+}
+.probability-event input {
+  accent-color: var(--ui-primary);
+  flex: 1;
+  min-width: 150px;
+}
+.probability-event-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(85px, 1fr));
+  gap: 8px;
+}
+.probability-event-options button {
+  padding: 10px 6px;
+  display: grid;
+  gap: 6px;
+  text-align: center;
+}
+.probability-event-options button[data-included="true"] {
+  background: var(--ui-selected);
+  border-color: var(--ui-primary);
+}
+.probability-event-options small {
+  font-size: 12px;
+}
+.probability-event-bar {
+  height: 80px;
+  display: flex;
+  align-items: flex-end;
+  background: var(--ui-paper);
+}
+.probability-event-bar i {
+  display: block;
+  width: 100%;
+  background: var(--ui-muted);
+}
+.probability-event-options [data-included="true"] i {
+  background: var(--ui-primary);
+}
+.probability-event-readings {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.probability-event-readings p {
+  padding: 16px;
+  background: var(--ui-paper);
+}
+.probability-event-readings strong {
+  display: block;
+  font-size: 21px;
+}
+.probability-event :focus-visible {
+  outline: 2px solid var(--ui-gold);
+  outline-offset: 3px;
+}
+@media (max-width: 600px) {
+  .probability-event {
+    padding: 16px;
+  }
+  .probability-event-readings {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}

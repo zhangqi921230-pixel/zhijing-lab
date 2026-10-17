@@ -1,0 +1,90 @@
+.microscope-chapters em {
+  display: block;
+  font: 9px monospace;
+  letter-spacing: 1px;
+  color: var(--muted);
+  margin-top: 6px;
+}
+.microscope-guide {
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+}
+.microscope-guide .micro-kicker {
+  font: 10px monospace;
+  letter-spacing: 2px;
+  color: #95722e;
+  margin: 0 0 12px;
+}
+.microscope-guide h2 {
+  font-family: Georgia, "SimSun", serif;
+  font-size: 22px;
+  margin: 0 0 14px;
+}
+.microscope-guide p {
+  font-size: 12px;
+  line-height: 1.9;
+  color: var(--muted);
+}
+.micro-task {
+  padding: 12px;
+  background: #f0f1e7;
+  border-left: 2px solid #b69c5c;
+  margin: 16px 0;
+}
+.micro-task strong {
+  font-size: 11px;
+  color: #816c3e;
+  letter-spacing: 2px;
+}
+.micro-task p {
+  margin-bottom: 0;
+}
+.microscope-guide dl {
+  margin: 16px 0;
+  font-size: 11px;
+}
+.microscope-guide dl div {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--line);
+}
+.microscope-guide dt {
+  color: var(--muted);
+}
+.microscope-guide dd {
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink);
+}
+.micro-step {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 14px;
+}
+.micro-step button {
+  padding: 8px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  color: var(--ink);
+  background: transparent;
+  font-size: 11px;
+}
+.micro-step button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+.micro-prepare {
+  width: 100%;
+  justify-content: center;
+}
+
+.microscope-chapters .selected em {
+  color: #d8e6dc;
+}
+.micro-prepare + .micro-prepare {
+  margin-top: 8px;
+}

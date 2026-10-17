@@ -1,0 +1,96 @@
+.ohm-plot {
+  margin: 12px 0 20px;
+  padding: 18px;
+  border: 1px solid #33444a;
+  border-radius: 10px;
+  background: #111e24;
+  color: #d9e0df;
+}
+.ohm-plot-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.ohm-plot h3 {
+  margin: 4px 0;
+  font-size: 18px;
+}
+.ohm-plot small {
+  color: #c8ad72;
+  letter-spacing: 1px;
+  font-size: 10px;
+}
+.ohm-plot label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+}
+.ohm-plot select {
+  color: #e7e9e2;
+  background: #23343b;
+  border: 1px solid #526267;
+  padding: 7px 10px;
+  border-radius: 5px;
+}
+.ohm-plot svg {
+  display: block;
+  width: 100%;
+  max-height: 300px;
+  margin-top: 16px;
+}
+.ohm-plot svg text {
+  fill: #bac8ca;
+  font-size: 12px;
+  font-family: monospace;
+}
+.ohm-plot-grid {
+  stroke: #2b3e45;
+  stroke-width: 1;
+  fill: none;
+}
+.ohm-plot-axis {
+  stroke: #8fa1a5;
+  stroke-width: 1.2;
+  fill: none;
+}
+.ohm-plot-theory {
+  stroke: #81bfc4;
+  stroke-width: 2;
+  stroke-dasharray: 6 5;
+  fill: none;
+}
+.ohm-plot-point {
+  fill: #e5bd6a;
+  stroke: #18282f;
+  stroke-width: 1.5;
+}
+.ohm-plot-point {
+  cursor: pointer;
+}
+.ohm-plot-point[data-selected="true"],
+.ohm-plot-point:focus-visible {
+  stroke: #fff3c9;
+  stroke-width: 3;
+  outline: none;
+}
+.ohm-record-inspection {
+  border-left: 2px solid #d2b373;
+  padding: 10px 14px;
+  margin: 12px 0;
+  background: #1b2d34;
+}
+.ohm-plot p {
+  color: #bac8ca;
+  line-height: 1.65;
+  font-size: 12px;
+  margin: 8px 0 0;
+}
+.ohm-plot-dot {
+  color: #e5bd6a;
+}
+.ohm-plot-dash {
+  color: #81bfc4;
+}

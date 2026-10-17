@@ -1,0 +1,102 @@
+.electrolysis-compare {
+  padding: 22px;
+  margin-top: 16px;
+  border: 1px solid var(--ui-line);
+  border-radius: 8px;
+  background: var(--ui-surface);
+  color: var(--ui-ink);
+}
+.electrolysis-compare header {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.electrolysis-compare h3 {
+  font-size: 20px;
+  margin: 8px 0 16px;
+}
+.electrolysis-compare button {
+  padding: 10px 12px;
+  margin: 3px;
+  background: var(--ui-paper);
+  color: var(--ui-ink);
+  border: 1px solid var(--ui-line);
+  border-radius: 4px;
+  cursor: pointer;
+}
+.electrolysis-compare button[aria-pressed="true"] {
+  border-color: var(--ui-primary);
+  box-shadow: inset 0 -2px var(--ui-primary);
+}
+.electrolysis-compare button:focus-visible {
+  outline: 2px solid var(--ui-primary);
+  outline-offset: 3px;
+}
+.electrolysis-compare-row {
+  display: grid;
+  grid-template-columns: 130px minmax(0, 1fr) 100px;
+  align-items: center;
+  gap: 12px;
+  margin: 18px 0;
+  font-size: 14px;
+}
+.electrolysis-compare-track {
+  height: 25px;
+  border: 1px solid var(--ui-line);
+  background: var(--ui-paper);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.electrolysis-compare-track i {
+  display: block;
+  height: 100%;
+}
+.electrolysis-compare p {
+  font-size: 15px;
+  line-height: 1.8;
+}
+.electrolysis-ratio {
+  font-weight: 600;
+}
+.electrolysis-compare dl {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+.electrolysis-compare dt {
+  font-size: 15px;
+}
+.electrolysis-compare dd {
+  margin: 8px 0;
+  font-size: 21px;
+}
+@media (max-width: 650px) {
+  .electrolysis-compare {
+    padding: 14px;
+  }
+  .electrolysis-compare-row {
+    grid-template-columns: 1fr 90px;
+  }
+  .electrolysis-compare-row strong {
+    grid-column: 1/-1;
+  }
+  .electrolysis-compare dl {
+    grid-template-columns: 1fr;
+  }
+}
+
+.electrolysis-reading-scroll {
+  overflow-x: auto;
+  margin-top: 20px;
+}
+.electrolysis-reading-scroll svg {
+  display: block;
+  width: 100%;
+  min-width: 620px;
+  fill: var(--ui-ink);
+  font:
+    16px "Microsoft YaHei",
+    sans-serif;
+}

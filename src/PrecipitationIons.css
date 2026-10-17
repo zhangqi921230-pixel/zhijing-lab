@@ -1,0 +1,77 @@
+.precipitation-ions {
+  margin-top: 24px;
+  padding: 22px;
+  border: 1px solid var(--ui-line);
+  background: var(--ui-surface);
+  color: var(--ui-ink);
+  border-radius: 10px;
+}
+.precipitation-ions header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+.precipitation-ions h3 {
+  font-size: 21px;
+  margin: 0;
+}
+.precipitation-ions header > span,
+.ion-inventory-row span {
+  color: var(--ui-muted);
+  font-size: 14px;
+}
+.ion-inventory {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  margin: 24px 0;
+}
+.ion-inventory-row > div:first-child {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+.ion-inventory-row output {
+  margin-left: auto;
+  font-variant-numeric: tabular-nums;
+}
+.ion-amount-track {
+  height: 12px;
+  background: var(--ui-line);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.ion-amount-track span {
+  display: block;
+  height: 100%;
+}
+.ion-solid {
+  padding: 16px;
+  border-left: 3px solid var(--ui-gold);
+  background: var(--ui-paper);
+}
+.ion-solid strong {
+  display: block;
+  font-size: 21px;
+  margin-top: 8px;
+  font-variant-numeric: tabular-nums;
+}
+.precipitation-ions p {
+  font-size: 14px;
+  line-height: 1.9;
+}
+.precipitation-ions details {
+  margin-top: 18px;
+}
+@media (max-width: 700px) {
+  .ion-inventory {
+    grid-template-columns: 1fr;
+  }
+  .precipitation-ions {
+    padding: 16px;
+  }
+}

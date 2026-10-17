@@ -1,0 +1,67 @@
+.similar-tiles {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--ui-line);
+  color: var(--ui-ink);
+}
+.similar-tiles header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.similar-tiles header span {
+  font-size: 14px;
+  color: var(--ui-muted);
+}
+.similar-tiles h3 {
+  font-size: 22px;
+  margin: 8px 0 16px;
+}
+.similar-tiles p {
+  font-size: 15px;
+  line-height: 1.8;
+}
+.similar-tiles-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.similar-tiles-scroll {
+  overflow-x: auto;
+  margin-top: 18px;
+}
+.similar-tiles-scroll svg {
+  width: 100%;
+  min-width: 640px;
+  display: block;
+  fill: var(--ui-ink);
+}
+.similar-tiles-scroll text {
+  font:
+    18px "Microsoft YaHei",
+    sans-serif;
+}
+.similar-tile {
+  cursor: pointer;
+}
+.similar-tile:focus-visible {
+  stroke: var(--ui-gold);
+  stroke-width: 4;
+  outline: none;
+  fill-opacity: 0.5;
+}
+.similar-tiles-scroll:focus-visible {
+  outline: 2px solid var(--ui-primary);
+  outline-offset: 3px;
+}
+.similar-tiles .similar-tiles-equation {
+  font-size: 22px;
+  font-variant-numeric: tabular-nums;
+}
+.similar-tiles-equation span {
+  display: block;
+  font-size: 14px;
+  color: var(--ui-muted);
+}

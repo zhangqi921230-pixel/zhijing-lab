@@ -1,0 +1,78 @@
+.flame-comparison {
+  padding: 22px;
+  margin-top: 16px;
+  background: var(--ui-surface);
+  color: var(--ui-ink);
+  border: 1px solid var(--ui-line);
+  border-radius: 8px;
+}
+.flame-comparison header {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+.flame-comparison h3 {
+  margin: 8px 0 16px;
+  font-size: 20px;
+}
+.flame-comparison button {
+  padding: 10px 14px;
+  background: var(--ui-paper);
+  color: var(--ui-ink);
+  border: 1px solid var(--ui-line);
+  border-radius: 4px;
+  cursor: pointer;
+}
+.flame-comparison button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+.flame-comparison button:focus-visible {
+  outline: 2px solid var(--ui-primary);
+  outline-offset: 3px;
+}
+.flame-comparison-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  max-width: 620px;
+  margin: 20px auto;
+}
+.flame-comparison figure {
+  margin: 0;
+}
+.flame-comparison svg {
+  display: block;
+  width: 100%;
+}
+.flame-comparison figcaption {
+  padding: 12px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 15px;
+}
+.flame-comparison p {
+  font-size: 15px;
+  line-height: 1.8;
+}
+@media (max-width: 650px) {
+  .flame-comparison {
+    padding: 14px;
+  }
+  .flame-comparison-pair {
+    gap: 10px;
+  }
+}
+
+.flame-reference-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+.flame-comparison button {
+  min-height: 44px;
+}

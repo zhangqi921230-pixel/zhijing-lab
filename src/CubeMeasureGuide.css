@@ -1,0 +1,71 @@
+.cube-measure {
+  background: var(--ui-paper);
+  color: var(--ui-ink);
+  padding: 20px 28px;
+  border-top: 1px solid var(--ui-line);
+}
+.cube-measure h3 {
+  font-size: 20px;
+  margin: 18px 0 12px;
+}
+.cube-study-modes,
+.cube-layer-buttons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.cube-measure button {
+  background: var(--ui-surface);
+  color: var(--ui-ink);
+  border: 1px solid var(--ui-line);
+  border-radius: 5px;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+html[data-theme] .cube-measure button[aria-pressed="true"] {
+  background: var(--ui-selected);
+  color: var(--ui-ink);
+  border-color: var(--ui-primary);
+}
+.cube-measure button:focus-visible {
+  outline: 2px solid var(--ui-primary);
+  outline-offset: 2px;
+}
+.cube-measure-equation {
+  font-size: 21px;
+  padding: 18px 0 4px;
+  font-variant-numeric: tabular-nums;
+}
+.cube-measure p,
+.cube-measure small {
+  font-size: 14px;
+  color: var(--ui-muted);
+  line-height: 1.8;
+}
+html[data-theme] .cube-guide {
+  background: var(--ui-surface);
+  border-color: var(--ui-line);
+}
+html[data-theme] .cube-guide :is(span, strong, p) {
+  color: var(--ui-ink);
+}
+html[data-theme] .cube-guide svg text {
+  fill: #355d48;
+}
+html[data-theme] .cube-guide button {
+  color: var(--ui-ink);
+  background: var(--ui-paper);
+  border-color: var(--ui-line);
+}
+html[data-theme] .cube-guide button[aria-pressed="true"] {
+  background: var(--ui-selected);
+  border-color: var(--ui-primary);
+}
+@media (max-width: 650px) {
+  .cube-measure {
+    padding: 16px;
+  }
+  .cube-measure-equation {
+    font-size: 18px;
+  }
+}

@@ -1,0 +1,17 @@
+.observable-scene {
+  fill: var(--ui-ink);
+}
+.observable-scene text {
+  font-size: 20px;
+}
+.observable-scene .observable-title {
+  font-size: 26px;
+  font-weight: 700;
+}
+.observable-scene .observable-number {
+  font-size: 28px;
+  font-variant-numeric: tabular-nums;
+}
+.motion-stage .observable-scene {
+  min-width: 740px;
+}

@@ -1,0 +1,238 @@
+.motion-lab {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr) 300px;
+  background: var(--ui-paper);
+  color: var(--ui-ink);
+  min-height: calc(100dvh - 72px);
+}
+.motion-nav,
+.motion-notes {
+  padding: 24px 20px;
+  background: var(--ui-surface);
+}
+.motion-nav {
+  border-right: 1px solid var(--ui-line);
+}
+.motion-notes {
+  border-left: 1px solid var(--ui-line);
+}
+.motion-nav h2 {
+  font-size: 21px;
+  line-height: 1.6;
+  margin: 24px 0;
+}
+.motion-nav .topic-picker {
+  margin-top: 24px;
+}
+.motion-nav .microscope-chapters {
+  display: grid;
+  gap: 8px;
+}
+.motion-nav .microscope-chapters button {
+  display: flex;
+  gap: 12px;
+  text-align: left;
+  padding: 14px 10px;
+  border: 0;
+  background: transparent;
+  color: var(--ui-ink);
+  font: inherit;
+  line-height: 1.6;
+  cursor: pointer;
+}
+.motion-nav .microscope-chapters button[aria-current] {
+  background: var(--ui-selected);
+  box-shadow: inset 3px 0 var(--ui-primary);
+}
+.motion-main {
+  min-width: 0;
+  padding: 32px 28px;
+}
+.motion-main h1 {
+  font-family: Georgia, "SimSun", serif;
+  font-size: clamp(26px, 2.5vw, 38px);
+  line-height: 1.4;
+  margin: 16px 0;
+}
+.motion-main p,
+.motion-notes p {
+  color: var(--ui-muted);
+  font-size: 15px;
+  line-height: 1.9;
+}
+.motion-stage {
+  margin-top: 28px;
+  border: 1px solid var(--ui-line);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--ui-paper);
+}
+.motion-diagram {
+  width: 100%;
+  display: block;
+}
+.motion-diagram text {
+  fill: var(--ui-ink);
+  font:
+    16px "Microsoft YaHei",
+    sans-serif;
+}
+.motion-readouts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-bottom: 1px solid var(--ui-line);
+  margin-bottom: 24px;
+  padding: 20px 0;
+  gap: 12px;
+}
+.motion-readouts span {
+  display: block;
+  color: var(--ui-muted);
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+.motion-readouts strong {
+  font-size: 21px;
+  font-variant-numeric: tabular-nums;
+}
+.motion-transport,
+.motion-shortcuts,
+.motion-next {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+.motion-transport label {
+  flex: 1 1 210px;
+  font-size: 14px;
+}
+.motion-transport output {
+  float: right;
+  font-variant-numeric: tabular-nums;
+}
+.motion-lab input[type="range"] {
+  width: 100%;
+  accent-color: var(--ui-primary);
+  min-height: 32px;
+  cursor: pointer;
+}
+.motion-notes h2 {
+  font-size: 22px;
+  margin: 0 0 20px;
+}
+.motion-notes h3 {
+  font-size: 16px;
+  margin: 28px 0 16px;
+}
+.motion-task {
+  border-left: 3px solid var(--ui-gold);
+  padding: 10px 14px;
+  background: var(--ui-paper);
+  margin: 24px 0;
+}
+.motion-task strong {
+  color: var(--ui-gold);
+}
+.motion-task p {
+  margin: 6px 0;
+}
+.motion-field {
+  display: block;
+  margin: 18px 0;
+}
+.motion-field span {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 14px;
+}
+.motion-field output {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.motion-formula {
+  margin: 24px 0;
+  padding: 16px;
+  background: var(--ui-paper);
+  border: 1px solid var(--ui-line);
+  line-height: 1.9;
+  font-size: 15px;
+}
+.motion-notes summary {
+  cursor: pointer;
+  line-height: 1.8;
+  font-size: 14px;
+}
+.motion-notes > .btn {
+  margin: 0 6px 8px 0;
+}
+.motion-lab :focus-visible {
+  outline: 2px solid var(--ui-gold);
+  outline-offset: 3px;
+}
+@media (max-width: 1150px) {
+  .motion-lab {
+    grid-template-columns: 190px minmax(0, 1fr);
+  }
+  .motion-notes {
+    grid-column: 2;
+    border-top: 1px solid var(--ui-line);
+  }
+  .motion-nav {
+    grid-row: 1 / 3;
+  }
+  .motion-main {
+    padding: 26px 20px;
+  }
+}
+@media (max-width: 700px) {
+  .motion-lab {
+    display: block;
+  }
+  .motion-nav {
+    border-right: 0;
+    border-bottom: 1px solid var(--ui-line);
+    padding: 16px;
+  }
+  .motion-nav .microscope-chapters {
+    display: flex;
+    overflow-x: auto;
+  }
+  .motion-nav .microscope-chapters .nav-heading {
+    display: none;
+  }
+  .motion-nav .microscope-chapters button {
+    min-width: 160px;
+  }
+  .motion-nav h2 {
+    margin: 12px 0;
+  }
+  .motion-nav .topic-picker {
+    margin-top: 12px;
+  }
+  .motion-main {
+    padding: 24px 12px;
+  }
+  .motion-stage {
+    overflow-x: auto;
+  }
+  .motion-main .motion-diagram {
+    min-width: 620px;
+  }
+  .motion-notes {
+    border-left: 0;
+    padding: 24px 18px;
+  }
+  .motion-readouts strong {
+    font-size: 18px;
+  }
+  .motion-readouts span {
+    font-size: 12px;
+  }
+}
+
+.visual-proof-diagram text {
+  font-size: 18px;
+}

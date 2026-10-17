@@ -1,0 +1,61 @@
+.seismic-arrival {
+  padding: 22px;
+  background: var(--ui-paper);
+  color: var(--ui-ink);
+  border-top: 1px solid var(--ui-line);
+}
+.seismic-arrival header {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 14px;
+}
+.seismic-arrival header span {
+  color: var(--ui-primary);
+}
+.seismic-arrival svg {
+  display: block;
+  width: 100%;
+  margin: 12px 0;
+}
+.seismic-arrival svg text {
+  font-size: 14px;
+  fill: var(--ui-ink);
+}
+.seismic-arrival svg path {
+  fill: none;
+  stroke-width: 2.5;
+}
+.arrival-grid {
+  stroke: var(--ui-line);
+}
+.arrival-target {
+  stroke: var(--ui-muted);
+  stroke-dasharray: 6 4;
+}
+.arrival-cursor {
+  stroke: var(--ui-primary);
+  stroke-width: 1.5;
+}
+.seismic-arrival svg:focus-visible {
+  outline: 2px solid var(--ui-primary);
+  outline-offset: 3px;
+}
+.seismic-arrival p {
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--ui-muted);
+  margin-bottom: 0;
+}
+@media (max-width: 650px) {
+  .seismic-arrival {
+    padding: 16px;
+  }
+  .seismic-arrival svg {
+    min-height: 150px;
+  }
+  .seismic-arrival svg text {
+    font-size: 26px;
+  }
+}

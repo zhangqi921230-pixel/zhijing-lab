@@ -1,0 +1,71 @@
+.pythagoras-studio .proof-heading,
+.pythagoras-studio .proof-equation b {
+  color: var(--ui-ink);
+}
+.pythagoras-studio .proof-heading > span {
+  color: var(--ui-muted);
+}
+html[data-theme="dark"] .pythagoras-studio .proof-equation {
+  color: #a6cfe2;
+}
+html[data-theme="dark"] .pythagoras-studio .proof-equation .proof-a {
+  color: #e6ca88;
+}
+.proof-reasoning-steps {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin: 16px 0;
+}
+.proof-reasoning-steps button {
+  padding: 10px 14px;
+  border: 1px solid var(--ui-line);
+  border-radius: 5px;
+  background: var(--ui-surface);
+  color: var(--ui-ink);
+  cursor: pointer;
+}
+html[data-theme] .proof-reasoning-steps button[aria-pressed="true"] {
+  background: var(--ui-selected);
+  color: var(--ui-ink);
+  border-color: var(--ui-primary);
+}
+.proof-reasoning-steps button:focus-visible {
+  outline: 2px solid var(--ui-primary);
+  outline-offset: 2px;
+}
+.proof-reasoning {
+  margin: 16px 24px;
+  padding: 18px;
+  border-left: 3px solid var(--ui-primary);
+  background: var(--ui-surface);
+  color: var(--ui-ink);
+  font-size: 14px;
+}
+.proof-reasoning p {
+  line-height: 1.8;
+  margin: 10px 0;
+}
+.proof-reasoning small {
+  display: block;
+  color: var(--ui-muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
+.proof-algebra {
+  font:
+    22px Georgia,
+    serif;
+  padding: 12px 0;
+  margin-bottom: 8px;
+}
+@media (max-width: 650px) {
+  .proof-reasoning {
+    margin: 12px;
+    padding: 12px;
+  }
+  .proof-algebra {
+    font-size: 18px;
+  }
+}

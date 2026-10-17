@@ -1,0 +1,179 @@
+.topic-picker {
+  display: grid;
+  gap: 8px;
+  margin: 18px 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+.course-units {
+  border-block: 1px solid var(--line);
+  padding: 12px 0;
+  margin-bottom: 18px;
+}
+.course-units .nav-heading {
+  display: block;
+  font-size: 12px;
+  line-height: 1.7;
+  padding: 0 8px 10px;
+}
+.course-units button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 44px;
+  padding: 10px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  font: inherit;
+  font-size: 14px;
+  line-height: 1.5;
+  cursor: pointer;
+}
+.course-units button small {
+  border: 1px solid currentColor;
+  border-radius: 3px;
+  width: 21px;
+  flex: 0 0 21px;
+  text-align: center;
+}
+.course-units button[aria-current="page"] {
+  background: color-mix(in srgb, var(--primary) 14%, var(--surface));
+  color: var(--ink);
+  box-shadow: inset 3px 0 var(--primary);
+  font-weight: 600;
+}
+.course-units button:hover {
+  background: color-mix(in srgb, var(--primary) 10%, var(--surface));
+  color: var(--ink);
+}
+.topic-picker select {
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  padding: 8px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--ink);
+  background: var(--surface, #fff);
+  font: inherit;
+}
+.lesson-nav .topic-picker {
+  color: inherit;
+}
+.topic-scenarios {
+  border: 0;
+  padding: 0;
+  margin: 16px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.topic-scenarios legend {
+  margin-bottom: 10px;
+  font-size: 12px;
+  color: var(--ink);
+}
+.topic-scenarios button {
+  min-height: 44px;
+  flex: 1 1 95px;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--ink);
+  background: transparent;
+  font: inherit;
+  font-size: 12px;
+}
+.topic-scenarios button[aria-pressed="true"] {
+  border-color: var(--primary);
+  box-shadow: inset 0 -3px var(--primary);
+  font-weight: bold;
+}
+.topic-scenarios button:hover {
+  border-color: var(--primary);
+}
+.topic-guide .topic-hint {
+  font-size: 11px;
+}
+.topic-guide .micro-task {
+  background: var(--paper);
+}
+.topic-guide .micro-task strong,
+.topic-guide .micro-kicker {
+  color: var(--primary);
+}
+.topic-guide > p,
+.topic-guide .micro-task p {
+  font-size: 13px;
+}
+.topic-guide .micro-task p {
+  color: var(--ink);
+}
+.topic-explanation {
+  border-block: 1px solid var(--line);
+  margin-block: 12px;
+  font-size: 13px;
+}
+.topic-explanation summary {
+  cursor: pointer;
+  padding: 12px 0;
+  color: var(--primary);
+}
+.topic-explanation summary:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+.topic-explanation p {
+  line-height: 1.8;
+  color: var(--muted);
+  margin: 0 0 14px;
+}
+.extra-controls {
+  margin-block: 16px;
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
+}
+.extra-controls summary {
+  cursor: pointer;
+  color: var(--muted);
+  font-size: 12px;
+  min-height: 36px;
+}
+.extra-controls .controls {
+  margin-top: 12px;
+}
+.record-clear {
+  max-width: 280px;
+  font-size: 12px;
+}
+.record-clear summary {
+  cursor: pointer;
+  padding: 12px;
+}
+.records-head {
+  flex-wrap: wrap;
+}
+.topic-guide .micro-step button {
+  min-height: 40px;
+}
+@media (min-width: 1150px) {
+  .laboratory .control-panel {
+    position: sticky;
+    top: 12px;
+    max-height: calc(100dvh - 30px);
+    overflow-y: auto;
+    scrollbar-width: thin;
+  }
+}
+@media (max-width: 760px) {
+  .topic-picker {
+    margin-block: 10px;
+  }
+  .microscope-chapters button {
+    min-height: 44px;
+  }
+}

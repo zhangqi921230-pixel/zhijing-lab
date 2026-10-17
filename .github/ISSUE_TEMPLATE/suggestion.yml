@@ -1,0 +1,27 @@
+name: 主题修改建议
+description: 帮助我们改进已有课程主题
+title: "[建议] "
+body:
+  - type: markdown
+    attributes:
+      value: "感谢参与共建。所有内容公开，请勿填写个人联系方式或学生信息。"
+  - type: input
+    id: topic
+    attributes:
+      label: 主题名称
+    validations:
+      required: true
+  - type: textarea
+    id: requirements
+    attributes:
+      label: 实现要求或修改建议
+      description: 请描述使用场景、目前的问题和希望改进的具体内容。
+    validations:
+      required: true
+  - type: textarea
+    id: effect
+    attributes:
+      label: 期望呈现的效果
+      description: 希望学生看到什么现象、完成什么操作或理解什么知识？
+    validations:
+      required: true

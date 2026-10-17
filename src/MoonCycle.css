@@ -1,0 +1,95 @@
+.moon-cycle {
+  padding: 22px;
+  background: var(--ui-paper);
+  color: var(--ui-ink);
+  border-top: 1px solid var(--ui-line);
+}
+.moon-cycle header {
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  font-size: 14px;
+}
+.moon-cycle header span {
+  color: var(--ui-primary);
+  font-size: 13px;
+}
+.moon-cycle-phases {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 8px;
+  margin: 20px 0;
+}
+.moon-cycle-phases button {
+  padding: 8px 4px;
+  background: var(--ui-surface);
+  border: 1px solid var(--ui-line);
+  border-radius: 5px;
+  color: var(--ui-ink);
+  cursor: pointer;
+}
+.moon-cycle-phases svg {
+  width: 100%;
+  max-width: 72px;
+  display: block;
+  margin: auto;
+}
+.moon-cycle-phases b,
+.moon-cycle-phases small {
+  display: block;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 400;
+  margin: 5px 0;
+}
+.moon-cycle-phases small {
+  color: var(--ui-muted);
+}
+.moon-cycle-phases button[aria-pressed="true"] {
+  border-color: var(--ui-primary);
+  background: var(--ui-selected);
+}
+.moon-cycle-phases button:focus-visible {
+  outline: 3px solid var(--ui-gold);
+  outline-offset: 3px;
+}
+.moon-cycle-curve {
+  display: block;
+  width: 100%;
+}
+.moon-cycle-curve text {
+  fill: var(--ui-muted);
+  font:
+    14px "Microsoft YaHei",
+    sans-serif;
+}
+.moon-cycle-curve line {
+  stroke: var(--ui-line);
+}
+.moon-cycle-curve path {
+  fill: none;
+  stroke: var(--ui-primary);
+  stroke-width: 2.5;
+}
+.moon-cycle-curve .moon-cycle-cursor {
+  stroke: var(--ui-gold);
+  stroke-dasharray: 4 4;
+}
+.moon-cycle p {
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--ui-muted);
+  margin-bottom: 0;
+}
+@media (max-width: 650px) {
+  .moon-cycle-phases {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .moon-cycle-curve {
+    min-height: 150px;
+  }
+  .moon-cycle {
+    padding: 16px;
+  }
+}

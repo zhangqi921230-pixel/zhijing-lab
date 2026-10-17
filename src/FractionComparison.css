@@ -1,0 +1,110 @@
+.fraction-comparison {
+  padding: 22px;
+  background: var(--ui-paper);
+  color: var(--ui-ink);
+  border-top: 1px solid var(--ui-line);
+}
+.fraction-comparison header {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+}
+.fraction-comparison button {
+  border: 1px solid var(--ui-line);
+  background: var(--ui-surface);
+  color: var(--ui-ink);
+  padding: 10px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.fraction-comparison button:focus-visible {
+  outline: 2px solid var(--ui-primary);
+  outline-offset: 2px;
+}
+.fraction-comparison p,
+.fraction-comparison details {
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--ui-muted);
+}
+.fraction-compare-row {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  align-items: center;
+  gap: 14px;
+  margin: 24px 0;
+}
+.fraction-compare-label b {
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+}
+.fraction-compare-label strong {
+  font-size: 25px;
+  font-family: Georgia, serif;
+}
+.fraction-compare-bars {
+  display: grid;
+  grid-template-columns: repeat(var(--whole-columns), 1fr);
+  gap: 24px 10px;
+}
+.fraction-compare-unit {
+  height: 38px;
+  position: relative;
+  border: 1px solid var(--ui-primary);
+  background: var(--ui-surface);
+}
+.fraction-compare-fill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  background: var(--ui-primary);
+  opacity: 0.75;
+  transition: width 200ms ease;
+}
+.fraction-compare-unit i {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--ui-paper);
+  box-shadow: 1px 0 var(--ui-muted);
+}
+.fraction-compare-unit small {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  font-size: 10px;
+  color: var(--ui-muted);
+}
+.fraction-compare-result {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  align-items: center;
+  padding: 18px 0;
+  border-top: 1px solid var(--ui-line);
+}
+.fraction-compare-result strong {
+  font-size: 25px;
+  font-family: Georgia, serif;
+}
+.fraction-compare-result span {
+  font-size: 13px;
+}
+@media (max-width: 650px) {
+  .fraction-comparison {
+    padding: 16px;
+  }
+  .fraction-compare-row {
+    grid-template-columns: 65px 1fr;
+    gap: 8px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fraction-compare-fill {
+    transition: none;
+  }
+}

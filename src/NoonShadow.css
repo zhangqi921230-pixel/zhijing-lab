@@ -1,0 +1,84 @@
+.noon-shadow {
+  margin-top: 24px;
+  padding: 24px;
+  border: 1px solid var(--ui-line);
+  border-radius: 8px;
+  background: var(--ui-surface);
+  color: var(--ui-ink);
+}
+.noon-shadow h2 {
+  font-size: 23px;
+  line-height: 1.5;
+  margin: 12px 0;
+}
+.noon-shadow header > span,
+.noon-shadow-readout > span {
+  font-size: 14px;
+  color: var(--ui-muted);
+}
+.noon-shadow p {
+  font-size: 15px;
+  line-height: 1.9;
+  color: var(--ui-muted);
+}
+.noon-shadow-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+.noon-shadow-actions button {
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 1px solid var(--ui-line);
+  background: var(--ui-paper);
+  color: var(--ui-ink);
+  border-radius: 5px;
+  cursor: pointer;
+}
+.noon-shadow-actions button[aria-pressed="true"] {
+  border-color: var(--ui-primary);
+  background: var(--ui-selected);
+}
+.noon-shadow-actions button:focus-visible,
+.noon-shadow-scroll:focus-visible {
+  outline: 2px solid var(--ui-gold);
+  outline-offset: 3px;
+}
+.noon-shadow-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(180px, 1fr);
+  gap: 24px;
+  align-items: center;
+}
+.noon-shadow-scroll {
+  overflow-x: auto;
+  background: var(--ui-paper);
+  border: 1px solid var(--ui-line);
+  border-radius: 8px;
+}
+.noon-shadow svg {
+  width: 100%;
+  min-width: 460px;
+  display: block;
+}
+.noon-shadow svg text {
+  fill: var(--ui-ink);
+  font:
+    15px "Microsoft YaHei",
+    sans-serif;
+}
+.noon-shadow-readout > strong {
+  display: block;
+  font-size: 24px;
+  margin: 8px 0 18px;
+  font-variant-numeric: tabular-nums;
+}
+@media (max-width: 850px) {
+  .noon-shadow-layout {
+    grid-template-columns: 1fr;
+  }
+  .noon-shadow {
+    padding: 16px;
+  }
+}

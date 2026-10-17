@@ -1,0 +1,134 @@
+.surface-water-study {
+  padding: 24px;
+  margin: 24px 0;
+  background: var(--ui-surface);
+  border: 1px solid var(--ui-line);
+  border-radius: 12px;
+  color: var(--ui-ink);
+}
+.surface-water-study header > span,
+.surface-water-study small {
+  color: var(--ui-muted);
+  font-size: 14px;
+}
+.surface-water-study h2 {
+  font-size: 24px;
+  margin: 10px 0;
+  line-height: 1.5;
+}
+.surface-water-study h3 {
+  font-size: 18px;
+  margin: 0 0 16px;
+}
+.surface-water-study p {
+  font-size: 15px;
+  line-height: 1.9;
+  color: var(--ui-muted);
+}
+.surface-water-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 20px 0;
+}
+.surface-water-actions button[aria-pressed="true"] {
+  background: var(--ui-selected);
+  border-color: var(--ui-primary);
+  box-shadow: inset 0 -2px var(--ui-primary);
+}
+.surface-water-slider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-size: 16px;
+}
+.surface-water-slider input {
+  width: 100%;
+  min-height: 44px;
+  accent-color: var(--ui-primary);
+}
+.surface-water-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 28px;
+  margin: 20px 0;
+  padding: 20px;
+  background: var(--ui-paper);
+  border: 1px solid var(--ui-line);
+  border-radius: 8px;
+}
+.surface-water-plot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+}
+.surface-water-plot svg {
+  width: 100%;
+  max-width: 360px;
+}
+.surface-water-plot span {
+  font-size: 15px;
+  color: var(--ui-muted);
+}
+.surface-water-bars > div {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+  margin: 16px 0;
+  font-size: 15px;
+}
+.surface-water-track {
+  grid-column: 1/-1;
+  height: 16px;
+  background: var(--ui-line);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.surface-water-track i {
+  display: block;
+  height: 100%;
+  background: var(--ui-primary);
+}
+.surface-water-readouts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  padding: 16px 0;
+  border-block: 1px solid var(--ui-line);
+}
+.surface-water-readouts dt {
+  font-size: 15px;
+  color: var(--ui-muted);
+}
+.surface-water-readouts dd {
+  margin: 6px 0 0;
+  font-size: 23px;
+  font-variant-numeric: tabular-nums;
+}
+.surface-water-challenge {
+  border-left: 3px solid var(--ui-gold);
+  padding: 16px 20px;
+  background: var(--ui-paper);
+  margin: 22px 0;
+}
+.surface-water-study .surface-water-equation {
+  color: var(--ui-ink);
+  font-size: 16px;
+}
+@media (max-width: 700px) {
+  .surface-water-study {
+    padding: 16px;
+  }
+  .surface-water-layout {
+    grid-template-columns: 1fr;
+    padding: 12px;
+    gap: 20px;
+  }
+  .surface-water-study h2 {
+    font-size: 21px;
+  }
+}

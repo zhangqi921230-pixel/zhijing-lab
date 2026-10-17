@@ -1,0 +1,98 @@
+.photo-evidence {
+  border-top: 1px solid var(--ui-line);
+  margin-top: 24px;
+  padding-top: 20px;
+  color: var(--ui-ink);
+}
+.photo-evidence h3 {
+  font-size: 20px;
+  margin: 0 0 12px;
+}
+.photo-evidence p {
+  font-size: 15px;
+}
+.photo-evidence button {
+  min-height: 44px;
+  font-size: 15px;
+}
+.photo-evidence button:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+.photo-evidence [role="status"] {
+  padding: 12px;
+  border-left: 3px solid var(--ui-gold);
+  background: var(--ui-paper);
+}
+.photo-evidence-bars > div {
+  display: grid;
+  grid-template-columns: 100px minmax(60px, 1fr) 80px;
+  gap: 12px;
+  align-items: center;
+  margin: 14px 0;
+  font-size: 15px;
+}
+.photo-evidence-track {
+  height: 16px;
+  background: var(--ui-paper);
+  border: 1px solid var(--ui-line);
+}
+.photo-evidence-track i {
+  display: block;
+  height: 100%;
+  background: var(--ui-primary);
+}
+.photo-evidence-bars > div:first-child i {
+  background: var(--ui-gold);
+}
+.photo-evidence-table {
+  overflow-x: auto;
+}
+.photo-evidence-table:focus-visible {
+  outline: 2px solid var(--ui-gold);
+}
+.photo-evidence table {
+  width: 100%;
+  min-width: 590px;
+  border-collapse: collapse;
+  font-size: 15px;
+  font-variant-numeric: tabular-nums;
+}
+.photo-evidence caption {
+  text-align: left;
+  padding: 12px 0;
+  color: var(--ui-muted);
+}
+.photo-evidence th,
+.photo-evidence td {
+  padding: 12px 10px;
+  text-align: left;
+  border-bottom: 1px solid var(--ui-line);
+}
+.photo-evidence thead {
+  background: var(--ui-paper);
+}
+
+.photo-light-interval {
+  margin-block: 16px;
+  padding: 14px;
+  border: 1px solid var(--ui-line);
+}
+.photo-light-interval .photo-scan-controls {
+  margin-top: 12px;
+}
+
+.photo-increment-scroll {
+  overflow-x: auto;
+}
+.photo-increment-scroll svg {
+  display: block;
+  width: 100%;
+  min-width: 560px;
+  fill: var(--ui-ink);
+  font-size: 18px;
+}
+.photo-increment-scroll:focus-visible {
+  outline: 2px solid var(--ui-primary);
+  outline-offset: 2px;
+}

@@ -1,0 +1,60 @@
+export const spatialPreviewIds = [
+  "cube",
+  "molecule",
+  "cell",
+  "contour",
+  "seasons",
+  "conics",
+  "incline",
+  "biodiversity",
+];
+export const sciencePreviewIds = [
+  "fractions",
+  "linear",
+  "circle",
+  "ohm",
+  "lens",
+  "refraction",
+  "lever",
+  "projectile",
+  "dilution",
+  "acid",
+  "microscope",
+  "photosynthesis",
+  "inheritance",
+  "foodweb",
+  "water",
+  "plates",
+  "waves",
+  "buoyancy",
+  "probability",
+  "gas",
+  "flame",
+  "displacement",
+  "electrolysis",
+  "distillation",
+  ...spatialPreviewIds,
+];
+export const previewCycle = (t) => (1 - Math.cos((2 * Math.PI * t) / 10)) / 2;
+export function previewParameters(id, base, t) {
+  const u = previewCycle(t);
+  const overrides = {
+    fractions: { n: 1 + Math.min(6, Math.floor(u * 7)), d: 8 },
+    linear: { k: 0.3 + 1.5 * u, b: 1, x: 2 },
+    circle: { r: 1.5 + 2 * u },
+    ohm: { u: 3 + 6 * u },
+    lens: { u: 25 + 25 * u, screen: (10 * (25 + 25 * u)) / (15 + 25 * u) },
+    refraction: { angle: 15 + 55 * u },
+    lever: { l2: 0.5 + 2 * u },
+    projectile: { angle: 35 },
+    dilution: { add: 150 * u },
+    acid: { base: 10 + 70 * u },
+    microscope: { x: 30 * Math.sin(t * 0.6), y: 15 * Math.cos(t * 0.6) },
+    photosynthesis: { light: 15 + 75 * u },
+    inheritance: { parent1: 1, parent2: Math.min(2, Math.floor(u * 3)) },
+    foodweb: { energy: 3000 + 4000 * u },
+    water: { rain: 30 + 100 * u },
+    plates: { progress: 100 * u },
+  };
+  return { ...base, ...overrides[id] };
+}

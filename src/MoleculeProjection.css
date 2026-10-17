@@ -1,0 +1,56 @@
+.molecule-projection {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 24px;
+  padding: 24px;
+  background: var(--ui-surface);
+  border: 1px solid var(--ui-line);
+  color: var(--ui-ink);
+  border-radius: 8px;
+}
+.molecule-projection h3 {
+  font-size: 22px;
+  margin: 0 0 12px;
+}
+.molecule-projection p {
+  font-size: 14px;
+  line-height: 1.9;
+}
+.molecule-projection svg {
+  width: 100%;
+  display: block;
+}
+.molecule-projection svg text {
+  font-size: 16px;
+  fill: var(--ui-ink);
+}
+.molecule-projection svg g text[fill="white"] {
+  fill: white;
+}
+.molecule-projection strong {
+  display: block;
+  font-size: 19px;
+  line-height: 1.8;
+  margin-bottom: 12px;
+}
+.molecule-projection label {
+  display: grid;
+  gap: 10px;
+  font-size: 16px;
+}
+.molecule-projection input {
+  width: 100%;
+  accent-color: var(--ui-primary);
+}
+.molecule-projection-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+@media (max-width: 800px) {
+  .molecule-projection {
+    grid-template-columns: 1fr;
+    padding: 16px;
+  }
+}

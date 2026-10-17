@@ -1,0 +1,33 @@
+{
+  "name": "zhijing-lab",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "vite build",
+    "test": "vitest run --maxWorkers=4",
+    "format": "prettier --write src tests *.json *.md index.html",
+    "format:check": "prettier --check src tests *.json *.md index.html",
+    "check:startup": "node scripts/check-startup.mjs",
+    "prebuild": "node scripts/sync-topic-metadata.mjs && node scripts/sync-curriculum-index.mjs",
+    "start": "node server/start.mjs",
+    "community": "node server/manage-community.mjs"
+  },
+  "dependencies": {
+    "lucide-react": "^0.468.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "three": "^0.180.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^5.0.0",
+    "jsdom": "^29.1.1",
+    "prettier": "^3.6.0",
+    "vite": "^7.1.0",
+    "vitest": "^4.1.11"
+  },
+  "engines": {
+    "node": ">=22.13.0"
+  }
+}

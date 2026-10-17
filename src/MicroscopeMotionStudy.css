@@ -1,0 +1,47 @@
+.microscope-motion-study {
+  padding: 12px;
+  margin: 12px 0;
+  border: 1px solid var(--ui-line);
+  background: var(--ui-surface);
+  color: var(--ui-ink);
+  border-radius: 6px;
+}
+.microscope-motion-study h3 {
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0 0 8px;
+}
+.microscope-motion-study p,
+.microscope-motion-study small {
+  font-size: 14px;
+  line-height: 1.8;
+}
+.micro-motion-choices {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin: 12px 0;
+}
+.micro-motion-choices button {
+  min-height: 44px;
+  padding: 6px;
+}
+.micro-motion-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+.micro-motion-pair figure {
+  margin: 0;
+  min-width: 0;
+}
+.micro-motion-pair figcaption {
+  text-align: center;
+  font-size: 14px;
+}
+.micro-motion-pair svg {
+  display: block;
+  width: 100%;
+  max-width: 200px;
+  margin: 0 auto;
+}

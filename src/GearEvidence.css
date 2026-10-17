@@ -1,0 +1,35 @@
+.gear-evidence {
+  padding: 20px;
+  border: 1px solid var(--ui-line);
+  background: var(--ui-surface);
+  color: var(--ui-ink);
+}
+.gear-evidence p {
+  line-height: 1.8;
+  color: var(--ui-muted);
+}
+.gear-evidence-row {
+  display: grid;
+  gap: 10px;
+  margin-block: 20px;
+}
+.gear-pitch-strip {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 4px;
+}
+.gear-pitch-strip i {
+  height: 20px;
+  border: 1px solid var(--ui-primary);
+}
+.gear-pitch-strip b {
+  display: block;
+  height: 100%;
+  background: var(--ui-primary);
+}
+.gear-evidence-row:nth-of-type(2) .gear-pitch-strip i {
+  border-color: var(--ui-gold);
+}
+.gear-evidence-row:nth-of-type(2) .gear-pitch-strip b {
+  background: var(--ui-gold);
+}

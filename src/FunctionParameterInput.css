@@ -1,0 +1,54 @@
+.function-exact-input {
+  border-top: 1px solid #d9d6cc;
+  padding: 12px 18px;
+  color: #43564d;
+  background: #faf8f1;
+}
+.function-exact-input summary {
+  cursor: pointer;
+  font-size: 13px;
+}
+.function-exact-input p {
+  font-size: 12px;
+  line-height: 1.6;
+  margin: 10px 0;
+  color: #657369;
+}
+.function-number-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 12px;
+}
+.function-number-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 12px;
+  min-width: 0;
+}
+.function-number-field input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8px 10px;
+  border: 1px solid #bcc7bd;
+  border-radius: 4px;
+  background: #fffef9;
+  color: #253d32;
+  font:
+    16px Georgia,
+    serif;
+}
+.function-number-field input:focus-visible {
+  outline: 2px solid #a87526;
+  outline-offset: 2px;
+}
+.function-number-field small {
+  color: #68776b;
+}
+.function-number-field input[aria-invalid="true"] {
+  border-color: #a33e2b;
+}
+.function-input-error {
+  color: #a33e2b;
+  line-height: 1.5;
+}

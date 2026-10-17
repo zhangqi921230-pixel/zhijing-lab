@@ -1,0 +1,1763 @@
+<!doctype html>
+<html lang="zh-CN">
+  <meta charset="utf-8" /><meta
+    name="viewport"
+    content="width=device-width,initial-scale=1"
+  /><title>课程依据与模型边界 · 知境</title
+  ><style>
+    body {
+      max-width: 940px;
+      margin: 40px auto;
+      padding: 0 24px;
+      background: #f4f5ef;
+      color: #183d36;
+      font:
+        16px/1.9 "Microsoft YaHei",
+        sans-serif;
+    }
+    a {
+      color: #176b59;
+    }
+    h1,
+    h2 {
+      font-family: Georgia, "SimSun", serif;
+      font-weight: 500;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      background: white;
+    }
+    td,
+    th {
+      border-bottom: 1px solid #dbe3da;
+      padding: 12px;
+      text-align: left;
+      font-size: 14px;
+    }
+    article {
+      padding: 24px;
+      background: white;
+      border-radius: 12px;
+      margin: 24px 0;
+    }
+    small {
+      color: #526b63;
+    }
+    a:focus-visible {
+      outline: 3px solid #e3ae54;
+    }
+    @media (max-width: 600px) {
+      td,
+      th {
+        padding: 7px;
+        font-size: 12px;
+      }
+    }
+    html[data-theme="dark"] body {
+      background: #10191e;
+      color: #edf0e8;
+    }
+    html[data-theme="dark"] article,
+    html[data-theme="dark"] table {
+      background: #18252c;
+    }
+    html[data-theme="dark"] a {
+      color: #b8d9be;
+    }
+    html[data-theme="dark"] small {
+      color: #b0c1bc;
+    }
+    html[data-theme="dark"] td,
+    html[data-theme="dark"] th {
+      border-color: #384a50;
+    }
+
+    html {
+      scroll-padding-top: 24px;
+    }
+    .course-directory {
+      background: white;
+      border: 1px solid #dbe3da;
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 24px 0;
+    }
+    .course-directory summary {
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 19px;
+    }
+    .course-directory p {
+      font-size: 14px;
+    }
+    .course-directory ol {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 4px 28px;
+      padding-left: 24px;
+    }
+    .course-directory li a {
+      display: block;
+      padding: 8px 0;
+      text-underline-offset: 4px;
+      line-height: 1.6;
+    }
+    .course-back {
+      display: inline-block;
+      font-size: 13px;
+      margin-bottom: 6px;
+      padding: 4px 0;
+    }
+    h2 {
+      margin-bottom: 0;
+      scroll-margin-top: 24px;
+    }
+    h2:focus-visible,
+    summary:focus-visible {
+      outline: 2px solid #b88834;
+      outline-offset: 5px;
+    }
+    html[data-theme="dark"] .course-directory {
+      background: #18252c;
+      border-color: #384a50;
+    }
+    @media (max-width: 600px) {
+      body {
+        padding: 0 14px;
+        margin: 24px auto;
+      }
+      article {
+        padding: 16px;
+      }
+      .course-directory {
+        padding: 16px;
+      }
+      .course-directory ol {
+        grid-template-columns: 1fr;
+      }
+    }
+    .course-search {
+      margin: 18px 0;
+    }
+    .course-search label {
+      display: block;
+      font-size: 15px;
+      margin-bottom: 8px;
+    }
+    .course-search > div {
+      display: flex;
+      gap: 10px;
+    }
+    .course-search input {
+      min-width: 0;
+      flex: 1;
+    }
+    .course-search input,
+    .course-search button {
+      font: inherit;
+      padding: 9px 12px;
+      min-height: 44px;
+      border: 1px solid #8a9e95;
+      border-radius: 6px;
+      background: transparent;
+      color: inherit;
+    }
+    .course-search button {
+      cursor: pointer;
+    }
+    .course-search :focus-visible {
+      outline: 3px solid #b88834;
+      outline-offset: 3px;
+    }
+    .course-directory li[hidden] {
+      display: none;
+    }
+    .course-directory li a {
+      min-height: 28px;
+    }
+  </style>
+  <script>
+    try {
+      document.documentElement.dataset.theme =
+        localStorage.getItem("zhijing:appearance:v1") === "dark"
+          ? "dark"
+          : "light";
+    } catch {}
+  </script>
+  <a href="./">← 返回探索馆</a>
+  <h1>课程依据与模型边界</h1>
+  <p>
+    先有教学问题，再选可操作的模型。当前共 78 个主题工作台、92 个学习单元，以义务教育内容为主体，另明确标注高中拓展。下列年级是推荐教学位置，并非全国统一教材目录。
+  </p>
+  <details class="course-directory" id="course-directory" open>
+    <summary>课程目录 · 按主题查找</summary>
+    <p>
+      点击主题直达教学路径，再从对应章节进入演示。浏览器返回键可回到上一个位置。
+    </p>
+    <div class="course-search">
+      <label for="course-search-input">搜索课程与知识点</label>
+      <div>
+        <input
+          id="course-search-input"
+          type="search"
+          placeholder="例如：投影、力臂、昼长"
+          autocomplete="off"
+        /><button type="button" id="course-search-clear">清空</button>
+      </div>
+      <p id="course-search-status" role="status" aria-live="polite"></p>
+    </div>
+    <nav aria-label="课程目录">
+      <ol>
+<li><a href="#course-section-1">依据与证据范围</a></li>
+<li><a href="#course-section-2">如何组织一次探究</a></li>
+<li><a href="#course-section-3">遗传概率：五节递进探究</a></li>
+<li><a href="#course-section-4">食物链能量：五节递进探究</a></li>
+<li><a href="#course-section-5">光合作用：五节控制变量探究</a></li>
+<li><a href="#course-section-6">生态样方：五节比较探究</a></li>
+<li><a href="#course-section-7">四季：五节时空探究</a></li>
+<li><a href="#course-section-8">昼夜：五节观察点探究</a></li>
+<li><a href="#course-section-9">月相：五节空间观察</a></li>
+<li><a href="#course-section-10">流域水量：从路径到守恒</a></li>
+<li><a href="#course-section-11">地震波：从地下位置到到时证据</a></li>
+<li><a href="#course-section-12">火山：结构、喷出物与过程</a></li>
+<li><a href="#course-section-13">板块运动：从方向到材料变形</a></li>
+<li><a href="#course-section-14">分数：从等分到比较</a></li>
+<li><a href="#course-section-15">勾股定理：从拼图到证明</a></li>
+<li><a href="#course-section-16">圆：从测量到逼近</a></li>
+<li><a href="#course-section-17">新增：波动与浮力</a></li>
+<li><a href="#course-section-18">正方体：从六个面到逐层填满</a></li>
+<li><a href="#course-section-19">圆锥：用薄层理解累计体积</a></li>
+<li><a href="#course-section-20">折射：从法线量角到临界状态</a></li>
+<li><a href="#course-section-21">杠杆：从力臂到平衡方案</a></li>
+<li><a href="#course-section-22">抛体运动：比较轨迹前先统一比例</a></li>
+<li><a href="#course-section-23">斜面：把受力、运动和能量连起来</a></li>
+<li><a href="#course-displacement">金属置换：从镀层到物质守恒</a></li>
+<li><a href="#course-distillation">蒸馏：升温、汽化与收集</a></li>
+<li><a href="#course-electrolysis">电解水：体积、质量与电荷</a></li>
+<li><a href="#course-flame">焰色：清洁参考与干扰</a></li>
+<li><a href="#course-indicators">中和：同一 pH 下的指示剂对照</a></li>
+<li><a href="#course-crystal-balance">结晶：区分新增与全部固体</a></li>
+<li><a href="#course-gas-work">气体：状态变化与恒温做功</a></li>
+<li><a href="#course-probability">随机试验：从频率到重复对照</a></li>
+<li><a href="#course-cycloid">滚动的圆与摆线</a></li>
+<li><a href="#course-doppler">多普勒效应与移动声源</a></li>
+<li><a href="#course-section-24">如何理解“真实”</a></li>
+<li><a href="#course-section-25">使用与保存</a></li>
+<li><a href="#course-oscillations">新增：从振动到图形</a></li>
+<li><a href="#course-precipitation-ions">沉淀反应：从现象到离子去向</a></li>
+<li><a href="#course-testcross">遗传概率：分类与证据</a></li>
+<li><a href="#course-rain-volume">流域：毫米降水与体积</a></li>
+<li><a href="#course-circle-scale">圆：半径、周长与面积的比例</a></li>
+<li><a href="#course-atom-identity">原子守恒：追踪同一个原子</a></li>
+<li><a href="#course-linear-points">一次函数：两点与零点</a></li>
+<li><a href="#course-rc-voltage">电容：回路电压如何分配</a></li>
+<li><a href="#course-molecule-projection">分子：空间键角与投影角</a></li>
+<li><a href="#course-energy-comparison">食物链：输入与效率的不同影响</a></li>
+<li><a href="#course-photo-compare">光合作用：同一光照下比较CO₂供给</a></li>
+<li><a href="#course-community-pair">群落：并排比较样方</a></li>
+<li><a href="#course-lever-angle">杠杆：力臂不是杆上距离</a></li>
+<li><a href="#course-reverse-ray">折射：沿折射光反向验证</a></li>
+<li><a href="#course-solar-pair">四季：南北对称纬度的昼夜对照</a></li>
+<li><a href="#course-polar">极坐标与玫瑰线：旋转射线与曲线生成</a></li>
+<li><a href="#course-projectile">抛体运动：分解、互余角与重力</a></li>
+<li><a href="#course-standing-probe">驻波：空间形状与时间振动</a></li>
+<li><a href="#course-rolling-velocity">摆线：平移与转动速度的合成</a></li>
+<li><a href="#course-doppler-arrivals">多普勒效应：从到达间隔读接收频率</a></li>
+<li><a href="#course-lissajous-cycle">李萨如图形：共同周期与交叉点</a></li>
+<li><a href="#course-distillation-energy">蒸馏：温度平台与汽化潜热</a></li>
+<li><a href="#course-equal-charge">电解水：相同电荷、不同电流</a></li>
+<li><a href="#course-displacement-limit">置换反应：限制反应物与恰好配比</a></li>
+<li><a href="#course-flame-reference">焰色：保留观察与控制变量</a></li>
+<li><a href="#course-electrolysis-interface">电解：从液面下降读出集气量</a></li>
+<li><a href="#course-distillation-flow">蒸馏：内管与夹套中的两个方向</a></li>
+<li><a href="#course-microscope-field-area">显微镜：倍率与观察范围</a></li>
+<li><a href="#course-displacement-metal">置换：原金属消失后，铜去了哪里</a></li>
+<li><a href="#course-genetics-frequency">遗传：随机频率如何接近理论概率</a></li>
+<li><a href="#course-surface-water">校园地表改造与径流</a></li>
+<li><a href="#course-buoyancy-force-plot">浸入比例与浮力交点</a></li>
+<li><a href="#course-energy-depth">多一次能量传递</a></li>
+<li><a href="#course-secant-convergence">左右差商与切线</a></li>
+<li><a href="#course-noon-shadow">正午日影与季节</a></li>
+<li><a href="#course-solid-volume-targets">按体积寻找切面</a></li>
+<li><a href="#course-symmetry-pulley">图形变换与滑轮</a></li>
+<li><a href="#course-gamete-journey">从配子到受精</a></li>
+<li><a href="#course-longitude-time">经度与地方时</a></li>
+<li><a href="#course-apparent-depth">水下物体的视深</a></li>
+<li><a href="#course-distillation-salt">蒸馏中的盐与水</a></li>
+<li><a href="#course-photo-evidence">光合作用：控制变量与观察记录</a></li>
+<li><a href="#course-lever-work">杠杆：省力与距离</a></li>
+<li><a href="#course-projectile-comparison">抛体：定位与轨迹对照</a></li>
+<li><a href="#course-probability-event">概率：恰好与至少</a></li>
+<li><a href="#course-volcanic-ash">火山：辨认喷出物</a></li>
+<li><a href="#course-prism-circle">三棱镜色散与圆面积拼接</a></li>
+<li><a href="#course-prism-interfaces">棱镜逐界面量角</a></li>
+<li><a href="#course-circle-edge">圆面积：有限拼接与极限</a></li>
+<li><a href="#course-resistor-network">串并联与电流分配</a></li>
+<li><a href="#course-parallel-branch">并联支路的独立性</a></li>
+<li><a href="#course-displacement-electrons">金属置换与电子得失</a></li>
+</ol>
+    </nav>
+  </details>
+  <script>
+    (() => {
+      const input = document.getElementById("course-search-input"),
+        clear = document.getElementById("course-search-clear"),
+        status = document.getElementById("course-search-status"),
+        items = [...document.querySelectorAll('[aria-label="课程目录"] li')];
+      function filter() {
+        const terms = input.value
+          .trim()
+          .toLocaleLowerCase()
+          .split(/\s+/)
+          .filter(Boolean);
+        let count = 0;
+        for (const item of items) {
+          item.hidden = !terms.every((term) =>
+            item.textContent.toLocaleLowerCase().includes(term),
+          );
+          if (!item.hidden) count++;
+        }
+        status.textContent = count
+          ? `显示 ${count} / ${items.length} 个课程章节`
+          : "没有匹配的课程标题，请换一个知识点或清空搜索。";
+      }
+      input.addEventListener("input", filter);
+      clear.addEventListener("click", () => {
+        input.value = "";
+        filter();
+        input.focus();
+      });
+      filter();
+    })();
+  </script>
+  <article>
+    <h2 id="course-section-1" tabindex="-1">依据与证据范围</h2>
+    <a class="course-back" href="#course-directory">返回目录 ↑</a>
+    <p>
+      <a
+        href="https://www.moe.gov.cn/srcsite/A26/s8001/202204/t20220420_619921.html"
+        >教育部：义务教育课程方案和课程标准（2022 年版）</a
+      >提供总入口，<a href="https://www.ictr.edu.cn/download_center/ywjy.html"
+        >课程教材研究所课程标准下载页</a
+      >提供各科原文。本版依据这些标准的学科范围进行主题设计，不宣称替代教材或完成全部课标覆盖。
+    </p>
+    <p>
+      已视觉核对物理标准印刷页 29–30（PDF 第 36–37 页）：电流、电压测量；4.2.5
+      杠杆平衡；4.2.8 凸透镜成像；4.2.12
+      电流与电压、电阻关系。本平台是规律探究和演示，尚不等同于完整器材操作考核。
+    </p>
+    <p>
+      数学采用教育部 2022 年 5
+      月更新的标准入口；图形变化、空间观念与函数关系用于主题组织。其余学科为基于标准领域的设计映射，未逐条进行专家审定。高中拓展不声称已与最新高中标准逐条对齐。
+    </p>
+    <section>
+      <h2>弧度与弧长（6节）</h2>
+      <p>
+        圆弧展开 → 接近1弧度 → 半圆与π → 整圆与2π → 同角不同半径 →
+        等弧长的不同圆心角。利用三圆同尺度对照，区分固定角度时的正比关系与固定弧长时的反比关系。先预测弧长，再播放等长展开，改变半径检验
+        s=rθ。
+      </p>
+      <h2>拍频与振动叠加（6节）</h2>
+      <p>
+        同频加强 → 近频拍 → 频差与拍周期 → 不等幅的谷底 → 单振动极限 →
+        加强时的瞬时过零。用冻结时刻的同标尺位移箭头和包络半高，区分瞬时位移为零与相互抵消。观察分量与合成位移，区分振幅包络和实际振动；图示低频不是可听声音。
+      </p>
+    </section>
+    <section>
+      <h2>月相第五节：等亮面不等于同月相</h2>
+      <p>
+        同时比较θ与360°−θ的月面、亮面比例和各自再前进15°后的状态。通过切换对照联动轨道与曲线，区分盈亏方向；新月和满月为同一对照的边界情况。月面朝向采用北半球常见示意。
+      </p>
+    </section>
+  </article>
+  <table>
+    <thead>
+      <tr>
+        <th>学科</th>
+        <th>第一期主题</th>
+        <th>主要教学目的</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>数学</td>
+        <td>
+          分数与等分、勾股定理、一次函数、圆的周长与面积、正方体展开、多种函数、圆柱与圆锥
+        </td>
+        <td>建立数形关系，比较变化与不变量</td>
+      </tr>
+      <tr>
+        <td>物理</td>
+        <td>
+          欧姆定律、凸透镜、折射与全反射、杠杆、抛体运动、斜面受力、RC 电容
+        </td>
+        <td>控制变量、测量读数、解释规律；全反射定量与抛体属拓展</td>
+      </tr>
+      <tr>
+        <td>化学</td>
+        <td>
+          分子结构、原子守恒、溶液稀释、中和与
+          pH、饱和结晶、沉淀反应、焰色、金属置换、电解水、蒸馏
+        </td>
+        <td>宏微联系、质量守恒、浓度与状态；键角和 pH 定量属拓展</td>
+      </tr>
+      <tr>
+        <td>生物</td>
+        <td>植物细胞、显微镜操作、光合作用、遗传概率、能量流动、生态多样性</td>
+        <td>结构功能、观察技能、概率和系统联系</td>
+      </tr>
+      <tr>
+        <td>地理</td>
+        <td>等高线、四季、昼夜、流域水量、板块边界、火山、地震波</td>
+        <td>空间投影、时空变化与过程解释</td>
+      </tr>
+    </tbody>
+  </table>
+  <article>
+    <h2 id="course-section-2" tabindex="-1">如何组织一次探究</h2>
+    <a class="course-back" href="#course-directory">返回目录 ↑</a>
+    <ol>
+      <li>先看问题，提出自己的预测。</li>
+      <li>记录初始状态，每次只改变一个变量。</li>
+      <li>比较数据或现象，尝试解释。</li>
+      <li>展开模型假设，讨论现实中哪些条件不完全符合。</li>
+    </ol>
+    <h2 id="course-section-3" tabindex="-1">遗传概率：五节递进探究</h2>
+    <a class="course-back" href="#course-directory">返回目录 ↑</a>
+    <ol>
+      <li>配子与组合：点选方格，将两个亲本提供的等位基因组合成子代。</li>
+      <li>杂合子互交：比较 AA、Aa、aa 的理论概率，区分基因型与表现型。</li>
+      <li>用测交辨别：分别设置 AA×aa 和 Aa×aa，解释不同预测。</li>
+      <li>少量后代的随机波动：两次各抽样 20 个，观察结果不必相同。</li>
+      <li>
+        样本量与概率证据：连续抽样至 1000
+        个，对照理论柱与频率柱，讨论“未观察到”与“不可能”的区别。
+      </li>
+    </ol>
+    <p>
+      抽样使用单基因完全显性模型，每次独立选取两个配子。课堂样本为临时演示，切换亲本、章节或复位会清空，不写入实验记录；可暂停后讨论。<a
+        href="./#inheritance"
+        >进入遗传工作台 →</a
+      >
+    </p>
+    <h2 id="course-section-4" tabindex="-1">食物链能量：五节递进探究</h2>
+    <a class="course-back" href="#course-directory">返回目录 ↑</a>
+    <ol>
+      <li>逐级传递：点选草、兔、狐，核对各级能量。</li>
+      <li>效率与累积差异：固定起点，比较10%、15%、20%的末级结果。</li>
+      <li>能量账本：两次未传递份额与狐获得量合计等于起点能量。</li>
+      <li>两级效率相乘：说明15%×15%=2.25%，区分乘法与相加。</li>
+      <li>
+        未传递部分的去向：讨论呼吸、碎屑和分解途径，区分能量流动与物质循环。
+      </li>
+    </ol>
+    <p>
+      动物剪影只标识营养级，不按能量或生物量缩放。<a href="./#foodweb"
+        >进入能量流动工作台 →</a
+      >
+    </p>
+    <h2 id="course-section-5" tabindex="-1">光合作用：五节控制变量探究</h2>
+    <a class="course-back" href="#course-directory">返回目录 ↑</a>
+    <ol>
+      <li>光照：固定 CO₂ 和温度，扫描相对光照。</li>
+      <li>CO₂：保持光照充足，对照低与高供给。</li>
+      <li>温度：固定其余条件，观察模型温度响应。</li>
+      <li>共同限制：保存低 CO₂ 的光照响应曲线，只改变 CO₂，比较虚线与实线。</li>
+      <li>
+        证据边界：讨论控制变量、模型预设最适温度，以及总光合与净光合的区别。
+      </li>
+    </ol>
+    <p>
+      扫描速度不是植物响应时间，曲线为定性模型而非实测数据。<a
+        href="./#photosynthesis"
+        >进入光合作用工作台 →</a
+      >
+    </p>
+    <h2 id="course-section-6" tabindex="-1">生态样方：五节比较探究</h2>
+    <a class="course-back" href="#course-directory">返回目录 ↑</a>
+    <ol>
+      <li>清点示例种：俯视核对四类假想示例种。</li>
+      <li>均匀度：比较均匀分配与优势种情境。</li>
+      <li>缺失一种生物：固定其它计数，观察种数和比例变化。</li>
+      <li>同样总数：保留各8个的样方，调整为20、4、4、4，核对总数不变。</li>
+      <li>数量翻倍：由各4个变为各8个，解释为何比例与H′不变。</li>
+    </ol>
+    <p>
+      真菌子实体在现实中不能直接等同于独立个体；指标不替代生态调查。<a
+        href="./#biodiversity"
+        >进入生态群落工作台 →</a
+      >
+    </p>
+    <h2 id="course-section-7" tabindex="-1">四季：五节时空探究</h2>
+    <a class="course-back" href="#course-directory">返回目录 ↑</a>
+    <ol>
+      <li>公转位置与四季：对照四个近似节气。</li>
+      <li>南北半球：比较对称纬度的昼长。</li>
+      <li>高纬度：观察极昼、极夜及对应曲线平台。</li>
+      <li>春秋分：说明昼长相近不代表正午太阳高度相同。</li>
+      <li>全年曲线：点按选日或播放公转，比较不同纬度的季节变化。</li>
+    </ol>
+    <p>
+      一年从北半球春分起算，忽略大气折射等影响；昼长不能直接换算气温。<a
+        href="./#seasons"
+        >进入四季工作台 →</a
+      >
+    </p>
+    <h2 id="course-section-8" tabindex="-1">昼夜：五节观察点探究</h2>
+    <a class="course-back" href="#course-directory">返回目录 ↑</a>
+    <ol>
+      <li>朝向太阳的一侧：辨认昼半球和夜半球。</li>
+      <li>一周的周期：比较0、6、12、18小时的自转位置。</li>
+      <li>纬度与观察点：比较不同纬线圈及太阳高度。</li>
+      <li>晨昏线与地平线：对照日出、正午、日落的观察点和曲线。</li>
+      <li>模型边界：区分春秋分固定赤纬的自转模型与四季模型。</li>
+    </ol>
+    <p>
+      时间为示意太阳时，未计大气折射和太阳视半径。<a href="./#daynight"
+        >进入昼夜工作台 →</a
+      >
+    </p>
+    <h2 id="course-section-9" tabindex="-1">月相：五节空间观察</h2>
+    <a class="course-back" href="#course-directory">返回目录 ↑</a>
+    <ol>
+      <li>一半受光：区分月球受光半球与地面所见亮面。</li>
+      <li>新月与满月：对照日地月相对位置。</li>
+      <li>上弦与下弦：观察亮侧差异。</li>
+      <li>朔望月循环：播放一轮并追踪图谱选点。</li>
+      <li>同样比例不同月相：结合亮侧、位置和盈亏方向判断。</li>
+    </ol>
+    <p>
+      月相不由地球阴影造成，图中尺度与月面朝向为教学示意。<a href="./#moon"
+        >进入月相工作台 →</a
+      >
+    </p>
+    <h2 id="course-section-10" tabindex="-1">流域水量：从路径到守恒</h2>
+    <a class="course-back" href="#course-directory">返回目录 ↑</a>
+    <ol>
+      <li>降水分配：辨认地表径流、下渗与蒸散。</li>
+      <li>下渗与径流：固定降水和蒸散，扫描下渗比例。</li>
+      <li>蒸散与平衡：检查各分量之和。</li>
+      <li>同一场雨：保留对照 A，再用滑块改变下渗，比较差值。</li>
+      <li>比例与总量：降水加倍时比例条不变，而各分量水量加倍。</li>
+    </ol>
+    <p>
+      扫描是参数演示，不是暴雨或洪峰预测；植被显隐不改变下渗参数。<a
+        href="./#water"
+        >进入流域工作台 →</a
+      >
+    </p>
+    <h2 id="course-section-11" tabindex="-1">地震波：从地下位置到到时证据</h2>
+    <a class="course-back" href="#course-directory">返回目录 ↑</a>
+    <ol>
+      <li>震源与震中：改变深度，辨认地下位置与地表投影。</li>
+      <li>P波与S波：对照质点振动方向、波前和路程—时间直线。</li>
+      <li>到时差与距离：用剖面三角形区分震中距和震源距。</li>
+      <li>两次到达之间：定位并暂停，对照台站与波前。</li>
+      <li>单台站边界：两组不同位置具有相同50km震源距，比较到时不变。</li>
+    </ol>
+    <p>
+      本课使用均匀介质及固定波速；不能据此预测地震或用单台站唯一定位。<a
+        href="./#earthquake"
+        >进入地震工作台 →</a
+      >
+    </p>
+    <h2 id="course-section-12" tabindex="-1">火山：结构、喷出物与过程</h2>
+    <a class="course-back" href="#course-directory">返回目录 ↑</a>
+    <ol>
+      <li>外形与内部通道：切换剖面并观察岩浆通道。</li>
+      <li>喷发形态：在相同8秒演示时刻比较溢流式与爆发式。</li>
+      <li>演示强度：同一时刻对照喷出物外观，区分演示参数与真实灾害等级。</li>
+      <li>分层观察：单独显示熔岩、火山灰或碎屑，再组合观察。</li>
+      <li>流动到结壳：保持参数不变，对照8秒和20秒的流迹与表面外观。</li>
+    </ol>
+    <p>
+      颜色、强度与演示时间均为定性教学设定，不能读取真实温度或判断安全。<a
+        href="./#volcano"
+        >进入火山工作台 →</a
+      >
+    </p>
+    <h2 id="course-section-13" tabindex="-1">板块运动：从方向到材料变形</h2>
+    <a class="course-back" href="#course-directory">返回目录 ↑</a>
+    <ol>
+      <li>张裂：追踪两侧材料远离和地层变薄。</li>
+      <li>碰撞：观察缩短增厚与地表隆起。</li>
+      <li>水平错动：俯视两侧相对滑动。</li>
+      <li>地层柱对照：选择边界、中部、远处，比较局部宽厚比与面积比。</li>
+      <li>地表标记：用金线的连续与错位识别运动，区分形变与平移。</li>
+    </ol>
+    <p>
+      运动学模型保持局部材料柱面积，不模拟断层破裂或真实地质时间。<a
+        href="./#plates"
+        >进入板块工作台 →</a
+      >
+    </p>
+    <h2 id="course-section-14" tabindex="-1">分数：从等分到比较</h2>
+    <a class="course-back" href="#course-directory">返回目录 ↑</a>
+    <ol>
+      <li>整体与等分：同一个整体分成不同份数，观察每份大小。</li>
+      <li>等值分数：比较1/2、2/4和4/8，同尺度分数条覆盖量保持相同。</li>
+      <li>跨过一个整体：联动圆盘与数轴，比较7/8、8/8和9/8。</li>
+      <li>同分母比较：保留3/8为A，再调分子观察份数增加。</li>
+      <li>同分子比较：保留3/4为A，再调分母到8，观察每份变小。</li>
+    </ol>
+    <p>
+      比较始终以同样大小的整体为单位，乘法核对可按教学进度展开。<a
+        href="./#fractions"
+        >进入分数工作台 →</a
+      >
+    </p>
+    <h2 id="course-section-15" tabindex="-1">勾股定理：从拼图到证明</h2>
+    <a class="course-back" href="#course-directory">返回目录 ↑</a>
+    <ol>
+      <li>识别三个正方形与直角三角形的边。</li>
+      <li>刚性移动四块全等三角板，对照两种端点拼法。</li>
+      <li>改变直角边长，验证各面积读数。</li>
+      <li>按底板、三角板、剩余面积的顺序解释(a+b)²−2ab=a²+b²=c²。</li>
+      <li>同比放大：边长加倍，各块面积变为四倍，关系仍成立。</li>
+    </ol>
+    <p>
+      以起点与终点核对面积分割，移动中的投影可能重叠。<a href="./#pythagoras"
+        >进入勾股工作台 →</a
+      >
+    </p>
+    <h2 id="course-section-16" tabindex="-1">圆：从测量到逼近</h2>
+    <a class="course-back" href="#course-directory">返回目录 ↑</a>
+    <ol>
+      <li>展开圆周绳，用直径尺理解C/d=π。</li>
+      <li>等分圆盘并交错重排，保留真实圆弧。</li>
+      <li>改变半径，对照周长的一次关系与面积的平方关系。</li>
+      <li>放大比较8、16、32、48等分的弧高，观察边缘变平。</li>
+      <li>
+        拓展：比较内接多边形与圆的面积差，区分完整扇形等积重排与多边形近似。
+      </li>
+    </ol>
+    <p>
+      最后一步为进阶拓展，不要求小学阶段掌握三角函数公式。<a href="./#circle"
+        >进入圆的工作台 →</a
+      >
+    </p>
+    <h2 id="course-section-17" tabindex="-1">新增：波动与浮力</h2>
+    <a class="course-back" href="#course-directory">返回目录 ↑</a>
+    <p>
+      <a href="./#waves">波的传播与叠加</a>：振动与传播 → 波速、波长与频率 → 相长
+      → 相消 →
+      驻波与波节。高中拓展以三条同尺度曲线展示位移叠加，播放与时间轴共用一个时钟。
+    </p>
+    <p>
+      <a href="./#buoyancy">浮力、排水与沉浮</a>：浸入与排水 → 液体密度 →
+      区分物重与浮力 → 漂浮排水比例 →
+      漂浮、悬浮和沉底。初中阶段通过受控浸入及最终平衡对照，不把静态结果呈现成未经计算的落水过程。
+    </p>
+    <h2 id="course-section-18" tabindex="-1">正方体：从六个面到逐层填满</h2>
+    <a class="course-back" href="#course-directory">返回目录 ↑</a>
+    <p>
+      折叠十字展开图 → 追踪相对面 → 改变棱长 → 给每个面分格 →
+      用小方块逐层填满。面内n²格对应面积，每层n²块、共n层对应体积；等分数变化不改变整个正方体的表面积与体积。
+    </p>
+    <p>
+      课堂可先问“第二层填完有几块”，再点击层按钮或播放检验；小方块不一定是1cm³，须结合a/n计算。<a
+        href="./#cube"
+        >进入正方体工作台 →</a
+      >
+    </p>
+    <h2 id="course-section-19" tabindex="-1">圆锥：用薄层理解累计体积</h2>
+    <a class="course-back" href="#course-directory">返回目录 ↑</a>
+    <p>
+      第五节先对照半高下部的7/8体积，再选进阶观察：用4、8、16、32层薄圆柱分别内接和外接圆锥。比较上下界逐步靠近精确累计体积，明确“截面积×厚度”的近似含义。与原截面扫描共用高度，不要求小学阶段计算积分。
+    </p>
+    <p><a href="./#solids">进入圆柱圆锥工作台 →</a></p>
+    <h2 id="course-section-20" tabindex="-1">折射：从法线量角到临界状态</h2>
+    <a class="course-back" href="#course-directory">返回目录 ↑</a>
+    <p>
+      五节依次观察从法线量角、介质与偏折、全反射条件、临界角前后、正弦关系。先拖动光源或曲线选点，再扫描入射角，比较光路与读数；等于临界角的掠射极限与大于临界角的全反射明确区分。
+    </p>
+    <p><a href="./#refraction">进入折射工作台 →</a></p>
+    <h2 id="course-section-21" tabindex="-1">杠杆：从力臂到平衡方案</h2>
+    <a class="course-back" href="#course-directory">返回目录 ↑</a>
+    <p>
+      认识垂直力臂 → 调节到平衡 → 省力与距离 →
+      相同力矩、不同转动惯量（高中拓展） →
+      限位停止与平衡的区别。先预测下降方向，再拖动载荷或选择距离，观察平衡曲线。每次对照先暂停并回到水平释放起点；记录作用力、距离、力矩和初始角加速度。
+    </p>
+    <p><a href="./#lever">进入杠杆工作台 →</a></p>
+    <h2 id="course-section-22" tabindex="-1">抛体运动：比较轨迹前先统一比例</h2>
+    <a class="course-back" href="#course-directory">返回目录 ↑</a>
+    <p>
+      平抛的分运动 → 最高点速度 → 角度与射程 → 速度平方关系 →
+      高台发射。保留一条轨迹后只改变一个变量，读取同尺度叠加图和对照表。10与20
+      m/s同角度地面发射，射程为四倍；从10 m高台以15
+      m/s发射，比较45与36度，说明最大射程角依赖起落高度条件。均忽略空气阻力。
+    </p>
+    <p><a href="./#projectile">进入抛体工作台 →</a></p>
+    <h2 id="course-section-23" tabindex="-1">斜面：把受力、运动和能量连起来</h2>
+    <a class="course-back" href="#course-directory">返回目录 ↑</a>
+    <p>
+      重力分解 → 摩擦与起滑 → 质量与加速度 → 势能转化 →
+      挡板停止。对照光滑和粗糙斜面的行程一半，比较相同势能减少量对应的动能；到达挡板后，观察动能转入停止耗散。静止情境没有位移，静摩擦不做功。能量拓展适合初中进阶和高中，挡板采用瞬时停止简化模型。
+    </p>
+    <p><a href="./#incline">进入斜面工作台 →</a></p>
+    <h2 id="course-displacement" tabindex="-1">金属置换：从镀层到物质守恒</h2>
+    <a class="course-back" href="#course-directory">返回目录 ↑</a>
+    <p>
+      观察铁钉铜镀层 → 对照锌片 → 铜片空白对照 → 限量反应物 →
+      固体质量变化。初中先看现象和质量，高中拓展再读mmol数量条。拖动进度，核对每进入溶液的一份铁或锌对应一份铜析出；称量假定铜全部保留、固体洗净干燥，不能把有镀层直接等同于增重。
+    </p>
+    <p><a href="./#displacement">进入置换工作台 →</a></p>
+    <h2 id="course-distillation" tabindex="-1">蒸馏：升温、汽化与收集</h2>
+    <a class="course-back" href="#course-directory">返回目录 ↑</a>
+    <p>
+      认识装置 → 加热到沸腾 → 冷凝收集 → 冷却水作用 →
+      功率与等待时间。先预测开始沸腾时刻，再定位验证；用200
+      g水量条核对原瓶、接收瓶和未收集蒸汽。200
+      W时240秒内尚未沸腾，并不代表装置故障。忽略散热等因素，温度和时间只对应本简化模型。
+    </p>
+    <p><a href="./#distillation">进入蒸馏工作台 →</a></p>
+    <h2 id="course-electrolysis" tabindex="-1">电解水：体积、质量与电荷</h2>
+    <a class="course-back" href="#course-directory">返回目录 ↑</a>
+    <p>
+      接通电源 → 两极体积比 → 电流与产气量 → 暂停观察 →
+      体积和质量比较。初中先比较同温同压体积2比1；高中拓展通过Q/2F与Q/4F求物质的量，再乘摩尔质量。按相对分子质量2与32近似，质量比为1比8。理想电流效率100%，不演示气体点燃。
+    </p>
+    <p><a href="./#electrolysis">进入电解工作台 →</a></p>
+    <h2 id="course-flame" tabindex="-1">焰色：清洁参考与干扰</h2>
+    <a class="course-back" href="#course-directory">返回目录 ↑</a>
+    <p>
+      认识特征焰色 → 比较样品 → 钠污染干扰 → 清洁复核 →
+      同一样品并排对照。先观察清洁参考，再改变污染设置、清洁复测；钠样品和外来钠都产生黄光，不能单凭颜色判别来源。颜色仅为显示器近似，污染不对应浓度。高中学习能级发光，初中拓展以观察方法为主。
+    </p>
+    <p><a href="./#flame">进入焰色工作台 →</a></p>
+    <h2 id="course-indicators" tabindex="-1">中和：同一 pH 下的指示剂对照</h2>
+    <a class="course-back" href="#course-directory">返回目录 ↑</a>
+    <p>
+      第四节“观察中和点附近”增加酚酞与溴百里酚蓝两份比色样品。先定位恰好中和，再比较不同变色区间的起点、中间和终点，解释指示剂变色与精确中和并非同一概念；继续加碱时，颜色也不能无限分辨不同
+      pH。颜色只是近似示意，六位体积只是模型解，不是器材精度。主烧杯没有加指示剂，仍为无色。
+    </p>
+    <p>
+      <a href="./#acid">进入酸碱中和 →</a> ·
+      <a
+        href="https://openstax.org/books/chemistry-2e/pages/14-7-acid-base-titrations"
+        target="_blank"
+        rel="noreferrer"
+        >酸碱滴定与指示剂参考</a
+      >
+    </p>
+    <h2 id="course-crystal-balance" tabindex="-1">结晶：区分新增与全部固体</h2>
+    <a class="course-back" href="#course-directory">返回目录 ↑</a>
+    <p>
+      在降温课先保留高温起点，再用扫描或温度按钮冷却，对照已溶解、原有固体、新增晶体和全部固体。进阶例：100
+      g 水与180 g 硝酸钾，在60°C已有70 g未溶固体；降至20°C，新增78.4
+      g，杯底总固体148.4
+      g。新增不能直接用全部固体代替。反向升温则显示重新溶解量；两状态始终满足投料=已溶解+固体。计算来自既有教学溶解度表，不含过饱和、成核延迟或晶体生长速率。
+    </p>
+    <p><a href="./#solubility">进入饱和与结晶 →</a></p>
+    <h2 id="course-gas-work" tabindex="-1">气体：状态变化与恒温做功</h2>
+    <a class="course-back" href="#course-directory">返回目录 ↑</a>
+    <p>
+      体积与压强 → 温度与压强 → 物质的量 → 状态方程 →
+      恒温压缩与能量交换。第五节固定 300 K、0.5 mol，从 20 L 动画压缩到 10
+      L，将活塞移动与等温线阴影、做功读数联动。再选 30 L
+      比较膨胀与吸热。气体对外做功和吸热取正；W=nRT ln(V₂/V₁)，恒温理想气体
+      ΔU=0、Q=W。只适用于可逆准静态恒温过程，不能外推为快速压缩或绝热过程。
+    </p>
+    <p>
+      <a href="./#gas">进入气体工作台 →</a> ·
+      <a
+        href="https://openstax.org/books/university-physics-volume-2/pages/3-4-thermodynamic-processes"
+        target="_blank"
+        rel="noreferrer"
+        >热力学过程参考</a
+      >
+    </p>
+    <h2 id="course-probability" tabindex="-1">随机试验：从频率到重复对照</h2>
+    <a class="course-back" href="#course-directory">返回目录 ↑</a>
+    <p>
+      单枚硬币 → 多次独立试验 → 概率偏向 → 样本与理论 →
+      重复试验。先逐组播放观察累计频率的起伏，再做 100
+      组保留为参考轮，重开一轮以相同
+      n、p、样本量比较曲线。两条不同曲线不意味着理论概率改变；样本增多不保证误差单调减小。采用可重复的伪随机伯努利序列；动画不是刚体投掷仿真，初中观察频率，高中拓展二项分布。参考轮仅当前页面保留。
+    </p>
+    <p><a href="./#probability">进入随机试验 →</a></p>
+    <h2 id="course-cycloid" tabindex="-1">滚动的圆与摆线</h2>
+    <a class="course-back" href="#course-directory">返回目录 ↑</a>
+    <p>
+      滚动一周与圆周长 → 轮心直线 → 轮缘摆线 → 轮内短幅摆线 →
+      轮外回环。初中先做轨迹观察，高中拓展参数方程 x=Rθ−d sinθ、y=R−d cosθ；θ
+      为弧度。使用同一比例坐标、无滑动刚性滚动。轮外描迹杆在独立平面中运动，不计算与地线碰撞；虚线延续下一周期供观察回环。
+    </p>
+    <p><a href="./#cycloid">进入滚动几何 →</a></p>
+    <h2 id="course-doppler" tabindex="-1">多普勒效应与移动声源</h2>
+    <a class="course-back" href="#course-directory">返回目录 ↑</a>
+    <p>
+      静止同心波面 → 向右前密后疏 → 反向运动 → 速度增大 →
+      改变发射频率。每个波面圆心固定在发射位置，半径等于波速乘传播时间。两名观察者固定于轴向两侧，声源在演示期间不越过观察者。使用放慢的
+      c=2 m/s
+      示意，稳态接收频率不是首个波面到达前的实测值，不模拟真实可听音频或超声速情况。两个新主题均支持暂停、逐步、进度条、章节预设；当前条件不跨刷新保存。
+    </p>
+    <p><a href="./#doppler">进入波面探究 →</a></p>
+    <h2 id="course-section-24" tabindex="-1">如何理解“真实”</h2>
+    <a class="course-back" href="#course-directory">返回目录 ↑</a>
+    <p>
+      几何、公式和仪表读数共享计算模型。实线与虚线区分实际光线和反向延长线，电路按串并联连接规则绘制，三维地形与等高线来自同一三角网格。科学模型并不意味着所有画面都是实物照片。
+    </p>
+    <p>
+      细胞和大陆轮廓为自制简图；显微视野使用字母、洋葱表皮和池塘微生物绘制标本；光合与水循环采用明确简化模型；溶解度使用教学近似表；板块运动的时空比例被夸张。各课页面可直接查看其假设。
+    </p>
+    <h2 id="course-section-25" tabindex="-1">使用与保存</h2>
+    <a class="course-back" href="#course-directory">返回目录 ↑</a>
+    <p>
+      本地运行，不需要登录。参数和记录按主题保存在当前浏览器，切换主题和刷新可恢复，每课最多
+      200
+      条；复位恢复参数与时间并保留记录，清空记录需单独确认，未同步云端。可导出
+      CSV
+      保存。投屏按钮切换大场景布局，浏览器可自行进入全屏。三维视角支持拖动、滚轮，也可使用正视、俯视按钮。
+    </p>
+    <h2 id="course-oscillations" tabindex="-1">新增：从振动到图形</h2>
+    <a class="course-back" href="#course-directory">返回目录 ↑</a>
+    <p>
+      <a href="./#lissajous">李萨如图形与振动合成</a>：同频同相直线 →
+      四分之一周期相差的圆 → 不等振幅椭圆 → 1:2 八字 → 2:3
+      交织曲线。播放与单步对照 x/y
+      分量，调相位与振幅解释轨迹变化，适合高中参数曲线及跨学科拓展。
+    </p>
+    <p>
+      <a href="./#standing">弦上的驻波与谐波</a>：两波叠加 → 波节与波腹 →
+      第二谐波 → 第三及更高模式 → 张力与频率。移动观察点检查两分量之和；比较 36
+      N 与 144 N 的频率。理想固定端弦长 1 m、线密度 0.01 kg/m，动画放慢 60
+      倍，纵向位移放大，适合高中波动拓展。
+    </p>
+    <p>
+      依据：<a
+        href="https://openstax.org/books/university-physics-volume-1/pages/16-6-standing-waves-and-resonance"
+        >OpenStax 驻波与共振</a
+      >；<a
+        href="https://ucscphysicsdemo.sites.ucsc.edu/physics-5b6b-demos/oscillations-and-waves/lissajous-figures/"
+        >UCSC 李萨如演示</a
+      >。模型说明与参数只在当前工作台保留，不代表真实器材响应。
+    </p>
+    <h2 id="course-precipitation-ions" tabindex="-1">
+      沉淀反应：从现象到离子去向
+    </h2>
+    <a class="course-back" href="#course-directory">返回目录 ↑</a>
+    <p>
+      <a href="./#precipitation">看见沉淀反应</a
+      >按生成现象、恰好配比、限制反应物、上清液中的离子、沉降与生成五节展开。对照
+      50 mL 铜盐与 50/75 mL 碱，观察 Cu²⁺、OH⁻、Na⁺、SO₄²⁻
+      及固体数量；再比较滴加完成和静置终点，区分颗粒分布与物质总量。条带表示
+      mmol，不是浓度。采用完全反应近似，不计算微量溶解、水解、络合和水的自解离。
+    </p>
+    <h2 id="course-testcross" tabindex="-1">遗传概率：分类与证据</h2>
+    <a class="course-back" href="#course-directory">返回目录 ↑</a>
+    <p>
+      <a href="./#inheritance">遗传的概率方格</a>中，同一批虚拟后代可以按
+      AA/Aa/aa 或显隐性性状统计，观察 1:2:1 合并为
+      3:1。测交证据窗对照显性亲本的两种假设：AA×aa 与
+      Aa×aa。改变假设样本量，计算连续 n 个均显性的概率
+      (1/2)^n；该滑条不生成后代，不将结果概率误当作亲本基因型的后验概率。仅适用于独立抽样、完全显性、无突变及判读错误的单基因模型。
+    </p>
+    <h2 id="course-rain-volume" tabindex="-1">流域：毫米降水与体积</h2>
+    <a class="course-back" href="#course-directory">返回目录 ↑</a>
+    <p>
+      <a href="./#water">流域水量平衡</a>新增面积—雨深—体积对照。1 mm 降水覆盖 1
+      m² 相当于 1
+      L；固定降水，改变面积，比较径流、下渗与蒸散的体积，并核对三项之和。示意水柱竖向放大，面积换算不修改三维地形比例尺；累计径流体积并不等于河道瞬时流量或地表积水深度。配合第五节先改变雨深、再改变面积，避免混淆量纲。
+    </p>
+    <h2 id="course-circle-scale" tabindex="-1">圆：半径、周长与面积的比例</h2>
+    <a class="course-back" href="#course-directory">返回目录 ↑</a>
+    <p>
+      <a href="./#circle">平面几何与面积</a
+      >的第三节增加同尺度双圆。先保留参照，再将半径变为两倍，观察周长比2与面积比4；播放半径扫描，比较线性变化与平方变化。网格每格1cm，仅用于估读，不把边界格当作完整面积；数值仍按圆的精确公式计算，小数近似显示。
+    </p>
+    <h2 id="course-atom-identity" tabindex="-1">原子守恒：追踪同一个原子</h2>
+    <a class="course-back" href="#course-directory">返回目录 ↑</a>
+    <p>
+      <a href="./#conservation">化学反应中的原子守恒</a
+      >按反应前后、恰好配比、过量剩余、分子数变化、个数比与质量比五节展开。稳定的H/O编号帮助逐一清点；逐批重排时，原子不增加也不消失。对照一批反应的分子数3→2与相对质量36→36。移动路径为计量教学示意，不表示真实碰撞或反应机理；取相对原子质量H≈1、O≈16，质量比为1:8:9，不把相对质量当作克数。
+    </p>
+    <h2 id="course-linear-points" tabindex="-1">一次函数：两点与零点</h2>
+    <a class="course-back" href="#course-directory">返回目录 ↑</a>
+    <p>
+      <a href="./#linear">一次函数</a
+      >新增两点还原直线、横轴交点与函数正负两节。先保存观察点为 A，再移动
+      P，核对 k=Δy/Δx 与
+      b=yᴬ−kxᴬ；让两点重合，说明不能用0÷0确定斜率。比较正负斜率时零点两侧的符号，再切换不与横轴相交的水平直线和恒零函数。零点指横坐标，交点为(x₀,0)。
+    </p>
+    <h2 id="course-rc-voltage" tabindex="-1">电容：回路电压如何分配</h2>
+    <a class="course-back" href="#course-directory">返回目录 ↑</a>
+    <p>
+      <a href="./#capacitor">电路与电容实验室</a
+      >的第五节将电源、电阻和电容电压放到同一正负量程。先比较初态与1τ，再观察3τ、5τ；固定充电方向为正，放电时电流和电阻电压为负。核对充电
+      U=IR+Uc、放电
+      0=IR+Uc，区分符号方向与始终非负的电阻耗散功率。保持理想集中参数 RC
+      模型，不模拟开关触点瞬态。
+    </p>
+    <h2 id="course-molecule-projection" tabindex="-1">
+      分子：空间键角与投影角
+    </h2>
+    <a class="course-back" href="#course-directory">返回目录 ↑</a>
+    <p>
+      <a href="./#molecule">分子结构</a
+      >第五节比较同一组原子坐标在不同角度下的正交投影。先观察水，再比较甲烷、氨和二氧化碳；转动到90°，解释重叠与投影退化。真实键角来自三维向量，不能直接用屏幕上的夹角替代。观察器为独立视角，图示键长不用于测量。
+    </p>
+    <h2 id="course-energy-comparison" tabindex="-1">
+      食物链：输入与效率的不同影响
+    </h2>
+    <a class="course-back" href="#course-directory">返回目录 ↑</a>
+    <p>
+      <a href="./#foodweb">食物链能量流动</a
+      >第二节起可保留一组参照。固定5000kJ输入，把效率10%改为20%，核对消费者分别为2倍和4倍；再固定效率，比较输入翻倍时各级均翻倍。对照条每行独立量程，不能跨行比较条长；三级能量不能重复相加作为总量。
+    </p>
+    <h2 id="course-photo-compare" tabindex="-1">
+      光合作用：同一光照下比较CO₂供给
+    </h2>
+    <a class="course-back" href="#course-directory">返回目录 ↑</a>
+    <p>
+      <a href="./#photosynthesis">光合作用</a
+      >第四节先在低CO₂下保留曲线，再切换高CO₂情境；主展示区同时保留两条曲线，并在同一光照值计算总光合相对速率的差额。扫描光照观察差距变化，区分百分点与相对增长率。模型不包含呼吸消耗，不能据此判断净光合或补偿点。
+    </p>
+    <h2 id="course-community-pair" tabindex="-1">群落：并排比较样方</h2>
+    <a class="course-back" href="#course-directory">返回目录 ↑</a>
+    <p>
+      <a href="./#biodiversity">生物多样性</a
+      >主区支持A/B并排比较。第四节保存均匀分配为A，再切换32个偏向植物，控制总计数和示例种数不变；第五节比较每种4个与8个，验证数量增加但比例和H′不变。组成条表示计数占比，不代表生物量或生态健康。
+    </p>
+    <h2 id="course-lever-angle" tabindex="-1">杠杆：力臂不是杆上距离</h2>
+    <a class="course-back" href="#course-directory">返回目录 ↑</a>
+    <p>
+      <a href="./#lever">杠杆</a
+      >第一节增加独立的斜向力观察器。固定力与作用点距离，比较0°、30°、90°和150°；找支点到力的作用线的垂直距离，核对
+      l=d sinα 与力矩
+      F·l。再回到上方竖直重物模型比较倾斜后的水平投影，区分两种几何关系。
+    </p>
+    <h2 id="course-reverse-ray" tabindex="-1">折射：沿折射光反向验证</h2>
+    <a class="course-back" href="#course-directory">返回目录 ↑</a>
+    <p>
+      <a href="./#refraction">折射</a
+      >第五节以空气进入玻璃的60°入射为例，记录约35.26°的折射角。反向验证会同时交换介质和角度，新的折射角回到60°；再次反向恢复原条件。全反射没有可反向追踪的传播折射路径，临界掠射的90°超出仪器入射范围，均禁止该操作并给出说明。
+    </p>
+    <h2 id="course-solar-pair" tabindex="-1">四季：南北对称纬度的昼夜对照</h2>
+    <a class="course-back" href="#course-directory">返回目录 ↑</a>
+    <p>
+      <a href="./#seasons">四季</a
+      >主区同时显示南北对称纬度的全年昼长曲线与24小时昼夜条。比较赤道、中纬度和高纬度；播放公转观察两条变化，在理想模型中对称纬度昼长之和为24小时。<a
+        href="./#daynight"
+        >昼夜</a
+      >的太阳高度曲线展示春秋分条件下的一天，不将示意时刻当作当地钟表时间。
+    </p>
+    <h2 id="course-polar">极坐标与玫瑰线：旋转射线与曲线生成</h2>
+    <p>
+      <a href="./#polar">进入极坐标演示</a
+      >。依次观察恒定极径的圆、心形线尖点、三瓣玫瑰、四瓣玫瑰和尺度变化。先预测负极径的位置，再播放验证；用
+      n=2、3、4 对比瓣数，最后固定 n 检验 a 对大小的影响。奇数 n
+      的完整一周会重复描绘，不能用描绘次数作为瓣数。通过“同一个点，两种读法”同步观察
+      r(θ)，依次定位正峰、零点、负峰，解释负极径为何对应反方向，以及极径为零时点为何没有唯一方向。
+    </p>
+    <h2 id="course-projectile">抛体运动：分解、互余角与重力</h2>
+    <p>
+      <a href="./#ballistics">进入抛体演示</a
+      >。从高处平抛观察等时位移，再学习斜抛最高点、30°与60°互余角、竖直上抛和不同重力。比较实际飞行时间、射程和高度读数；无空气阻力、发射与落地点同高才有互余角同射程结论。屏幕自适应缩放，比较不同重力时以读数为准。使用“两条轨迹，三个量”表格对照互余角；点击“定位当前最高点”，验证竖直速度为零但水平速度通常不为零。将发射高度调为10
+      m，检验互余角同射程的条件是否仍成立。
+    </p>
+    <h2 id="course-standing-probe">驻波：空间形状与时间振动</h2>
+    <p>
+      <a href="./#standing">进入驻波演示</a
+      >。先观察两列行波叠加，再用精确选点按钮定位第三谐波的1/3
+      L波节；保持时刻不变，比较相邻波腹的位移符号。使用0、1/4、1/2、3/4周期按钮核对局部位移，区分整根弦的空间曲线和单点的时间曲线。物理周期与慢放演示周期分别标示。
+    </p>
+    <h2 id="course-rolling-velocity">摆线：平移与转动速度的合成</h2>
+    <p>
+      <a href="./#cycloid">进入滚动圆演示</a
+      >。比较轮心、轮内点、轮缘点和轮外点：先定位底部，观察两个速度分量抵消、部分抵消或反向超出；再定位顶部，验证轮缘点速率是轮心的两倍。用速度图解释轮外轨迹的回环，不把速度箭头误读为位置连线。
+    </p>
+    <h2 id="course-doppler-arrivals">多普勒效应：从到达间隔读接收频率</h2>
+    <p>
+      <a href="./#doppler">进入移动声源演示</a
+      >。从静止声源开始，比较发射间隔与两侧接收间隔；改为向右运动，再反转速度。使用发射定位按钮核对波面圆心。时间图标出6秒以后预测到达事件，不把预测误读为已发生记录。以接收间隔的倒数解释频率读数。
+    </p>
+    <h2 id="course-lissajous-cycle">李萨如图形：共同周期与交叉点</h2>
+    <p>
+      <a href="./#lissajous">进入振动合成</a
+      >。观察水平与竖直的相位盘，分别定位半个、一个共同周期。比较1:2与2:4，说明相同约分频率比为什么重复速度不同；再改变初相位，区分曲线形状变化与周期变化。仅回到同一个空间交叉点不能证明振动状态已经重复。
+    </p>
+    <h2 id="course-distillation-energy">蒸馏：温度平台与汽化潜热</h2>
+    <p>
+      <a href="./#distillation">进入蒸馏演示</a
+      >。定位刚到沸点，再定位汽化10g水，比较温度读数、累计供热和收集水量。说明温度保持近似100°C并不意味着不再吸热；冷凝器释放同一份潜热，不可重复计入加热器供热。改变功率比较达到同一状态所需的时间。
+    </p>
+    <h2 id="course-equal-charge">电解水：相同电荷、不同电流</h2>
+    <p>
+      <a href="./#electrolysis">进入电解演示</a
+      >。选择300C目标，将0.5A×600s、1A×300s和2A×150s分别载入器材，比较两极产气量。说明增大电流改变达到同一产气量所需的时间；再固定时间比较电流，避免混淆控制变量。电荷不等于电能，求耗电量还需电压。
+    </p>
+    <h2 id="course-displacement-limit">置换反应：限制反应物与恰好配比</h2>
+    <p>
+      <a href="./#displacement">进入金属置换</a
+      >。分别准备5、10、15mmol铁，预测金属和铜离子谁先用完，再查看终点；换成锌后重复10mmol对照，说明1:1物质的量关系不等于相同质量。最后换成铜片，解释为什么不能仅凭数量较少就判断反应终点。
+    </p>
+    <h2 id="course-flame-reference">焰色：保留观察与控制变量</h2>
+    <p>
+      进入焰色第六章，保留清洁锂盐参考，再切换清洁钾盐：只改变样品。更新为钾盐参考后增加钠污染：只改变污染程度。点击清洁复核。若两个条件同时改变，先恢复一个条件再解释差异。保留的是颜色示意，并非光谱或浓度测量；切换章节会清空参考。
+    </p>
+    <p><a href="./#flame">打开焰色演示</a></p>
+    <h2 id="course-electrolysis-interface">电解：从液面下降读出集气量</h2>
+    <p>
+      选择体积比章节并播放，观察两支等内径管中的气液界面下降。比较界面以上气柱长度：氢气约为氧气的两倍。暂停后旋转视角复核，再检查体积读数。气泡只在液体中上升；气泡数量、大小和速度为示意，不能代替体积测量。
+    </p>
+    <p><a href="./#electrolysis">打开电解演示</a></p>
+    <h2 id="course-distillation-flow">蒸馏：内管与夹套中的两个方向</h2>
+    <p>
+      先在认识装置章节找到低端进水口和高端出水口。开启演示，沿蓝色箭头观察夹套中的冷却水方向，并与内管中从蒸馏瓶通往接收杯的方向比较。加热至沸腾后暂停，观察保留的液滴和气泡，再关闭冷却水比较收集情况。箭头是方向示意，不代表实际流速或分子运动。
+    </p>
+    <p><a href="./#distillation">打开蒸馏演示</a></p>
+    <h2 id="course-microscope-field-area">显微镜：倍率与观察范围</h2>
+    <p>
+      在高倍观察章节展开目镜下方的视野范围说明，依次选择4×、10×、40×物镜，对应40×、100×、400×总倍率。在同一比例图中比较内外圆：倍率增至10倍，直径缩至十分之一，面积缩至百分之一。先低倍寻找目标、移到中央，再换高倍并细调。图为理想视场示意，不用于真实照片尺寸测量。
+    </p>
+    <p><a href="./#microscope">打开显微镜</a></p>
+    <h2 id="course-displacement-metal">置换：原金属消失后，铜去了哪里</h2>
+    <p>
+      准备5
+      mmol铁或锌，查看完全反应终点。原金属耗尽，但溶液中仍有铜离子，杯底保留析出的铜；再准备15
+      mmol比较剩余金属。切换铜片作不反应对照。夹持杆不是反应物；变薄及颗粒沉到底部为去向示意，不预测腐蚀形貌和沉降速度。
+    </p>
+    <p><a href="./#displacement">打开置换演示</a></p>
+    <h2 id="course-genetics-frequency">遗传：随机频率如何接近理论概率</h2>
+    <p>
+      固定Aa×Aa，先抽样20个并观察aa累计频率与25%理论线。连续抽样至1000，观察曲线波动；再清空重做。比较不同轨迹，解释为什么偏差不一定每一步都变小。按基因型/性状分类只改变统计呈现，不重新抽样。横轴随样本量展开，纵轴始终为0–100%。
+    </p>
+    <p><a href="./#inheritance">打开遗传工作台</a></p>
+    <h2 id="course-surface-water">校园地表改造与径流</h2>
+    <p>
+      入口：<a href="./#water">流域水量平衡</a
+      >第6—8节。依次比较铺装与透水地表、调整校园透水面积、完成径流不超过30mm的目标挑战。
+    </p>
+    <ol>
+      <li>
+        同样100mm降水与10%蒸散，在全部铺装和全部透水之间切换，核对径流80mm与20mm。
+      </li>
+      <li>把透水面积从25%改为75%，对照百格地块、下渗与径流；总输入不变。</li>
+      <li>
+        分别尝试50、100、200mm降水：查看刚好达标的方案，并解释200mm情境中即使全部透水也无法达标。
+      </li>
+    </ol>
+    <p>
+      下渗比例10%与70%为教学假设，面积加权模型不计储水、汇流和土壤饱和，不能用于城市排水设计。地块图是独立示意，三维流域同步水量分配。
+    </p>
+    <h2 id="course-buoyancy-force-plot">浸入比例与浮力交点</h2>
+    <p>
+      在<a href="./#buoyancy">浮力观察台</a
+      >第三节比较600与1400kg/m³物体：查看浮力斜线和重力水平线。轻物体可定位两力相等，重物体在0—100%浸入范围内没有交点。观察约束杆的外力方向；沉底平衡时仍需支持力。曲线不是自由运动轨迹，完全浸没后浮力不随深度继续增大。
+    </p>
+    <h2 id="course-energy-depth">多一次能量传递</h2>
+    <p>
+      在<a href="./#foodweb">食物链中的能量流动</a
+      >第六节选择二至五个营养级，或点击逐级延长。10000kJ输入、统一10%效率时，五级末端为1kJ；改为20%时为16kJ。五个营养级包含四次传递。末环节放大条以它的上一级为100%，不同于以生产者为满量程的主图。
+    </p>
+    <p>
+      抽象营养级仅用于乘法模型，不表示一个真实食物链，也不直接预测种群数量或最大链长。
+    </p>
+    <h2 id="course-secant-convergence">左右差商与切线</h2>
+    <p>
+      在<a href="./#functions">函数图像</a
+      >第八节，固定P点，用左右差商表依次比较间距1、0.5、0.1、0.01。点击表项同步主图割线；x²在x=1两侧分别趋近2，|x|在x=0两侧分别为−1、1。
+    </p>
+    <p>
+      平方根端点的一侧无定义，跨反比例间断的割线有提示。有限个表值仅辅助观察，不能代替极限证明；零间距不能代入差商。
+    </p>
+    <h2 id="course-noon-shadow">正午日影与季节</h2>
+    <p>
+      在<a href="./#seasons">地球公转与四季</a
+      >第六节，比较北纬40°春分、夏至、冬至的1m竖杆日影。改变杆高，验证同一太阳高度下影长与杆高成正比。赤道春分模型中太阳在天顶，理想影长为零。
+    </p>
+    <p>
+      影长=杆高÷tan太阳高度。极夜不绘制直射影子，太阳恰在地平线时没有有限影长。图中4m只是显示范围，并非物理上限。沿用太阳平行光、水平地面、无大气折射的教学模型。
+    </p>
+    <h2 id="course-solid-volume-targets">按体积寻找切面</h2>
+    <p>
+      <a href="./#solids">立体几何</a
+      >第六节：先定位圆锥二分之一体积，再对照圆柱半体积，最后尝试四分之一、四分之三圆锥体积。圆锥半体积对应总高约20.630%，圆柱则为50%。
+    </p>
+    <p>
+      由上部相似圆锥体积比例(1−z/h)³得到z/h=1−∛(1−v)。改变半径和总高后，相同比例仍成立；三维着色表示几何体积，不模拟液体流动。
+    </p>
+    <h2 id="course-symmetry-pulley">图形变换与滑轮</h2>
+    <p>
+      <a href="./#symmetry">轴对称与旋转</a
+      >比较竖直、水平、斜对称轴及旋转对应点。中间折叠帧仅为投影示意。<a
+        href="./#pulley"
+        >滑轮</a
+      >对照定滑轮和动滑轮，观察拉力、拉绳距离与机械功；理想轻绳、无摩擦条件下，省力不省功。
+    </p>
+    <h2 id="course-gamete-journey">从配子到受精</h2>
+    <p>
+      <a href="./#inheritance">遗传的概率方格</a
+      >第六节追踪亲本等位基因、配子与子代组合，可选择组合、播放和逐段定位。动画是来源追踪示意，不代表完整减数分裂过程，也不替代随机抽样。
+    </p>
+    <h2 id="course-longitude-time">经度与地方时</h2>
+    <p>
+      <a href="./#daynight">昼夜变化</a
+      >第六节改变东西经差，比较同纬度两地的地方太阳时和太阳高度；经差15度对应1小时。跨午夜显示相对日序，不代表法定时区或日期变更线。
+    </p>
+    <h2 id="course-apparent-depth">水下物体的视深</h2>
+    <p>
+      <a href="./#refraction">折射</a
+      >第六节比较真实深度、双光线反向延长交点与近轴视深。改变观察角度和介质，检查近轴近似的适用范围；全反射不显示普通视深，宽角度交点不是唯一精确像。
+    </p>
+    <h2 id="course-distillation-salt">蒸馏中的盐与水</h2>
+    <p>
+      <a href="./#distillation">蒸馏</a
+      >第六节追踪初始200克水和2克盐。先定位演示结束，再以同一功率和时刻切换理想冷却条件，核对原瓶、接收瓶与未收集蒸汽的总质量202克。盐质量不变，原瓶盐的质量分数增大；没有馏出液时不计算接收瓶浓度。本模型忽略夹带、污染和沸点升高，只演示部分蒸馏。
+    </p>
+    <h2 id="course-photo-evidence">光合作用：控制变量与观察记录</h2>
+    <p>
+      <a href="./#photosynthesis">光合作用</a
+      >中先记录一组条件作为参照，再只改变光照、CO₂供给或温度并记录。表格显示改变了哪些因素；随后同时改变两个因素，讨论为什么不能将差异全部归因于其中一个。记录暂停扫描，每章最多8组，切换章节清空。结果为总光合相对速率的定性模型计算值，不是实测数据，也不是净光合速率。
+    </p>
+    <h2 id="course-lever-work">杠杆：省力与距离</h2>
+    <p>
+      <a href="./#lever">杠杆</a
+      >第三节对照等臂与长臂方案，调节几何观察图的转角，比较两端高度变化和圆弧路程。右侧力按平衡条件计算，输入功等于左侧载荷重力势能增加。竖直力做功使用竖直位移，不直接乘圆弧路程。下图是外部缓慢操控的准静态比较，上方自由释放另行计算动力学。
+    </p>
+    <h2 id="course-projectile-comparison">抛体：定位与轨迹对照</h2>
+    <p>
+      <a href="./#projectile">平抛与斜抛</a>可定位最高点和落地点。先保留10
+      m/s、45°地面发射轨迹，再改为20
+      m/s，在同尺度图比较四倍射程与两倍飞行时间。随后保留高台45°轨迹，改为36°，检验同高起落结论的适用条件。参考保留整组参数；多个条件同时变化时不能只归因于角度。播放时用实心与空心标记比较同一真实时刻的位置，先落地的停在落点。两次完整飞行时间不同，不能把相同播放百分比当作相同时刻。基础页采用真实秒数，进阶轨迹单元采用6秒演示进度。
+    </p>
+    <h2 id="course-probability-event">概率：恰好与至少</h2>
+    <p>
+      <a href="./#probability">随机试验</a
+      >中每组抛掷6次，先比较恰好1次正面与至少1次正面：理论概率分别为6/64、63/64。使用相反事件核对至少一次=1−全部反面。累计试验后比较符合事件的组频率；切换事件只重新统计已有组，不生成新样本。有限样本频率不保证等于理论概率。
+    </p>
+    <h2 id="course-volcanic-ash">火山：辨认喷出物</h2>
+    <p>
+      <a href="./#volcano">火山</a
+      >第四节分别观察熔岩、较大碎屑与火山灰羽流，再组合显示。火山灰是细小岩石、矿物和火山玻璃碎片，不是燃烧灰烬；较大碎屑与火山灰的分层只是教学显示分组。图层隐藏不会改变喷发过程。资料依据：<a
+        href="https://volcanoes.usgs.gov/volcanic_ash/ash.html"
+        >USGS 火山灰说明</a
+      >。
+    </p>
+    <section id="course-area-hydraulic">
+      <h2>面积剪拼与液压机：看得见的守恒</h2>
+      <p>
+        数学五步：辨认底与垂直高度 → 剪下三角形 → 平移补齐 → 改变倾斜 →
+        改变高度。先预测面积，再播放验证
+        S=bh。金色块保持形状，先向下移出、再向右平移、最后向上归位，两块内部不重叠。用“原图与剪切线、移出三角形、平移到右侧、归位成矩形”四个按钮逐步讲解，比较搬运前后的面积。
+      </p>
+      <p>
+        物理五步：同面积传力 → 不同面积放大力 → 等体积位移 → 输入输出功 →
+        改变施力。以 A₁=10 cm²、面积比4、输入40 N为例，输出160 N；输入行程8
+        cm对应输出2 cm，机械功均3.2 J。讨论为什么不能同时放大力和位移。
+      </p>
+      <p>
+        使用说明：每节载入独立观察条件；支持暂停、单步、拖动和辅助线开关。液压模型为无损耗准静态演示，不含高度差的静水压修正。
+      </p>
+    </section>
+    <section id="course-hydraulic-work">
+      <h2>液压机：用三行对照解释省力不省功</h2>
+      <p>
+        先保持输入力40 N、输入行程8
+        cm，分别查看面积比1∶1、4∶1、8∶1的完整行程。输出力依次为40、160、320
+        N，输出位移为8、2、1 cm；两端功始终为3.2 J。
+      </p>
+      <p>
+        力、位移、功各自使用一行相同刻度，跨行长度不可直接比较。回到起点时，两端位移和功均为零，施力仍表示准静态模型的工作条件。最后讨论密封摩擦、黏性阻力与泄漏为何使真实效率低于理想值。
+      </p>
+    </section>
+    <section id="course-exocytosis">
+      <h2>分泌运输：货物释放，膜相连接</h2>
+      <p>
+        沿内质网、高尔基体、分泌囊泡、细胞膜的顺序观察三维路线，再用胞吐局部示意定位“囊泡靠近、融合开口、释放完成”。追踪金色货物点，说明囊泡膜与细胞膜相连，分泌蛋白通过开口到达细胞外，而不是整个囊泡穿膜。
+      </p>
+      <p>
+        双线和开口均为放大结构示意，不按真实尺度或速率绘制；不模拟分子级融合机制及后续膜回收。
+      </p>
+    </section>
+    <section id="course-water-atoms">
+      <h2>电解水：从原子守恒到质量比</h2>
+      <p>
+        先在原子模型中数出4个H与2个O，播放并在中途暂停追踪它们，再观察生成的2个H₂和1个O₂。解释原子数守恒但分子数可以改变。
+      </p>
+      <p>
+        用(2×2)∶(1×32)=1∶8对照质量条带，再切回同温同压的体积比2∶1。局部重排仅用于配平，不代表真实电极反应路径，也不改变主实验电流、时间和收集量。
+      </p>
+    </section>
+    <section id="course-chemistry-observation">
+      <h2>化学章节：先观察关键状态，再重放过程</h2>
+      <p>
+        置换反应的对照与限量章节定位到60秒终态；电解水的体积、产气、断电和质量章节定位到240秒，保留已收集的气体并暂停。蒸馏的沸腾章节定位120秒，收集、冷却对照、功率和盐的章节定位240秒。
+      </p>
+      <p>
+        这些是模型中的观察时间，不是未经操作的真实实验记录。点击“重做本节”恢复本节条件与观察点；点击“复位”回到起点重放。改变实验参数从0重新开始，避免混合不同条件。
+      </p>
+    </section>
+    <section id="course-triangle-communicating">
+      <h2>三角形内角和与连通器</h2>
+      <p>
+        三角形：认识三个内角 → 角片汇成平角 → 瘦长三角形 → 等腰底角 →
+        外角与远内角。用顶点位置、高度及底边控制形状，定位动画对照不变量；这是动态验证，证明结合平行线性质。
+      </p>
+      <p>
+        连通器：高低液面 → 粗细不同最终同高 → 等体积不同位移 → 流向反转 →
+        等高静止。调整两管初始液面与截面积比，观察压强差与液体守恒。模型忽略毛细效应，缓动时长不对应真实水流时间。
+      </p>
+    </section>
+    <section id="course-communicating-evidence">
+      <h2>连通器：从液面观察到体积证据</h2>
+      <p>
+        先辨认金色初始液面和变化区间，再比较两竖管流入、流出体积。保持初始高度，依次选择右管截面积
+        1、2、4
+        倍观察最终液面：等截面积才可直接取两个不同初始高度的算术平均；一般情况按截面积加权。第六节将现象、数据与守恒方程连接起来。演示缓动不用于推断真实流速。
+      </p>
+    </section>
+    <section id="course-triangle-proof">
+      <h2>三角形：发现与证明</h2>
+      <p>
+        先用彩色角片搬运观察内角和，再进入第六节：过顶点 C 作底边 AB
+        的平行线；分别用 AC、BC 作为截线，以内错角相等将 A、B 两角对应到 C
+        两侧；三个邻角构成平角，得到内角和
+        180°。四步按钮逐步揭示，改变顶点仍保持关系。原位虚线角片保留对应位置，避免把搬运误认为三角形变形。
+      </p>
+    </section>
+    <section id="course-energy-pathways">
+      <h2>能量的去向：账本与路径</h2>
+      <p>
+        食物链第五节先选择草→兔或兔→狐，核对本级能量减下一级能量的总量，再追踪呼吸散失、碎屑经分解者利用以及统计时段内暂留本级的能量。分项比例未提供，图只表示去向，不能按线宽或节点大小读数。示踪动画不推进真实生态时间，能量不沿箭头循环回生产者。
+      </p>
+    </section>
+    <section id="course-runoff-storage">
+      <h2>径流输入与调蓄</h2>
+      <p>
+        流域第九节：保持地表径流总量，改变送入同一调蓄单元的历时，比较输入强度与出流峰值；再观察停止输入后的衰减过程。以累计输入、累计出流、暂存水量核对守恒。模型为时间常数1小时的线性水库，不计容量上限和额外损失，不能据此预测真实洪峰。
+      </p>
+    </section>
+    <section id="course-runoff-accounting">
+      <h2>调蓄过程中的水量账本</h2>
+      <p>
+        用三部分比例条追踪同一份径流：尚未输入、暂存在单元内、已经流出。先暂停在输入中途，再跳到输入结束后，区分总事件水量与截至当前的累计输入。零降水时各部分为零；重做本节恢复2小时输入历时、0时刻并暂停。
+      </p>
+    </section>
+    <section id="course-visual-proof">
+      <h2>勾股面积与平面镜：从观察到解释</h2>
+      <p>
+        <a href="./#pythagoras-proof">勾股定理的面积证明</a>：三个正方形 →
+        面积对应 → 等腰特例 → 相似缩放 →
+        四个直角三角形的面积证明。适合初中数学；要求学生区分动态验证与证明。
+      </p>
+      <p>
+        <a href="./#plane-mirror">平面镜与镜像</a>：追踪光路 → 等距虚像 →
+        法线与等角 → 移动观察者 →
+        垂直入射。适合初中物理；实线与虚线严格区分真实光路和反向延长线。
+      </p>
+      <p>
+        面积证明包含 5 节，平面镜包含 6
+        节；均有参数控制和可定位进度。勾股面积按单位长度计算；平面镜为无器件遮挡的理想点模型，动画只用于追踪光路，不显示实际光速。
+      </p>
+    </section>
+    <section id="course-mirror-reference">
+      <h2>平面镜第六节：双光路定位虚像</h2>
+      <p>
+        先隐藏虚像与反向延长线，预测两条反射光路在镜后的交点；再显示核对，移动可调观察者，比较固定参考光路。两条光路重合时先调整高度，不能用两条重合线唯一确定交点。
+      </p>
+      <p>
+        参考观察者固定在距镜 7 cm、高 6
+        cm；都是理想点状探测器，未模拟器件遮挡。虚线不是光穿过镜面。
+      </p>
+      <a href="./#plane-mirror">进入平面镜课程</a>
+    </section>
+    <section id="course-photon-energy">
+      <h2>焰色第七节：从激发到发光</h2>
+      <p>
+        高中拓展：逐步观察低能级、吸收能量、激发态和发射光子。用 400–700 nm
+        单色光比较 E=hc/λ，区分单个光子的能量与光的亮度。
+      </p>
+      <p>
+        本节直接显示能级主舞台，切回前六节可观察火焰器材。这是理想两能级示意，不是具体盐样品的完整光谱。纵轴是能量而不是空间距离，步骤时长不是真实寿命。
+      </p>
+      <a href="./#flame">进入焰色课程</a>
+    </section>
+    <section id="course-microscope-reference">
+      <h2>显微镜：先居中，再换高倍</h2>
+      <p>
+        在“换物镜后，还能看到多大范围？”中开启教学参考点，准备低倍偏心参考，然后直接换到400倍。比较参考点在目镜中消失、但仍位于低倍范围图中的现象；回到40倍居中后，再换高倍验证。
+      </p>
+      <p>
+        金色标记是玻片原点辅助点，与玻片位移联动，不是细胞结构，也不能证明标本已经合焦。照片数字观察模式不参与此光学练习。
+      </p>
+      <a href="./#microscope">进入显微镜课程</a>
+    </section>
+    <section id="course-optical-geometry">
+      <h2>小孔成像与圆周角：两条直观学习路径</h2>
+      <p>
+        <a href="./#pinhole">小孔成像与暗箱</a>：穿孔光路 → 倒立实像 → 屏距改变 →
+        物距改变 → 等大像与相似三角形。先预测像的方向，再播放光路并对照像高。
+      </p>
+      <p>
+        <a href="./#inscribed-angle">圆周角与圆心角</a>：同弧两角 → 移点不变量 →
+        改变张角 → 直径所对直角 → 同弧等角。先固定弧移动点，再改变弧比较角度。
+      </p>
+      <p>
+        小孔演示为理想点孔几何模型；圆周顶点始终位于同一条优弧内。动画可暂停、逐步推进，教师可关闭辅助线让学生预测。
+      </p>
+    </section>
+    <section id="course-pinhole-points">
+      <h2>小孔成像：从逐点对应到相似三角形</h2>
+      <p>
+        进入小孔成像，分别选择下端 A、中点 B、上端
+        C，追踪它们在光屏上的对应点。第五节对照两个直角三角形的填色与直角标记，用像高/物高
+        = 屏距/物距解释放大率。改变距离后先预测，再核对比值。
+      </p>
+    </section>
+    <section id="course-circle-arcs">
+      <h2>圆周角第六节：同弧等角与异侧互补</h2>
+      <p>
+        先固定较小圆心角 80°。P 与 Q 同侧时圆周角均为 40°；把 P 换到另一侧，P
+        所对的弧变为 280°，圆周角成为 140°，与 Q 的 40°
+        互补。再改变圆心角、播放移动顶点，检验这一关系。始终先辨认不包含顶点的弧，再使用一半关系。
+      </p>
+    </section>
+    <section id="course-distillation-paths">
+      <h2>蒸馏：辨认两条不混合的流路</h2>
+      <p>
+        加热到汽化后，沿金色内管箭头追踪蒸汽从原瓶进入冷凝管；开启冷却时，出口段浅蓝色提示冷凝后的液体。夹套蓝色箭头从低端向高端，与内管方向相反。暂停对照装置，再关闭冷却比较。颜色分界只作过程示意，不代表精确冷凝位置或真实流速。
+      </p>
+    </section>
+    <section id="course-seismic-probe">
+      <h2>地震波：盯住一个质点</h2>
+      <p>
+        在“P 波与 S
+        波”子主题中，把观察点设为40km，先定位P波经过后0.5秒，再定位S波经过后0.5秒。对照平衡位置与实心点，区分沿传播方向振动和垂直传播方向振动。改变观察距离再验证，注意质点不是随波前不断向前搬运。局部振幅为放大示意，不用于测量真实位移或比较强度。
+      </p>
+    </section>
+    <section id="course-cell-recognition">
+      <h2>细胞：从形态与功能辨认结构</h2>
+      <p>
+        展开细胞工作台下方“结构与功能辨认”，根据六个任务的线索选择结构，再观察上方三维近景并核对。依次辨认叶绿体、线粒体、液泡、细胞核、高尔基体和内质网。选错后重新对照形态和功能，不计分；选择正确后阅读解释，继续下一任务。
+      </p>
+    </section>
+    <section id="course-genetics-condition">
+      <h2>遗传第七节：已知显性，杂合子的概率是多少？</h2>
+      <p>
+        先观察 Aa×Aa
+        的四种配子来源组合，再只保留显性后代。三个等概率组合中两个为
+        Aa，故条件概率为2/3；不是1/2。再对照 Aa×aa 和
+        aa×aa，区分概率为零与条件本身不可能。切换亲本后重新选择观察范围；筛选不新增样本，也不改变亲本。
+      </p>
+    </section>
+    <h2 id="course-prism-circle">三棱镜色散与圆面积拼接</h2>
+    <p>
+      <a href="./#prism">三棱镜分光与色散</a>：白光进入 → 单色光追踪 →
+      红紫偏折对照 → 改变材料 →
+      第二界面全反射。适合初中光学观察及高中折射定律拓展。任务：先预测，再逐步追踪两次折射，比较实际角差。模型采用简化柯西色散，五种波长代表白光，不代表实测光谱，不计算光强。
+    </p>
+    <p>
+      <a href="./#circle-area">圆面积的展开与拼接</a>：等分扇形 → 等积拼接 →
+      增加等分 → 面积公式 → 半径与面积。适合小学高年级到初中数学。任务：对照
+      8、24、64 等分的弧边，解释 πr 与 r 的来源；将半径从 2 cm 调至 4
+      cm，检验面积四倍关系。有限拼接图不是精确长方形；动画只作刚性搬运。
+    </p>
+    <h2 id="course-prism-interfaces">棱镜逐界面量角</h2>
+    <p>
+      展开三棱镜的“逐界面检查”，先定位第一界面，再定位第二界面。对照法线方向，核验
+      r₁+i₂=60°；使用单色光比较第二次入射角和临界角。局部图将界面旋转为水平，实际方向仍以主图为准。
+    </p>
+    <h2 id="course-circle-edge">圆面积：有限拼接与极限</h2>
+    <p>
+      圆面积第六节对比 8、24、64
+      等分。观察弧与弦之间的弓高，解释为何有限块数仍然弯曲、更多等分逐渐趋平、总面积保持不变。放大图纵向放大三倍，长度读数没有放大。小学以观察和对照为主；初高中可展开
+      h=r[1−cos(π/n)] 进一步验证。
+    </p>
+    <h2 id="course-resistor-network">串并联与电流分配</h2>
+    <p>
+      进入电路主题的“串并联与电流分配”单元，依次观察串联同流、串联分压、并联同压、并联分流，再保持电源及两只电阻不变切换连接。核验串联电压之和、并联支路电流之和以及功率守恒。适合初中物理控制变量探究。理想恒温模型不用于判断真实器件额定功率。
+    </p>
+    <h2 id="course-parallel-branch">并联支路的独立性</h2>
+    <p>
+      在串并联第六节保持理想电源电压和阻值不变，反复操作 R₂ 支路开关，比较 R₁
+      电流与总电流。解释总电流减少、等效电阻增大的原因，区分断开开关两端电压与
+      R₂ 电阻两端电压。该结论基于理想稳压电源；不推广到有明显内阻或限流的电源。
+    </p>
+    <h2 id="course-displacement-electrons">金属置换与电子得失</h2>
+    <p>
+      第六节由铜层现象进入净电子转移：对照铁/锌失去两个电子、铜离子得到两个电子，合并半反应并检验原子、电荷与电子数量关系。铜片作为无净置换的对照。适合初中现象观察后的高中氧化还原拓展；记账动画不表示真实电子轨迹，不假设溶液中存在游离电子。
+    </p>
+    <section id="course-microscope-motion">
+      <h3>显微镜：倒像与移动方向</h3>
+      <p>
+        初中生物实验操作。先辨认玻片与目镜中的字母方向，再选择上下左右偏心情境，通过移动玻片使参考点居中，最后联系“先居中，再换高倍”。双图与真实工作台参数联动；参考标记只用于教学定位，不代表标本结构。
+      </p>
+    </section>
+    <section id="course-seismic-location">
+      <h3>地震：多个台站怎样缩小范围</h3>
+      <p>
+        地理与数学跨学科拓展。从单台站无法判断方位，过渡到两圆的两个候选点，再加入第三台站判断共同位置。对比浅、深震源，区分震源距与震中距；已知深度及均匀介质是本模型前提，实际定位另需速度结构和误差估计。
+      </p>
+    </section>
+    <section id="course-pythagoras-dissection">
+      <h3>勾股定理：同样四块，换一种拼法</h3>
+      <p>
+        初中数学。继三边正方形面积观察和围合证明之后，逐块搬运同样的四个直角三角形，比较两种完整拼法的剩余面积。观察编号与刚性运动，说明同样的外框减去同样的四块，必然留下相同面积；中间搬运画面不作为无重叠的面积分割。
+      </p>
+    </section>
+    <section id="course-hydraulic-volume">
+      <h3>液压机：从扫过区域理解体积守恒</h3>
+      <p>
+        在不可压缩、无泄漏的理想模型中，比较小缸排出区域与大缸新增区域；相同入屏深度下，两者图示面积相等。循序连接面积比、位移反比与输入/输出功相等。斜线区用于体积记账，不模拟真实流体质点路径。
+      </p>
+    </section>
+    <section id="course-distillation-level">
+      <h3>蒸馏：水量与圆底烧瓶液面</h3>
+      <p>
+        对照接收水量与烧瓶剩余水量，观察水平液面随蒸馏下降。圆底截面积随高度改变，液面高度与水量不成简单正比；本装置以理想球腔示意，不用于实际容量测量。
+      </p>
+    </section>
+    <section id="course-gas-collision">
+      <h2>气体：粒子碰壁对照</h2>
+      <p>
+        新增恒温压缩与定容升温的单粒子对比。保持物质的量不变，观察路程缩短与速率增大的不同作用，再与状态方程压强读数对照。二维轨迹与往返周期仅作示意，不用动画碰撞次数估算压强。
+      </p>
+    </section>
+    <section id="course-offspring-quartet">
+      <h2>遗传：四个后代一定是三显一隐吗</h2>
+      <p>
+        在单基因完全显性、独立受精条件下，Aa×Aa的单个后代隐性概率是25%。四个后代中恰好一个隐性的概率为4×(1/4)×(3/4)³=27/64，约42.19%，并非必然。点选隐性个数、展开不同排列、逐个揭示性状；与测交及纯合亲本对照。播放是指定理论排列的演示，不是随机抽样。
+      </p>
+    </section>
+    <section id="course-circle-area-scale">
+      <h2>圆面积：半径加倍，面积几倍</h2>
+      <p>
+        先保留半径2 cm作为参照，再分步放大到4
+        cm。用相同厘米网格对照双圆，观察半径与周长变为2倍、面积变为4倍。可暂停并改变半径、保留新参照，验证S₂/S₁=(r₂/r₁)²。网格仅辅助估读，边界格不是整格。
+      </p>
+    </section>
+    <section id="course-doppler-front">
+      <h2>多普勒：追踪同一波面</h2>
+      <p>
+        从前四圈选择一圈，定位发射瞬间及其后1、2秒。金色圆心留在发射位置，金色半径按r=cΔt增长，而声源继续匀速运动。用同一时间轴解释前后波长差异，不将波面误认为随声源平移。示意波速2
+        m/s，均匀静止介质、亚声速点源。
+      </p>
+    </section>
+    <section id="course-electrolysis-reading">
+      <h2>电解水：倒置集气管怎样读数</h2>
+      <p>
+        先辨认顶部气体与下方水，再沿从零向下递增的刻度估读气液界面。比较同一时刻两支等内径管的气柱高度，显示模型数值核对2∶1；观察0、300、600秒，说明气体增长与界面下降。真实实验需考虑气压、水蒸气等因素，本图采用理想气体条件。
+      </p>
+    </section>
+    <section id="course-prism-interface-angles">
+      <h2>棱镜：从法线量角</h2>
+      <p>
+        局部图将界面转为水平，阴影表示棱镜。沿箭头确认光线方向，再从虚线法线量入射角和折射角；第二界面全反射时，反射角留在棱镜一侧并等于入射角。第五节自动展开角度检查，可定位主动画的第一、第二界面核对。
+      </p>
+    </section>
+    <section id="course-water-flow">
+      <h2>流域：同一份降水，三个去向</h2>
+      <p>
+        用同一毫米尺度将降水分为径流、下渗和蒸散。先固定比例改变降水，再固定降水与蒸散改变下渗，观察径流带宽减少并核对三项合计。此图是忽略储水变化的事件分配账本，不表示真实河道形状或瞬时流量。
+      </p>
+    </section>
+    <section id="course-incline-mass">
+      <h2>斜面：力变大，加速度一定变大吗</h2>
+      <p>
+        保持倾角和摩擦系数相同，对照1
+        kg参照与当前质量。固定力标尺下重力与滑动合力随质量增加，但a=F合/m中的质量约去，位移与加速度相同。依次选择1、2、4
+        kg并播放；将静止和挡板停止状态与滑动过程区分。模型忽略空气阻力，并假设摩擦系数与载荷无关。
+      </p>
+    </section>
+    <section id="course-diameter-squares">
+      <h2>直径、圆周角与勾股关系</h2>
+      <p>
+        在圆周角第四节，先预测移动顶点后直角和两边平方和是否改变，播放观察，再切换120°普通弦检验条件。半径取1；连接OP，结合两个等腰三角形与内角和解释直径所对的直角。数值条带用于观察，不替代证明。直径状态下可依次点击连接OP、标出两个底角，在主图查看辅助线，并由2α+2β=180°得到圆周角为90°。
+      </p>
+    </section>
+    <section id="course-photo-factorial">
+      <h2>光合作用：四组条件交叉对照</h2>
+      <p>
+        固定温度，比较弱光和强光、低与高CO₂的四组模型结果。先比较同一CO₂下增加光照的差值，再比较另一CO₂条件下的差值。按钮一次仅改变一个因素；模型总光合速率不代表实测产氧量或净光合速率。
+      </p>
+    </section>
+    <section id="course-distillation-power">
+      <h2>蒸馏：功率改变沸点吗</h2>
+      <p>
+        显示400 W参照曲线，改变当前功率比较到达温度平台的时间。两组均含200
+        g水并从20°C开始；本模型忽略散热，近似常压沸点固定为100°C。说明功率改变升温速度而非沸点。
+      </p>
+    </section>
+    <section id="course-latitude-bands">
+      <h2>同一天，不同纬度的昼夜</h2>
+      <p>
+        季节第三节对照赤道、南北纬45°和70°。先切换近似节气，再播放公转；比较昼长变化幅度与南北季节相反的关系。点击纬度查看该地全年曲线。昼夜条带表示时长，不表示同一钟表时刻。
+      </p>
+    </section>
+    <section id="course-lever-components">
+      <h2>斜向力：力臂法与分力法</h2>
+      <p>
+        在杠杆斜向力观察器开启分解，比较30°、90°与150°。沿杆分力方向可能相反，但作用线经过支点，力矩为零；垂直分力乘杆长与原力乘垂直力臂一致。两种方法计算的是同一个力矩，不相加。
+      </p>
+    </section>
+    <section id="course-microscope-magnifications">
+      <h2>物镜倍率与视野大小</h2>
+      <p>
+        高倍观察一节展开视野说明，对照4×、10×、40×物镜在同一10×目镜下的总倍率与视野范围。计算视野直径等于18mm除以物镜倍率，比较面积缩小规律。点击表中观察按钮换倍，先低倍居中再高倍细调；放大倍率不能直接换算分辨率。
+      </p>
+    </section>
+    <section id="course-wave-time">
+      <h2>波形图与振动图</h2>
+      <p>
+        固定观察位置，播放波动，同时观察空间波形和该质点一个周期的时间曲线。明确两幅图的横轴不同；比较驻波波节与波腹，或同向相消时的合成位移。周期内指示线重复，实验累计时间不重置。
+      </p>
+    </section>
+    <section id="course-lens-screen">
+      <h2>光屏位置与理论像面</h2>
+      <p>
+        先手动找清晰像，再展开位置核对器，把光屏移到像面前后2cm。保持物距和焦距不变，观察离焦，解释光屏移动不改变理论像距。虚像、焦点处和超出行程的实像需分别判断。
+      </p>
+    </section>
+    <section id="course-cell-energy">
+      <h2>叶绿体和线粒体：结构与功能对照</h2>
+      <p>
+        在线粒体章节切换两种近景，辨认基粒与嵴，比较光合作用和有氧呼吸。讨论夜间植物是否仍呼吸；避免将植物细胞与动物细胞简单对应为只有叶绿体或只有线粒体。镜头分别适配，不能据画面尺寸推断细胞器实际大小。
+      </p>
+    </section>
+    <section id="course-observable">
+      <h2>相似测高与圆周运动</h2>
+      <p>
+        相似三角形与影长测高：辨认三角形 → 按比例测高 → 太阳高度变化 →
+        建筑高度变化 → 更换参照杆。操作两组高度与光照，播放卷尺核对影长。
+      </p>
+      <p>
+        圆周运动与向心力：切线速度 → 向心方向 → 速度平方关系 → 半径反比关系 →
+        质量正比关系。播放并暂停比较矢量与数值。水平理想圆周模型，不额外添加“向心力”作为新的力种。
+      </p>
+    </section>
+    <section id="course-circular-comparison">
+      <h2>圆周运动：一次改变一个条件</h2>
+      <p>
+        速度、半径、质量三节采用同屏同步对照。先预测运动与力的变化，再播放，最后比较周期、合力与比值。参照组只固定正在研究的变量，其余变量与当前组一致。完整一周按钮按当前组周期定位，参照组可能尚未走完或已经走过多周。
+      </p>
+    </section>
+    <section id="course-shadow-proof">
+      <h2>影长测高：从等角到比例</h2>
+      <p>
+        先识别共同直角与太阳高度角，用AA确定相似；再将高度与高度、影长与影长配对。播放等比例放大动画，检查两方向使用同一个倍数，最后由H/h=L/l推出H=hL/l。动画中的平移与缩放是几何验证，不表示实际建筑改变大小。
+      </p>
+    </section>
+    <section id="course-displacement-compare">
+      <h2>金属置换：相同物质的量对照</h2>
+      <p>
+        分别投入10 mmol铁、锌、铜，各杯初始含10
+        mmol铜离子。观察反应前、中间示意和完全反应：铁、锌最终均析出10
+        mmol铜；铜与硫酸铜无净置换。比较终点颜色、剩余铜离子和新析出铜，解释为什么同物质的量不等于同质量。演示进度不用于速率比较。
+      </p>
+    </section>
+    <section id="course-community-abundance">
+      <h2>群落：分清计数与占比</h2>
+      <p>
+        保存四组各4个为A，再将各组设为8个。先看计数图，再看占比图：数量条加倍，比例条重合。结合示例种数与Shannon指数，说明个体更多为何不必然代表多样性更高。真菌按子实体计数；本模型不用于现实群落估计。
+      </p>
+    </section>
+    <section id="course-section-models">
+      <h2>圆柱圆锥与液体压强</h2>
+      <p>
+        圆柱与圆锥：切片观察 → 三份体积填充 → 半径平方关系 → 高度比例关系 →
+        半高截面四分之一。每节可调半径、高度，拖动时间观察变化。
+      </p>
+      <p>
+        液体压强：深度规律 → 同深度等压 → 密度对比 → 坝面受力 →
+        合力作用点。可调水深、密度，移动测压点，比较表压和每米坝宽合力。
+      </p>
+      <p>
+        模型边界：理想几何立体；均匀静止液体，g=9.8
+        m/s²，使用表压。动画时间是展示进度，不代表倒水或水流动力学。
+      </p>
+    </section>
+    <section id="course-cone-slices">
+      <h2>圆锥体积：从切片到夹逼</h2>
+      <p>
+        拓展第六节：先用4层内接和外接薄圆柱给出体积上下界，再增加到8、16、32层，观察范围收窄。拖动时间轴逐层建立模型；薄片使用每层顶部、底部半径，理论体积始终位于二者之间。图形是轴截面，矩形对应薄圆柱而非长方体。
+      </p>
+    </section>
+    <section id="course-pressure-density">
+      <h2>控制变量：同深度换液体</h2>
+      <p>
+        先把探头定位到半水深，保持水深不变，将密度从800调到1200
+        kg/m³。比较当前液体与清水虚线：相同深度的表压随密度成正比。再单独改变水深，观察底部压强与水深成正比、坝面合力与水深平方成正比。参数改变时暂停并保留探头相对位置。
+      </p>
+    </section>
+    <section id="course-sodium-doublet">
+      <h2>从焰色到光谱分辨</h2>
+      <p>
+        焰色第七节拓展：比较宽、中、窄三种高斯响应，观察钠黄光双线从混合峰变成两峰。中心波长固定为588.9950与589.5924
+        nm（空气）；改变响应宽度不会改变元素谱线位置。固定权重和归一化仅供解释，不据此求浓度或火焰温度。
+      </p>
+      <a
+        href="https://physics.nist.gov/PhysRefData/Handbook/Tables/sodiumtable2.htm"
+        >NIST 钠强谱线表</a
+      >
+    </section>
+    <section id="course-microscope-triptych">
+      <h2>先预测，再换高倍</h2>
+      <p>
+        在显微镜“先居中，再换高倍”章节展开视野范围并开启教学参考点。准备偏心状态，比较40、100、400倍并排图，预测目标是否仍在视野内；切换倍率核验，再将参考点居中重复观察。金色点是教学坐标标记，不是特定细胞。
+      </p>
+    </section>
+    <section id="course-station-times">
+      <h2>多台站：同一时刻的不同接收状态</h2>
+      <p>
+        先播放地震波传播，比较三个台站何时先后接收P波、S波；按台站按钮定位到精确到时，再看上方A台站与下方三站的状态差别。定位圆使用完整理论到时差，不代表播放到当前时刻已取得所有观测。均匀介质模型采用P波6
+        km/s、S波3.5 km/s。
+      </p>
+    </section>
+    <section id="course-expansion">
+      <h2>圆柱展开与光的三原色</h2>
+      <p>
+        圆柱展开：侧面展开→两个底面→半径变化→高度变化→无盖容器。先预测尺寸改变的结果，再调参核对面积；评价任务：解释半径加倍时表面积为什么不一定加倍。
+      </p>
+      <p>
+        三原色色光：三束光相遇→红绿混合→青与品红→中性灰白→互补色。播放光斑靠近，对照关闭各通道前后颜色；使用六组快捷组合比较双色、中性白、25%中性灰与全暗，随后只调整一个通道，记录偏色变化；评价任务：比较光的混合与颜料混合，说明屏幕
+        RGB 模型的适用边界。
+      </p>
+    </section>
+    <section id="course-runoff-comparison">
+      <h2>同一场径流，不同输入历时</h2>
+      <p>
+        先固定0.5小时输入作为参照，再切换到4小时；比较出流峰值和同一时刻出流率。解释为何最终累计出流水量相同，峰值却不同；辨认12小时处仍保留的暂存水量。对照只固定历时，不保存另一场雨的水量。
+      </p>
+    </section>
+    <section id="course-mechanisms">
+      <h2>齿轮与浮力：从观察到定量解释</h2>
+      <h3>齿轮传动与转速比（15分钟）</h3>
+      <p>
+        先追踪标记判断两轮转向；再比较12/36、36/12和24/24齿组合；最后固定齿数调节输入速度，使用n₁z₁=n₂z₂核验。使用“通过6个齿距”定位，比较两轮转数乘以各自齿数，解释为何通过距离相同。提问：为什么小轮转得快？轮齿形状为教学示意。
+      </p>
+      <h3>称重法测浮力（15分钟）</h3>
+      <p>
+        从空气缓慢浸入，暂停在半浸没与完全浸没状态；比较4到6秒的浮力，再固定体积改变液体和物体密度，核验T+F浮=G。使用四个称重观察位置，将空气参考减去当前示数；再用液体密度、g与排水体积交叉验证，注意cm³到m³的换算。学生说明浮力与排水体积的关系，区分悬吊浸入和自由漂浮。
+      </p>
+    </section>
+    <section>
+      <h2>圆柱面积：单变量对照</h2>
+      <p>
+        固定r=1 cm、h=2
+        cm为参照，分别将半径或高度加倍。先观察同尺度面积条，再比较侧面、底面与总面积的倍数。说明为何半径加倍不意味着总表面积只变为两倍；最后对照无盖容器减去的面积。
+      </p>
+    </section>
+    <section>
+      <h2>显微镜细调：试调与反向</h2>
+      <p>
+        在寻找与调焦、高倍观察中先看目镜，再细调2格。根据模拟物像变清晰或变模糊决定是否继续同向，必要时反向。照明不足时先对光，换倍率后重新比较；不要把模拟旋钮数值当作真实镜头位移。
+      </p>
+    </section>
+    <section>
+      <h2>降水去向：读水带与流向</h2>
+      <p>
+        先静态比较三条水带的宽度，再播放流向演示，逐项突出径流、下渗和蒸散。短线仅帮助辨认去向，不能用移动速度判断流量；将降水调为0检查水带和短线同时消失。
+      </p>
+    </section>
+    <section>
+      <h2>焰色拓展：固定波长观察展宽</h2>
+      <p>
+        在钠双线图中将探针放到两线中点，比较“混在一起”和“清晰分开”的响应。再定位到各谱线，解释线的位置不变而展宽改变分辨效果；归一化曲线不能用于比较样品浓度。
+      </p>
+    </section>
+    <section>
+      <h2>光合作用：相同加光量，不同速率增量</h2>
+      <p>
+        固定CO₂与温度，分别观察光照10%到30%、70%到90%的模型速率变化。比较增加的百分点，说明曲线趋缓不等于从某个固定光照值起完全不变；再将CO₂设为0，讨论为什么仅加光无效。
+      </p>
+    </section>
+    <section>
+      <h2>概率：同组次比较两轮频率</h2>
+      <p>
+        保留一轮并重新试验，用组次探针比较两轮同一组次的累计频率。寻找偏差变大和变小的相邻位置；解释为什么频率通常趋近理论值，不等于每追加一组都更接近。
+      </p>
+    </section>
+    <section>
+      <h2>新增：转一圈与留一道缝</h2>
+      <p>
+        <a href="./#polygon-turn">多边形外角与行走转向</a
+        >：三角形→正方形→五边形内外角→增加边数→反向行走。先预测每次转角，再播放或定位进度，最后用累计360°核对。
+      </p>
+      <p>
+        <a href="./#thermal-length">固体热膨胀与伸缩缝</a
+        >：材料比较→温差关系→长度关系→降温缩短→接缝抵接。一次只改变一个条件，记录三种材料的毫米伸长，说明为什么自由伸长公式不能预测抵接后的实际变形。图中变形放大200倍，非真实工程设计工具。
+      </p>
+    </section>
+    <section>
+      <h2>热膨胀：从动画到关系图</h2>
+      <p>
+        保持杆长与接缝不变，依次观察0、30、60°C温差，比较自由伸长。再观察−30°C，解释负值。由曲线与接缝水平线的交点预测抵接温差；区分自由伸长需求与接触后的实际位移。
+      </p>
+    </section>
+    <section>
+      <h2>地震定位：证据何时足够？</h2>
+      <p>
+        选择三个台站并开启“跟随到站进度”，先定位A台站P波：观察位置已知，但距离尚不可计算。再定位各台站S波，记录何时出现第一、第二、第三道距离圆。把A台站移远，观察B、C先提供约束的情形。最后切回完整理论模式，解释距离圆与传播波前的区别。
+      </p>
+    </section>
+    <section>
+      <h2>新增探究：面积恒等式与双源干涉</h2>
+      <p>
+        <a href="./#square-difference">平方差与面积拼接</a>：去掉小正方形 →
+        分成两块 → 旋转 → 拼成长方形 →
+        改变边长。建议先预测面积，再播放并用两种方法计算；重点区分长度单位与面积单位。
+      </p>
+      <p>
+        <a href="./#ripple-interference">双源水波与干涉</a>：等距加强 →
+        半波程差抵消 → 整波程差加强 → 反相波源 →
+        改变波长。先看两分量，再看合成曲线；模型为等振幅稳态，不能据此推断真实水波能量分布。
+      </p>
+    </section>
+    <section>
+      <h2>水波进阶：空间条纹与时间振动</h2>
+      <p>
+        进入双源水波第6节，固定纵坐标8厘米，以1厘米步长移动探针。先预测中线的合振幅，再对照底色和位置—振幅曲线。保持观察点，播放并比较上方位移—时间曲线；说明为什么底色不随波峰向外移动。将波源相位改为180度，检查原来加强的中线是否变为抵消。
+      </p>
+      <p>
+        底图为有限网格示意，精确振幅由解析式计算；本模型等振幅、无衰减，不用于计算真实水波能量通量。
+      </p>
+    </section>
+    <section>
+      <h2>平方差：从边长读出因式</h2>
+      <p>
+        依次点选原始面积、平移完成、旋转完成、拼接完成。先在原图找出a−b与b，再在终图找出总长a+b和共同高度a−b；用颜色对应a(a−b)与b(a−b)两项，最后提取公因式。设置a=8、b=1，追踪长条旋转；设置a=4、b=3，观察窄条拼接。长度与面积使用不同单位，移动和旋转保持的是面积。
+      </p>
+    </section>
+    <section>
+      <h2>置换反应：从金属表面到物质去向</h2>
+      <p>
+        切到三维器材，选择观察金属表面，依次定位反应前、中间过程、完全反应。对照铁、锌、铜片，区分原金属与新析出的铜；减少投入质量，观察原片耗尽而铜仍保留。使用复位视角返回全套装置。表面纹理与铜颗粒只辅助观察，不代表真实晶体尺寸、腐蚀形貌或反应速度。
+      </p>
+    </section>
+    <section>
+      <h2>光合作用第6节：净光合不是总光合</h2>
+      <p>
+        保持CO₂供给和温度，另给定恒定呼吸消耗R。先观察黑暗下P=0、净光合为−R，再提高光照并定位P=R的补偿点；解释为什么净光合为零不表示光合作用和呼吸都停止。将CO₂供给降到2%，观察在当前光照范围内可能没有补偿点。曲线均为相对量教学模型，不能用于推断真实植物的呼吸、生长或补偿点。
+      </p>
+    </section>
+    <section>
+      <h2>弧度与弧长（6节）</h2>
+      <p>
+        圆弧展开 → 接近1弧度 → 半圆与π → 整圆与2π → 同角不同半径 →
+        等弧长的不同圆心角。利用三圆同尺度对照，区分固定角度时的正比关系与固定弧长时的反比关系。先预测弧长，再播放等长展开，改变半径检验
+        s=rθ。
+      </p>
+      <h2>拍频与振动叠加（6节）</h2>
+      <p>
+        同频加强 → 近频拍 → 频差与拍周期 → 不等幅的谷底 → 单振动极限 →
+        加强时的瞬时过零。用冻结时刻的同标尺位移箭头和包络半高，区分瞬时位移为零与相互抵消。观察分量与合成位移，区分振幅包络和实际振动；图示低频不是可听声音。
+      </p>
+    </section>
+    <section>
+      <h2>月相第五节：等亮面不等于同月相</h2>
+      <p>
+        同时比较θ与360°−θ的月面、亮面比例和各自再前进15°后的状态。通过切换对照联动轨道与曲线，区分盈亏方向；新月和满月为同一对照的边界情况。月面朝向采用北半球常见示意。
+      </p>
+    </section>
+  </article>
+  <p>
+    <small
+      >第一期实现 · 2026-10-10 ·
+      尚需学科教师审校与真实教室设备试讲。数值测试不等于教学效果评估。</small
+    >
+  </p>
+</html>

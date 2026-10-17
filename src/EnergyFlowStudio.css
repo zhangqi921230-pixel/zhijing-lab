@@ -1,0 +1,266 @@
+.energy-studio {
+  padding: clamp(18px, 3vw, 34px);
+  background: var(--ui-paper);
+  color: var(--ui-ink);
+}
+.energy-studio header {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+  border-bottom: 1px solid var(--ui-line);
+  padding-bottom: 24px;
+}
+.energy-studio header span {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: var(--ui-muted);
+}
+.energy-studio h2 {
+  font-family: Georgia, "SimSun", serif;
+  font-size: clamp(22px, 2vw, 30px);
+  font-weight: 500;
+  margin: 12px 0 0;
+}
+.energy-studio header > strong {
+  font-size: 30px;
+  color: var(--ui-primary);
+  white-space: nowrap;
+}
+.energy-studio header small {
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+  margin-top: 8px;
+}
+.energy-view,
+.energy-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 20px 0;
+  align-items: center;
+}
+.energy-view button,
+.energy-actions button {
+  padding: 10px 14px;
+  min-height: 42px;
+  border: 1px solid var(--ui-line);
+  background: var(--ui-surface);
+  color: var(--ui-ink);
+  border-radius: 5px;
+  cursor: pointer;
+}
+.energy-studio button[aria-pressed="true"] {
+  border-color: var(--ui-primary);
+  background: var(--ui-selected);
+}
+.energy-studio button:focus-visible {
+  outline: 3px solid var(--ui-gold);
+  outline-offset: 3px;
+}
+.energy-studio button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.energy-chain {
+  display: grid;
+  grid-template-columns: 1fr 64px 1fr 64px 1fr;
+  align-items: center;
+  margin: 30px 0;
+}
+.energy-level {
+  text-align: left;
+  padding: 16px;
+  border: 1px solid var(--ui-line);
+  border-radius: 9px;
+  color: var(--ui-ink);
+  background: var(--ui-surface);
+  cursor: pointer;
+}
+.energy-level-index {
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--ui-muted);
+}
+.energy-specimen {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 18px 0 10px;
+  color: var(--ui-primary);
+}
+.energy-level strong {
+  display: block;
+  font-size: 15px;
+  line-height: 1.6;
+}
+.energy-level b {
+  display: block;
+  font-size: 26px;
+  margin: 12px 0;
+  font-variant-numeric: tabular-nums;
+}
+.energy-level b small {
+  font-size: 12px;
+  font-weight: 400;
+}
+.energy-level > span:last-child {
+  font-size: 12px;
+  color: var(--ui-muted);
+}
+.energy-link {
+  text-align: center;
+  font-size: 12px;
+  color: var(--ui-muted);
+}
+.energy-link i {
+  display: block;
+  font-size: 34px;
+  line-height: 1.3;
+  font-style: normal;
+}
+.energy-link small {
+  font-size: 10px;
+}
+.energy-link.reached {
+  color: var(--ui-primary);
+}
+.energy-chain.is-running .energy-link.reached i {
+  animation: energy-direction 0.8s ease-in-out infinite;
+}
+.energy-focus,
+.energy-ledger {
+  padding: 22px;
+  background: var(--ui-surface);
+  border: 1px solid var(--ui-line);
+  border-radius: 8px;
+}
+.energy-focus > span {
+  font-size: 12px;
+  color: var(--ui-primary);
+}
+.energy-studio h3 {
+  font-family: Georgia, "SimSun", serif;
+  font-size: 21px;
+  font-weight: 500;
+  margin: 12px 0;
+}
+.energy-studio p {
+  font-size: 14px;
+  line-height: 1.8;
+}
+.energy-studio small,
+.energy-actions > span {
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--ui-muted);
+}
+.energy-proportion,
+.energy-budget-strip {
+  display: flex;
+  height: 20px;
+  background: var(--ui-line);
+  margin: 18px 0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.energy-proportion i {
+  display: block;
+  background: var(--ui-primary);
+  height: 100%;
+  transition: width 0.2s;
+}
+.energy-budget-strip > span:nth-child(1) {
+  background: #99856a;
+}
+.energy-budget-strip > span:nth-child(2) {
+  background: #b9a269;
+}
+.energy-budget-strip > span:nth-child(3) {
+  background: #27876c;
+}
+.energy-accounts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.energy-accounts span {
+  display: block;
+  font-size: 12px;
+  color: var(--ui-muted);
+  line-height: 1.7;
+}
+.energy-accounts strong {
+  display: block;
+  font-size: 20px;
+  margin-top: 8px;
+}
+.energy-boundary {
+  border-top: 1px solid var(--ui-line);
+  padding-top: 16px;
+  color: var(--ui-muted);
+  font-size: 12px !important;
+}
+@keyframes energy-direction {
+  50% {
+    transform: translateX(5px);
+  }
+}
+@media (max-width: 1100px) {
+  .energy-chain {
+    grid-template-columns: 1fr 40px 1fr 40px 1fr;
+  }
+  .energy-level {
+    padding: 10px;
+  }
+  .energy-level b {
+    font-size: 21px;
+  }
+}
+@media (max-width: 650px) {
+  .energy-chain {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .energy-level {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    column-gap: 18px;
+    padding: 14px;
+  }
+  .energy-specimen {
+    grid-row: 1/5;
+    margin: 0;
+    align-self: center;
+  }
+  .energy-level-index {
+    grid-column: 2;
+  }
+  .energy-level b {
+    margin: 6px 0;
+  }
+  .energy-link i {
+    transform: rotate(90deg);
+  }
+  .energy-chain.is-running .energy-link.reached i {
+    animation: none;
+  }
+  .energy-link small {
+    display: none;
+  }
+  .energy-accounts {
+    grid-template-columns: 1fr;
+  }
+  .energy-studio header {
+    flex-wrap: wrap;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .energy-chain.is-running .energy-link.reached i {
+    animation: none;
+  }
+  .energy-proportion i {
+    transition: none;
+  }
+}

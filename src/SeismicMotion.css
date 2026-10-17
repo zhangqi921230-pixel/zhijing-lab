@@ -1,0 +1,206 @@
+@import "./ModelStage.css";
+
+.seismic-motion {
+  padding: 16px;
+  border-top: 1px solid var(--line);
+}
+.seismic-motion header {
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  font-size: 13px;
+}
+.seismic-motion header span,
+.seismic-motion p {
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.65;
+}
+.seismic-motion svg {
+  width: 100%;
+  display: block;
+  margin-top: 14px;
+}
+.seismic-motion svg text {
+  fill: currentColor;
+  font:
+    12px "Microsoft YaHei",
+    sans-serif;
+}
+.seismic-motion svg .motion-description {
+  font-size: 10px;
+}
+.seismic-probe {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--ui-line);
+}
+.seismic-probe h3 {
+  font-size: 17px;
+}
+.seismic-probe label {
+  display: grid;
+  gap: 12px;
+  font-size: 15px;
+}
+.seismic-probe input {
+  width: 100%;
+  accent-color: var(--ui-primary);
+}
+.seismic-probe-scroll {
+  overflow-x: auto;
+}
+.seismic-probe-scroll svg {
+  min-width: 520px;
+}
+.seismic-probe-scroll svg text {
+  font-size: 15px;
+}
+.seismic-probe-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+.seismic-probe p {
+  font-size: 14px;
+}
+.motion-axis {
+  stroke: currentColor;
+  opacity: 0.15;
+  stroke-dasharray: 3 4;
+}
+.motion-rest {
+  stroke: currentColor;
+  fill: none;
+  opacity: 0.45;
+}
+
+.seismic-distance-handle {
+  cursor: grab;
+  touch-action: none;
+  outline: none;
+}
+.seismic-distance-handle:active {
+  cursor: grabbing;
+}
+.seismic-distance-handle:focus-visible .seismic-distance-knob {
+  stroke: var(--primary);
+  stroke-width: 3;
+}
+
+.photo-response.seismic-distance-guide svg text {
+  font-size: 20px;
+}
+.seismic-distance-readouts {
+  margin: 8px 0;
+  font-variant-numeric: tabular-nums;
+}
+.seismic-distance-readouts > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 7px 0;
+  border-bottom: 1px solid #a5b4a630;
+}
+.seismic-distance-readouts dt {
+  font-size: 13px;
+}
+.seismic-distance-readouts dd {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.photo-response.seismic-distance-guide p {
+  font-size: 12px;
+}
+.photo-response.seismic-distance-guide .seismic-distance-formula {
+  font-size: 14px;
+  opacity: 1;
+}
+
+/* Keep wavefront, station record and playback in one classroom workbench. */
+@media (min-width: 1150px) {
+  body:has([data-scene="earthquake"]) .topbar {
+    min-height: 56px;
+    height: 56px;
+    padding-block: 8px;
+  }
+  [data-scene="earthquake"] .lab-main {
+    padding: 16px 20px 35px;
+  }
+  [data-scene="earthquake"] .lab-heading {
+    margin-bottom: 14px;
+  }
+  [data-scene="earthquake"] .stage {
+    display: flex;
+    flex-direction: column;
+    min-height: 530px;
+    height: calc(100dvh - 190px);
+  }
+  [data-scene="earthquake"] .stage .three-wrap:not(.small) {
+    flex: 1;
+    min-height: 240px;
+    height: auto;
+    aspect-ratio: auto;
+  }
+  [data-scene="earthquake"] .stage > :not(.three-wrap) {
+    flex-shrink: 0;
+  }
+  [data-scene="earthquake"] .seismic-console {
+    grid-template-columns: minmax(170px, 190px) minmax(0, 1fr);
+    gap: 12px;
+    padding: 6px 12px;
+  }
+  [data-scene="earthquake"] .stage .seismic-console .process-chart {
+    padding: 6px;
+  }
+  [data-scene="earthquake"] .seismic-arrivals {
+    gap: 6px;
+  }
+  [data-scene="earthquake"] .seismic-arrivals .btn {
+    padding: 6px 8px;
+    font-size: 11px;
+  }
+  [data-scene="earthquake"] .stage-tools {
+    padding: 8px 12px;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  [data-scene="earthquake"] .simulation-timeline {
+    padding: 8px 12px;
+  }
+  [data-scene="earthquake"] .simulation-timeline label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  [data-scene="earthquake"] .simulation-timeline label span {
+    white-space: nowrap;
+  }
+}
+[data-scene="earthquake"] .stage + .seismic-motion {
+  margin-top: 14px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.seismic-motion header {
+  font-size: 15px;
+}
+.seismic-motion header span,
+.seismic-motion p {
+  font-size: 14px;
+}
+.seismic-wave-scroll {
+  overflow-x: auto;
+}
+.seismic-wave-scroll svg {
+  min-width: 640px;
+}
+.seismic-wave-scroll svg text,
+.seismic-wave-scroll svg .motion-description {
+  font-size: 14px;
+}

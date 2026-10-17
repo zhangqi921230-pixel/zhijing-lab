@@ -1,0 +1,79 @@
+.lever-balance-study {
+  grid-column: 1 / -1;
+  padding: 22px;
+  background: var(--ui-surface);
+  color: var(--ui-ink);
+  border: 1px solid var(--ui-line);
+  border-radius: 7px;
+}
+.lever-balance-study header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.lever-balance-study h3 {
+  margin: 10px 0 18px;
+  font-size: 20px;
+}
+.lever-balance-study svg {
+  display: block;
+  width: 100%;
+  max-width: 750px;
+  margin: auto;
+}
+.lever-balance-study svg text {
+  fill: var(--ui-ink);
+  font-size: 13px;
+}
+.lever-distance-choices {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 16px 0;
+}
+.lever-distance-choices button {
+  padding: 10px 12px;
+  color: var(--ui-ink);
+  background: var(--ui-paper);
+  border: 1px solid var(--ui-line);
+  border-radius: 5px;
+  cursor: pointer;
+}
+.lever-distance-choices button[aria-pressed="true"] {
+  border-color: var(--ui-primary);
+  box-shadow: inset 0 -2px var(--ui-primary);
+}
+.lever-distance-choices button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+.lever-distance-choices button:focus-visible {
+  outline: 2px solid var(--ui-primary);
+  outline-offset: 3px;
+}
+.lever-balance-study p {
+  font-size: 14px;
+  line-height: 1.8;
+}
+.lever-projection-readout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  padding: 16px;
+  border-left: 3px solid var(--ui-primary);
+  background: var(--ui-paper);
+  font-size: 14px;
+}
+@media (max-width: 650px) {
+  .lever-balance-study {
+    padding: 12px;
+  }
+  .lever-balance-study h3 {
+    font-size: 18px;
+  }
+  .lever-balance-study svg text {
+    font-size: 15px;
+  }
+}

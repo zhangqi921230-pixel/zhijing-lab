@@ -1,0 +1,58 @@
+const topic = (id, subject, title, grade, tag, description) => ({
+  id,
+  subject,
+  title,
+  grade,
+  tag,
+  description,
+});
+export const extensionTopics = [
+  topic(
+    "crystallization",
+    "chemistry",
+    "蒸发结晶与溶质守恒",
+    "初中 9 年级",
+    "溶液与结晶",
+    "观察水分减少、饱和到晶体析出，追踪溶质去了哪里。",
+  ),
+  topic(
+    "rusting",
+    "chemistry",
+    "铁生锈的条件与防护",
+    "初中 9 年级",
+    "对照实验",
+    "并排观察潮湿、干燥、隔氧和涂层条件下的铁钉。",
+  ),
+  topic(
+    "transpiration",
+    "biology",
+    "植物的吸水与蒸腾",
+    "初中 7 年级",
+    "植物生理",
+    "沿根、茎、叶追踪水分，用气孔和湿度对照蒸腾。",
+  ),
+  topic(
+    "pollination",
+    "biology",
+    "从传粉到果实与种子",
+    "初中 7 年级",
+    "开花与结果",
+    "剖开一朵花，跟随花粉管，分辨传粉、受精和结果。",
+  ),
+  topic(
+    "rain-shadow",
+    "geography",
+    "地形雨与雨影",
+    "高中 高一",
+    "地形与降水",
+    "改变山高、凝结高度和风向，比较山地两侧的降水。",
+  ),
+  topic(
+    "rock-cycle",
+    "geography",
+    "岩石的转化与循环",
+    "高中 高二",
+    "岩石圈物质循环",
+    "沿五条转化路径观察冷凝、风化、成岩、变质与熔融。",
+  ),
+];

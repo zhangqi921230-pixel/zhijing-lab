@@ -1,0 +1,38 @@
+.circle-area-evidence {
+  margin: 20px 0;
+  padding: 18px;
+  background: var(--ui-paper);
+  border: 1px solid var(--ui-line);
+  color: var(--ui-ink);
+}
+.circle-area-evidence summary {
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1.8;
+  font-weight: 600;
+}
+.circle-area-evidence p {
+  font-size: 15px;
+  line-height: 1.8;
+}
+.circle-edge-scroll {
+  overflow-x: auto;
+}
+.circle-edge-scroll svg {
+  display: block;
+  width: 100%;
+  min-width: 520px;
+  fill: var(--ui-ink);
+  font:
+    18px "Microsoft YaHei",
+    sans-serif;
+}
+.circle-edge-comparisons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0;
+}
+.circle-edge-comparisons .btn {
+  white-space: normal;
+}

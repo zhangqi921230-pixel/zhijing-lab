@@ -1,0 +1,148 @@
+.visual-physics {
+  padding: 24px;
+  color: var(--ui-ink);
+  background: var(--ui-paper);
+}
+.visual-physics header small {
+  color: var(--ui-muted);
+  letter-spacing: 0.1em;
+}
+.visual-physics h2 {
+  font:
+    26px Georgia,
+    "SimSun",
+    serif;
+  margin: 14px 0;
+}
+.visual-physics p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--ui-muted);
+}
+.visual-physics svg {
+  width: 100%;
+  display: block;
+}
+.visual-physics svg text {
+  fill: var(--ui-ink);
+  font-size: 15px;
+}
+.vp-axis {
+  stroke: var(--ui-muted);
+  stroke-width: 1;
+}
+.vp-grid {
+  stroke: var(--ui-line);
+  stroke-width: 1;
+}
+.vp-modes {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.vp-modes button {
+  background: var(--ui-surface);
+  color: var(--ui-ink);
+  border: 1px solid var(--ui-line);
+  padding: 10px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.vp-modes button[aria-pressed="true"] {
+  border-color: var(--ui-primary);
+  background: var(--ui-selected);
+}
+.vp-modes button:focus-visible {
+  outline: 2px solid var(--ui-primary);
+  outline-offset: 3px;
+}
+.vp-readout {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 16px;
+  background: var(--ui-surface);
+  border-left: 3px solid var(--ui-primary);
+  font-variant-numeric: tabular-nums;
+}
+@media (max-width: 650px) {
+  .visual-physics {
+    padding: 12px;
+  }
+  .visual-physics h2 {
+    font-size: 21px;
+  }
+  .visual-physics svg {
+    min-width: 560px;
+  }
+  .visual-physics {
+    overflow-x: auto;
+  }
+}
+
+.vp-time {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 14px 0;
+  font-size: 14px;
+}
+.vp-time input {
+  flex: 1;
+  min-width: 160px;
+  accent-color: var(--ui-primary);
+}
+.buoyancy-plot {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--ui-line);
+}
+.buoyancy-plot h3 {
+  font-size: 20px;
+  line-height: 1.5;
+}
+.buoyancy-plot p {
+  font-size: 15px;
+}
+.buoyancy-plot-scroll {
+  overflow-x: auto;
+  background: var(--ui-paper);
+  border: 1px solid var(--ui-line);
+  border-radius: 8px;
+  margin: 16px 0;
+}
+.buoyancy-plot-scroll svg {
+  min-width: 560px;
+  max-width: 850px;
+  margin: auto;
+}
+.buoyancy-plot-scroll:focus-visible {
+  outline: 2px solid var(--ui-gold);
+  outline-offset: 3px;
+}
+
+.wave-time-study {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--ui-line);
+}
+.wave-time-study h3 {
+  font-size: 21px;
+}
+.wave-time-study p {
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.vp-wave-scroll {
+  overflow-x: auto;
+  margin-top: 16px;
+}
+.vp-wave-diagram {
+  min-width: 660px;
+}
+.visual-physics .vp-wave-diagram text {
+  font-size: 20px;
+}

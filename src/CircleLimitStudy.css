@@ -1,0 +1,115 @@
+.circle-studio .proof-heading {
+  color: var(--ui-ink);
+}
+.circle-studio .proof-heading > span,
+.circle-studio .proof-heading p {
+  color: var(--ui-muted);
+}
+html[data-theme] .circle-relations :is(span, strong, small) {
+  color: var(--ui-ink);
+}
+.circle-limit-study {
+  margin: 20px 0;
+  padding: 22px;
+  background: var(--ui-surface);
+  border: 1px solid var(--ui-line);
+  color: var(--ui-ink);
+  border-radius: 8px;
+}
+.circle-limit-study header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.circle-limit-study h3 {
+  font-size: 20px;
+  margin: 8px 0;
+}
+.circle-limit-study small {
+  color: var(--ui-muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
+.circle-count-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.circle-count-options button {
+  padding: 9px 12px;
+  border: 1px solid var(--ui-line);
+  border-radius: 4px;
+  cursor: pointer;
+}
+html[data-theme] .circle-count-options button[aria-pressed="true"] {
+  border-color: var(--ui-primary);
+}
+.circle-count-options button:focus-visible {
+  outline: 2px solid var(--ui-primary);
+  outline-offset: 2px;
+}
+.circle-arc-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 20px;
+}
+.circle-arc-detail {
+  padding: 14px;
+  background: var(--ui-paper);
+  border: 1px solid var(--ui-line);
+  border-radius: 5px;
+}
+.circle-arc-detail strong {
+  font-size: 14px;
+}
+.circle-limit-study svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.circle-limit-study p {
+  font-size: 14px;
+  line-height: 1.8;
+  margin: 12px 0 0;
+}
+.circle-polygon-study {
+  display: grid;
+  grid-template-columns: minmax(180px, 1fr) minmax(0, 1.4fr);
+  align-items: center;
+  gap: 24px;
+}
+.circle-polygon-study h4 {
+  font-size: 16px;
+}
+.circle-polygon-study dl {
+  margin: 0;
+}
+.circle-polygon-study dl div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--ui-line);
+  font-size: 14px;
+}
+.circle-polygon-study dd {
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+@media (max-width: 650px) {
+  .circle-limit-study {
+    padding: 14px;
+  }
+  .circle-arc-pair,
+  .circle-polygon-study {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .circle-polygon-study svg {
+    max-width: 260px;
+    margin: auto;
+  }
+}

@@ -1,0 +1,112 @@
+.microscope-field-scale {
+  margin: 12px 0;
+  padding: 12px;
+  border: 1px solid var(--ui-line);
+  border-radius: 6px;
+  background: var(--ui-surface);
+  color: var(--ui-ink);
+}
+.microscope-field-scale summary {
+  cursor: pointer;
+  min-height: 44px;
+  display: list-item;
+  align-content: center;
+  font-size: 15px;
+  font-weight: 600;
+}
+.microscope-field-scale summary:focus-visible {
+  outline: 2px solid var(--ui-primary);
+  outline-offset: 3px;
+}
+.microscope-field-scale svg {
+  display: block;
+  width: 100%;
+  max-width: 170px;
+  margin: 10px auto;
+}
+.microscope-field-scale p,
+.microscope-field-scale small {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--ui-ink);
+}
+
+.microscope-field-scale-readout {
+  display: grid;
+  gap: 5px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.field-reference-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0;
+}
+.field-reference-study {
+  margin: 16px 0;
+  padding-top: 12px;
+  border-top: 1px solid var(--ui-line);
+}
+
+.microscope-magnification-table {
+  overflow-x: auto;
+  margin: 16px 0;
+}
+.microscope-magnification-table table {
+  border-collapse: collapse;
+  min-width: 540px;
+  width: 100%;
+  font-size: 15px;
+}
+.microscope-magnification-table caption {
+  text-align: left;
+  padding: 10px 0;
+  font-weight: 600;
+}
+.microscope-magnification-table th,
+.microscope-magnification-table td {
+  text-align: left;
+  padding: 10px;
+  border-bottom: 1px solid var(--ui-line);
+  white-space: nowrap;
+}
+.microscope-magnification-table tr[aria-current] {
+  background: var(--ui-paper);
+}
+.microscope-magnification-table button {
+  min-height: 44px;
+}
+
+.micro-field-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+}
+.micro-field-cards figure {
+  margin: 0;
+  padding: 8px;
+  border: 1px solid var(--ui-line);
+  border-radius: 6px;
+}
+.micro-field-cards figcaption {
+  display: grid;
+  gap: 6px;
+  margin: 8px 0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.micro-field-cards button {
+  width: 100%;
+  min-height: 44px;
+}
+.micro-field-triptych h4 {
+  font-size: 17px;
+  line-height: 1.5;
+  margin: 12px 0;
+}
+.micro-field-cards svg {
+  max-width: 180px;
+  margin: 0 auto;
+}

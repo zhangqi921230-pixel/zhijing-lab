@@ -1,0 +1,94 @@
+.quartet-study p {
+  line-height: 1.8;
+}
+.quartet-histogram {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+  margin: 24px 0;
+}
+.quartet-histogram button {
+  display: grid;
+  gap: 10px;
+  padding: 12px 6px;
+  color: var(--ui-text);
+  background: var(--ui-surface);
+  border: 1px solid var(--ui-line);
+  border-radius: 8px;
+  cursor: pointer;
+}
+.quartet-histogram button[aria-pressed="true"] {
+  border-color: var(--ui-primary);
+  box-shadow: inset 0 -3px var(--ui-primary);
+}
+.quartet-bar {
+  height: 100px;
+  display: flex;
+  align-items: flex-end;
+  background: var(--ui-paper);
+}
+.quartet-bar i {
+  display: block;
+  width: 100%;
+  background: var(--ui-primary);
+}
+.quartet-arrangements {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 16px 0;
+}
+.quartet-arrangements button[aria-pressed="true"] {
+  border-color: var(--ui-primary);
+  box-shadow: inset 0 -2px var(--ui-primary);
+}
+.quartet-offspring {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin: 24px 0;
+}
+.quartet-offspring > div {
+  text-align: center;
+  border: 1px solid var(--ui-line);
+  border-radius: 12px;
+  padding: 14px 8px;
+  background: var(--ui-surface);
+}
+.quartet-offspring svg {
+  display: block;
+  width: 100%;
+  height: 140px;
+}
+.quartet-offspring .dominant svg {
+  color: #9868af;
+}
+.quartet-offspring .recessive svg {
+  color: #e4d6b9;
+}
+.quartet-offspring .unrevealed svg {
+  color: var(--ui-muted);
+  opacity: 0.18;
+}
+.quartet-offspring strong {
+  font-size: 14px;
+}
+.quartet-equation {
+  display: grid;
+  gap: 12px;
+  border-left: 3px solid var(--ui-primary);
+  padding: 20px;
+  background: var(--ui-surface);
+}
+@media (max-width: 600px) {
+  .quartet-offspring {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .quartet-histogram {
+    gap: 4px;
+  }
+  .quartet-histogram button {
+    font-size: 12px;
+    padding: 10px 2px;
+  }
+}

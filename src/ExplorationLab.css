@@ -1,0 +1,525 @@
+.exploration-lab {
+  --primary: #286a57;
+  --ink: #243d36;
+  --muted: #586c62;
+  --paper: #f5f2e9;
+  --surface: #fffef9;
+  --line: #d7dbd1;
+  display: grid;
+  grid-template-columns: 230px minmax(0, 1fr) 320px;
+  min-height: calc(100dvh - 72px);
+  color: var(--ink);
+  background: var(--paper);
+}
+.exploration-nav {
+  padding: 24px 18px;
+  border-right: 1px solid var(--line);
+  background: var(--surface);
+}
+.exploration-nav .microscope-chapters {
+  display: grid;
+  gap: 6px;
+  margin-top: 26px;
+}
+.exploration-nav .microscope-chapters .nav-heading {
+  font-size: 12px;
+  padding: 8px 10px;
+}
+.exploration-nav .microscope-chapters button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+  min-height: 52px;
+  padding: 12px 10px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: 15px;
+  line-height: 1.5;
+  cursor: pointer;
+}
+.exploration-nav .microscope-chapters button small {
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+  font-size: 13px;
+}
+.exploration-nav .microscope-chapters button[aria-current="step"] {
+  background: #e7ece2;
+  box-shadow: inset 3px 0 var(--primary);
+  font-weight: 600;
+}
+.exploration-nav .microscope-chapters button:hover {
+  background: #edf0e9;
+}
+.exploration-identity {
+  padding: 28px 8px 10px;
+}
+.exploration-identity small,
+.exploration-notes > small {
+  letter-spacing: 0.16em;
+  color: var(--muted);
+  font-size: 12px;
+}
+.exploration-identity h2 {
+  font-size: 23px;
+  margin: 10px 0;
+}
+.exploration-main {
+  padding: 32px 28px;
+  min-width: 0;
+}
+.exploration-main > header {
+  margin-bottom: 28px;
+}
+.exploration-main h1 {
+  font-family: Georgia, "Noto Serif SC", "SimSun", serif;
+  font-size: clamp(26px, 2.5vw, 38px);
+  margin: 12px 0;
+}
+.exploration-main p {
+  color: var(--muted);
+  line-height: 1.8;
+  font-size: 15px;
+}
+.exploration-stage {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface);
+  overflow: hidden;
+}
+.stage-caption {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 18px 22px;
+  border-bottom: 1px solid var(--line);
+  font-size: 14px;
+}
+.stage-caption > span:last-child {
+  color: var(--muted);
+}
+.apparatus {
+  width: 100%;
+  display: block;
+  max-height: 550px;
+  background: radial-gradient(ellipse at 50% 40%, #fffef8, #edece2);
+}
+.apparatus text {
+  font:
+    15px "Microsoft YaHei",
+    sans-serif;
+  fill: var(--ink);
+}
+.apparatus text[fill] {
+  fill: #f3e8c8;
+}
+.apparatus .svg-value {
+  font-size: 23px;
+  font-weight: 600;
+}
+.exploration-readings {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 20px 12px;
+  gap: 10px;
+}
+.exploration-readings > span {
+  padding: 0 10px;
+  font-size: 13px;
+  color: var(--muted);
+}
+.exploration-readings strong {
+  display: block;
+  font-size: clamp(21px, 2.2vw, 30px);
+  color: var(--ink);
+  margin-top: 10px;
+  font-variant-numeric: tabular-nums;
+}
+.exploration-readings small {
+  font-size: 13px;
+  font-weight: 400;
+}
+.exploration-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 18px 20px;
+}
+.exploration-lab .btn {
+  min-height: 44px;
+  font-size: 14px;
+  white-space: normal;
+}
+.exploration-notes {
+  padding: 34px 24px;
+  background: var(--surface);
+  border-left: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  align-self: start;
+  max-height: 100dvh;
+  overflow: auto;
+}
+.exploration-notes h2 {
+  font-size: 24px;
+  line-height: 1.5;
+  margin: 20px 0;
+}
+.exploration-notes p {
+  font-size: 15px;
+  line-height: 1.85;
+}
+.exploration-task {
+  border-left: 3px solid #b88b43;
+  padding: 14px 0 12px 16px;
+  margin: 24px 0;
+  background: #b88b4309;
+}
+.exploration-task strong {
+  font-size: 14px;
+  color: #806026;
+}
+.exploration-task p {
+  margin: 8px 0;
+}
+.exploration-control {
+  display: block;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 14px;
+}
+.exploration-control > span {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: space-between;
+}
+.exploration-control strong {
+  font-variant-numeric: tabular-nums;
+  color: var(--primary);
+}
+.exploration-control input {
+  width: 100%;
+  margin: 18px 0 12px;
+  accent-color: var(--primary);
+  min-height: 24px;
+  cursor: pointer;
+}
+.exploration-control > small {
+  display: flex;
+  justify-content: space-between;
+  color: var(--muted);
+  font-size: 12px;
+}
+.exploration-formula {
+  padding: 20px 0;
+  font-size: 19px;
+  line-height: 1.7;
+  font-family: Georgia, "Microsoft YaHei", serif;
+}
+.exploration-notes .exploration-actions {
+  padding: 12px 0;
+}
+.exploration-notes .exploration-status {
+  font-size: 13px;
+  color: var(--muted);
+}
+.exploration-notes summary {
+  min-height: 44px;
+  cursor: pointer;
+  padding: 12px 0;
+  font-size: 14px;
+}
+.exploration-notes details {
+  border-top: 1px solid var(--line);
+  margin-top: 24px;
+}
+.exploration-notes a {
+  color: var(--primary);
+  text-underline-offset: 4px;
+}
+.exploration-chart {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 24px;
+  margin-top: 20px;
+}
+.exploration-chart h2 {
+  font-size: 20px;
+  margin: 0 0 12px;
+}
+.science-plot {
+  width: 100%;
+  display: block;
+  overflow: visible;
+}
+.science-plot text {
+  font:
+    15px "Microsoft YaHei",
+    sans-serif;
+  fill: var(--muted);
+}
+.plot-grid {
+  stroke: var(--line);
+  stroke-width: 1;
+}
+.plot-axis {
+  fill: none;
+  stroke: var(--muted);
+  stroke-width: 1.5;
+}
+.plot-caption {
+  padding: 22px 22px 6px;
+  font-size: 14px;
+  line-height: 1.8;
+}
+.coin-tray {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 40px 25px;
+  background: radial-gradient(ellipse at top, #ece6d1, #f8f7ef);
+  min-height: 160px;
+  align-items: center;
+}
+.coin {
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 20%, #fcf3cf, #d5b166);
+  border: 5px double #ab8648;
+  box-shadow:
+    0 5px 0 #927848,
+    0 10px 14px #55462926;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #4f401d;
+}
+.coin strong {
+  font-size: 16px;
+  margin: 4px 0;
+}
+.coin-tail {
+  background: radial-gradient(circle at 30% 20%, #f0f1e7, #afbfb4);
+  border-color: #7c9083;
+  box-shadow:
+    0 5px 0 #667c6e,
+    0 10px 14px #35463926;
+}
+.coin {
+  animation: coin-arrive 0.3s ease-out;
+}
+.trial-caption {
+  padding: 0 24px;
+  font-size: 14px;
+}
+@keyframes coin-arrive {
+  from {
+    transform: rotateY(80deg) translateY(-5px);
+  }
+  to {
+    transform: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .coin {
+    animation: none;
+  }
+}
+.coin span,
+.coin small {
+  font-size: 12px;
+}
+.empty-experiment {
+  padding: 0 24px;
+}
+.record-table {
+  overflow: auto;
+  margin-top: 20px;
+}
+.record-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+}
+.record-table th,
+.record-table td {
+  padding: 12px 8px;
+  text-align: right;
+  border-bottom: 1px solid var(--line);
+}
+.record-table caption {
+  text-align: left;
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+.moon-views {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  background: #0e1c28;
+  color: #e5e8e4;
+  align-items: center;
+  padding: 16px 10px;
+}
+.moon-views svg {
+  width: 100%;
+  display: block;
+}
+.moon-views text {
+  fill: #e5e8e4;
+  font:
+    15px "Microsoft YaHei",
+    sans-serif;
+}
+.moon-views .svg-value {
+  font-size: 21px;
+}
+.moon-observer {
+  border-left: 1px solid #66879b40;
+}
+.moon-observer p {
+  color: #b9c9d0;
+  font-size: 13px;
+  padding: 0 24px;
+  line-height: 1.7;
+}
+.phase-presets {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+.phase-presets [aria-pressed="true"] {
+  border-color: var(--primary);
+  box-shadow: inset 0 -3px var(--primary);
+}
+@media (min-width: 1700px) {
+  .exploration-lab {
+    grid-template-columns: 250px minmax(0, 1fr) 360px;
+  }
+  .exploration-main {
+    padding: 40px;
+  }
+}
+@media (max-width: 1200px) {
+  .exploration-lab {
+    grid-template-columns: 205px minmax(0, 1fr);
+  }
+  .exploration-notes {
+    grid-column: 2;
+    position: static;
+    max-height: none;
+    border: 0;
+    margin: 0 20px 24px;
+    border-radius: 12px;
+  }
+  .exploration-nav {
+    grid-row: 1/3;
+  }
+  .exploration-main {
+    padding: 24px 20px;
+  }
+}
+@media (max-width: 760px) {
+  .exploration-lab {
+    display: block;
+  }
+  .exploration-nav {
+    padding: 15px;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .exploration-identity {
+    display: none;
+  }
+  .exploration-nav .microscope-chapters {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 14px;
+    gap: 6px;
+  }
+  .exploration-nav .microscope-chapters .nav-heading {
+    width: 100%;
+  }
+  .exploration-nav .microscope-chapters button {
+    flex: 1 1 140px;
+    padding: 10px;
+    font-size: 14px;
+  }
+  .exploration-main {
+    padding: 24px 12px;
+  }
+  .exploration-notes {
+    margin: 0 12px 24px;
+    padding: 24px;
+  }
+  .moon-views {
+    grid-template-columns: 1fr;
+  }
+  .moon-observer {
+    border-left: 0;
+    border-top: 1px solid #66879b40;
+  }
+  .exploration-readings {
+    padding: 16px 4px;
+    gap: 0;
+  }
+  .exploration-readings > span {
+    padding: 0 8px;
+    font-size: 12px;
+  }
+  .exploration-readings strong {
+    font-size: 20px;
+  }
+  .exploration-readings strong small {
+    display: block;
+  }
+  .science-plot text {
+    font-size: 26px;
+  }
+  .exploration-chart {
+    padding: 18px 10px;
+  }
+  .apparatus text {
+    font-size: 19px;
+  }
+}
+
+.gas-collision-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.gas-collision-pair figure {
+  margin: 0;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+.gas-collision-pair figcaption {
+  font-weight: 600;
+}
+.gas-collision-pair svg {
+  display: block;
+  width: 100%;
+  height: 240px;
+}
+.gas-collision-study p {
+  line-height: 1.8;
+}
+@media (max-width: 500px) {
+  .gas-collision-pair {
+    grid-template-columns: 1fr;
+  }
+}

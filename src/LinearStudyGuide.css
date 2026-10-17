@@ -1,0 +1,27 @@
+.linear-study-guide {
+  padding: 18px;
+  border: 1px solid var(--ui-line);
+  background: var(--ui-surface);
+  border-radius: 8px;
+  color: var(--ui-ink);
+}
+.linear-study-guide h3 {
+  margin: 0 0 12px;
+  font-size: 19px;
+  line-height: 1.6;
+}
+.linear-study-guide p {
+  font-size: 14px !important;
+  line-height: 1.9;
+}
+.linear-study-guide strong {
+  font-size: 18px !important;
+  line-height: 1.7;
+  display: block;
+}
+.linear-study-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 14px 0;
+}

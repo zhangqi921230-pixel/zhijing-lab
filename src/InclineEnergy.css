@@ -1,0 +1,62 @@
+.incline-energy {
+  grid-column: 1/-1;
+  background: var(--ui-surface);
+  color: var(--ui-ink);
+  padding: 20px;
+  border: 1px solid var(--ui-line);
+  border-radius: 7px;
+  min-width: 0;
+}
+.incline-energy header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.incline-energy h3 {
+  margin: 8px 0 14px;
+  font-size: 20px;
+}
+.incline-energy svg {
+  width: 100%;
+  display: block;
+}
+.incline-energy dl {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin: 0;
+}
+.incline-energy dt {
+  font-size: 13px;
+  line-height: 1.7;
+}
+.incline-energy dt i {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 2px;
+  margin-right: 6px;
+}
+.incline-energy dd {
+  margin: 8px 0;
+  font-size: 24px;
+  font-variant-numeric: tabular-nums;
+}
+.incline-energy p {
+  font-size: 14px;
+  line-height: 1.8;
+}
+@media (max-width: 650px) {
+  .incline-energy {
+    padding: 12px;
+  }
+  .incline-energy dl {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+html[data-theme] .incline-guide svg text {
+  fill: var(--ui-ink);
+}

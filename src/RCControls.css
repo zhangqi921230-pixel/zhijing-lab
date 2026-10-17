@@ -1,0 +1,113 @@
+.rc-diagram-switch {
+  cursor: pointer;
+  outline: none;
+}
+.rc-diagram-switch .rc-switch-target {
+  stroke: transparent;
+  stroke-width: 2;
+}
+.rc-diagram-switch:hover .rc-switch-target {
+  fill: #b8863410;
+  stroke: #b8863470;
+}
+.rc-diagram-switch:focus-visible .rc-switch-target {
+  fill: #b8863414;
+  stroke: #876126;
+  stroke-width: 3;
+}
+.rc-circuit .rc-switch-help {
+  color: var(--primary);
+  font-size: 12px;
+}
+.rc-curve-probe {
+  touch-action: none;
+  cursor: crosshair;
+}
+.rc-curve-probe:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+.rc-probe-presets {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.rc-probe-presets button {
+  padding: 8px 12px;
+  min-height: 40px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  border-radius: 5px;
+  cursor: pointer;
+  color: var(--ink);
+}
+.rc-probe-presets button[aria-pressed="true"] {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: white;
+}
+
+.rc-explanation {
+  border-top: 1px solid var(--line);
+  margin-top: 12px;
+  padding-top: 12px;
+}
+.rc-explanation summary {
+  cursor: pointer;
+  color: var(--primary);
+  font-size: 13px;
+  padding: 8px 0;
+}
+.rc-explanation summary:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
+/* Keep the apparatus and its controls together; the full guide follows. */
+@media (min-width: 1150px) {
+  body:has([data-scene="capacitor"]) .topbar {
+    min-height: 56px;
+    height: 56px;
+    padding-block: 8px;
+  }
+  [data-scene="capacitor"] .lab-main {
+    padding: 16px 20px 35px;
+  }
+  [data-scene="capacitor"] .lab-heading {
+    margin-bottom: 14px;
+  }
+  [data-scene="capacitor"] .stage {
+    display: flex;
+    flex-direction: column;
+    min-height: 470px;
+    height: calc(100dvh - 190px);
+  }
+  [data-scene="capacitor"] .stage .three-wrap:not(.small) {
+    flex: 1;
+    min-height: 240px;
+    height: auto;
+    aspect-ratio: auto;
+  }
+  [data-scene="capacitor"] .stage > :not(.three-wrap) {
+    flex-shrink: 0;
+  }
+  [data-scene="capacitor"] .stage-tools {
+    padding: 8px 12px;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  [data-scene="capacitor"] .simulation-timeline {
+    padding: 8px 12px;
+  }
+  [data-scene="capacitor"] .simulation-timeline label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  [data-scene="capacitor"] .simulation-timeline label span {
+    white-space: nowrap;
+  }
+}
+[data-scene="capacitor"] .stage + .rc-guide {
+  margin-top: 14px;
+}

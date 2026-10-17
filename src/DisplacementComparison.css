@@ -1,0 +1,42 @@
+.displacement-comparison {
+  margin: 24px 0;
+  padding: 20px;
+  border: 1px solid var(--ui-line);
+  background: var(--ui-paper);
+  color: var(--ui-ink);
+}
+.displacement-comparison h3 {
+  font-size: 21px;
+}
+.displacement-comparison p {
+  font-size: 15px;
+  line-height: 1.9;
+}
+.displacement-compare-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.displacement-compare-scroll {
+  overflow-x: auto;
+  margin: 16px 0;
+}
+.displacement-compare-scroll svg {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  fill: var(--ui-ink);
+  font:
+    20px "Microsoft YaHei",
+    sans-serif;
+}
+.displacement-compare-scroll .compare-sample-name {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+@media (max-width: 760px) {
+  .displacement-compare-scroll svg {
+    min-width: 740px;
+  }
+}

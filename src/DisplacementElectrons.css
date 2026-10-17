@@ -1,0 +1,31 @@
+.displacement-electrons {
+  margin-top: 24px;
+  padding: 20px;
+  border: 1px solid var(--ui-line);
+  background: var(--ui-paper);
+  color: var(--ui-ink);
+}
+.displacement-electrons h3 {
+  font-size: 21px;
+}
+.displacement-electrons p {
+  font-size: 15px;
+  line-height: 1.9;
+}
+.electron-diagram-scroll {
+  overflow-x: auto;
+}
+.electron-diagram-scroll svg {
+  display: block;
+  width: 100%;
+  min-width: 640px;
+  fill: var(--ui-ink);
+  font:
+    18px "Microsoft YaHei",
+    sans-serif;
+}
+.electron-stage-controls {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}

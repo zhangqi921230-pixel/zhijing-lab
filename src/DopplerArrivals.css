@@ -1,0 +1,48 @@
+.doppler-arrivals {
+  padding: 24px;
+  margin-top: 24px;
+  border: 1px solid var(--ui-line);
+  border-radius: 12px;
+  background: var(--ui-surface);
+}
+.doppler-arrivals h2 {
+  font-size: 22px;
+  margin: 0;
+}
+.doppler-arrivals svg {
+  display: block;
+  width: 100%;
+  min-width: 500px;
+}
+.doppler-arrivals text {
+  font:
+    16px "Microsoft YaHei",
+    sans-serif;
+  fill: var(--ui-ink);
+}
+.doppler-arrivals-data {
+  overflow-x: auto;
+}
+.doppler-arrivals table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+.doppler-arrivals caption {
+  text-align: left;
+  padding: 12px 0;
+  color: var(--ui-muted);
+}
+.doppler-arrivals td,
+.doppler-arrivals th {
+  padding: 12px;
+  text-align: left;
+  white-space: nowrap;
+  border-bottom: 1px solid var(--ui-line);
+  font-variant-numeric: tabular-nums;
+}
+@media (max-width: 600px) {
+  .doppler-arrivals {
+    padding: 16px;
+  }
+}

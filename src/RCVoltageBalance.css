@@ -1,0 +1,35 @@
+.rc-voltage-balance {
+  padding: 20px;
+  border: 1px solid var(--ui-line);
+  background: var(--ui-surface);
+  color: var(--ui-ink);
+  border-radius: 8px;
+  min-width: 0;
+}
+.rc-voltage-balance h3 {
+  font-size: 21px;
+  margin: 0 0 14px;
+}
+.rc-voltage-balance p {
+  font-size: 14px !important;
+  line-height: 1.9;
+}
+.rc-voltage-balance svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.rc-voltage-balance svg text {
+  fill: var(--ui-ink);
+  font-size: 14px;
+}
+.rc-voltage-balance strong {
+  display: block;
+  font-size: 18px;
+  line-height: 1.7;
+}
+.rc-voltage-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}

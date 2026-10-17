@@ -1,0 +1,50 @@
+.dilution-target {
+  margin: 16px 0;
+  padding: 14px;
+  background: #192c34;
+  border: 1px solid #425961;
+  border-radius: 8px;
+}
+.dilution-target label {
+  display: grid;
+  gap: 8px;
+  color: #dfcf9f;
+  font-size: 12px;
+}
+.dilution-target input {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  background: #0c1b22;
+  color: #edf0e6;
+  border: 1px solid #637879;
+  border-radius: 5px;
+  padding: 9px;
+  font: inherit;
+  font-size: 16px;
+}
+.dilution-target button {
+  background: #344449;
+  color: #ecdbad;
+  border: 1px solid #7e785f;
+  padding: 8px 12px;
+  border-radius: 5px;
+  font-size: 12px;
+}
+.dilution-target button:hover {
+  background: #455b60;
+  color: #fff2d0;
+}
+.dilution-target input:focus-visible,
+.dilution-target button:focus-visible {
+  outline: 2px solid #ddbf7f;
+  outline-offset: 2px;
+}
+.dilution-target-result {
+  margin-top: 12px;
+  border-top: 1px solid #45616b;
+}
+.dilution-target .dilution-target-note {
+  font-size: 11px;
+  color: #a8bfc2;
+}

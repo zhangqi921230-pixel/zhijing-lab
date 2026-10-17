@@ -1,0 +1,27 @@
+name: 新主题许愿
+description: 提出你希望新增的互动教学主题
+title: "[许愿] "
+body:
+  - type: markdown
+    attributes:
+      value: "感谢参与共建。所有内容公开，请勿填写个人联系方式或学生信息。"
+  - type: input
+    id: topic
+    attributes:
+      label: 主题名称
+    validations:
+      required: true
+  - type: textarea
+    id: requirements
+    attributes:
+      label: 实现要求或修改建议
+      description: 请描述学科、年级、教学目标和希望支持的操作。
+    validations:
+      required: true
+  - type: textarea
+    id: effect
+    attributes:
+      label: 期望呈现的效果
+      description: 希望呈现什么画面、实验现象和学习过程？
+    validations:
+      required: true

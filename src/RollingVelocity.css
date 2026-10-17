@@ -1,0 +1,38 @@
+.rolling-velocity {
+  margin-top: 24px;
+  padding: 24px;
+  border: 1px solid var(--ui-line);
+  border-radius: 12px;
+  background: var(--ui-surface);
+}
+.rolling-velocity h2 {
+  font-size: 22px;
+  margin: 0;
+}
+.rolling-velocity-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 24px;
+  align-items: center;
+}
+.rolling-velocity svg {
+  width: 100%;
+  display: block;
+}
+.rolling-velocity text {
+  fill: var(--ui-ink);
+  font:
+    14px "Microsoft YaHei",
+    sans-serif;
+}
+@media (max-width: 900px) {
+  .rolling-velocity-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}
+@media (max-width: 600px) {
+  .rolling-velocity {
+    padding: 16px;
+  }
+}

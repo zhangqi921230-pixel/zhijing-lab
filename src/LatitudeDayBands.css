@@ -1,0 +1,22 @@
+.latitude-day-bands {
+  border-top: 1px solid var(--ui-line);
+  margin-top: 24px;
+  padding-top: 20px;
+  color: var(--ui-ink);
+}
+.latitude-day-bands h3 {
+  font-size: 21px;
+}
+.latitude-day-bands p {
+  font-size: 15px;
+  line-height: 1.8;
+}
+.season-band-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0;
+}
+.season-band-actions button {
+  min-height: 44px;
+}

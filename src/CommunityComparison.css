@@ -1,0 +1,189 @@
+.community-comparison {
+  border-top: 1px solid var(--ui-line);
+  padding-top: 18px;
+  margin-top: 20px;
+  color: var(--ui-ink);
+  font-size: 15px;
+}
+.community-comparison header {
+  display: grid;
+  gap: 8px;
+}
+.community-comparison header span {
+  color: var(--ui-muted);
+  font-size: 14px;
+}
+.community-sample {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--ui-line);
+}
+.community-stripe {
+  display: flex;
+  height: 16px;
+  margin: 12px 0;
+  overflow: hidden;
+  border-radius: 3px;
+  background: var(--ui-line);
+}
+.community-stripe span {
+  transition: width 0.2s ease;
+}
+.community-color-0 {
+  background: #438368;
+}
+.community-color-1 {
+  background: #bc984e;
+}
+.community-color-2 {
+  background: #52829f;
+}
+.community-color-3 {
+  background: #ab7185;
+}
+.community-sample dl {
+  margin: 0;
+}
+.community-sample dl > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 9px 0;
+}
+.community-sample dt {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.community-sample dt i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+.community-sample dd {
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+}
+.community-sample small {
+  font-size: 14px;
+  color: var(--ui-muted);
+}
+.community-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 14px;
+  margin-top: 16px;
+}
+.community-metrics b {
+  font-size: 16px;
+  display: block;
+  margin-top: 6px;
+  color: var(--ui-primary);
+}
+.community-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 12px 0;
+}
+.community-actions button {
+  min-height: 40px;
+  padding: 8px 10px;
+  border: 1px solid var(--ui-line);
+  border-radius: 5px;
+  background: var(--ui-surface);
+  color: var(--ui-ink);
+  cursor: pointer;
+}
+.community-comparison p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--ui-muted);
+}
+.community-comparison .community-difference {
+  border-left: 3px solid var(--ui-primary);
+  padding-left: 10px;
+  color: var(--ui-ink);
+}
+.community-comparison summary {
+  padding: 10px 0;
+  cursor: pointer;
+}
+.community-comparison :focus-visible {
+  outline: 3px solid var(--ui-gold);
+  outline-offset: 3px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .community-stripe span {
+    transition: none;
+  }
+}
+
+.community-comparison {
+  padding: 24px;
+  border: 1px solid var(--ui-line);
+  border-radius: 8px;
+  background: var(--ui-surface);
+}
+.community-comparison header strong {
+  font-size: 22px;
+  line-height: 1.6;
+}
+.community-pair {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+.community-sample {
+  padding: 18px;
+  border: 1px solid var(--ui-line);
+  border-radius: 6px;
+  margin-top: 18px;
+}
+.community-sample > strong {
+  font-size: 18px;
+}
+.community-metrics {
+  justify-content: space-between;
+}
+.community-metrics b {
+  font-size: 24px;
+}
+@media (max-width: 600px) {
+  .community-comparison {
+    padding: 16px;
+  }
+  .community-pair {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
+
+.community-abundance {
+  border-top: 1px solid var(--ui-line);
+  margin-top: 18px;
+  padding-top: 12px;
+}
+.community-abundance h3 {
+  font-size: 20px;
+  line-height: 1.6;
+}
+.community-abundance p {
+  font-size: 15px;
+}
+.community-abundance .community-actions button[aria-pressed="true"] {
+  background: var(--ui-selected);
+  border-color: var(--ui-primary);
+}
+.community-abundance-scroll {
+  overflow-x: auto;
+}
+.community-abundance-scroll svg {
+  display: block;
+  width: 100%;
+  min-width: 620px;
+  fill: var(--ui-ink);
+  font:
+    20px "Microsoft YaHei",
+    sans-serif;
+}

@@ -1,0 +1,133 @@
+.water-budget-guide {
+  margin: 20px 0;
+  padding: 16px 0;
+  border-block: 1px solid var(--ui-line);
+}
+.water-budget-guide header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 14px;
+}
+.water-budget-guide header span {
+  font-variant-numeric: tabular-nums;
+}
+.water-budget-bar {
+  display: flex;
+  height: 12px;
+  border-radius: 3px;
+  overflow: hidden;
+  background: var(--ui-line);
+  margin: 16px 0;
+}
+.water-budget-bar span {
+  transition: width 180ms ease;
+}
+.water-budget-guide dl {
+  margin: 0;
+}
+.water-budget-guide dl > div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 10px 0;
+  font-size: 14px;
+}
+.water-budget-guide dt i {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-right: 8px;
+  border-radius: 50%;
+}
+.water-budget-guide dd {
+  margin: 0;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.water-budget-guide dd small {
+  display: block;
+  font-size: 14px;
+  opacity: 0.75;
+  margin-top: 3px;
+}
+.water-budget-guide p {
+  font-size: 14px;
+  line-height: 1.7;
+  opacity: 0.8;
+}
+.water-budget-switches {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.water-budget-switches button {
+  padding: 8px 10px;
+  border: 1px solid var(--ui-line);
+  border-radius: 5px;
+  font-size: 14px;
+}
+.water-budget-switches button[aria-pressed="true"] {
+  color: var(--ui-ink);
+  background: var(--ui-selected);
+  border-color: var(--ui-primary);
+}
+.water-comparison {
+  padding: 14px 0;
+  border-block: 1px solid var(--ui-line);
+  margin: 16px 0;
+}
+.water-comparison button {
+  color: var(--ui-ink);
+  background: var(--ui-surface);
+  border: 1px solid var(--ui-line);
+  padding: 9px 12px;
+  margin: 0 6px 6px 0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.water-comparison button:focus-visible {
+  outline: 2px solid var(--ui-primary);
+  outline-offset: 3px;
+}
+.water-comparison table {
+  width: 100%;
+  min-width: 0;
+  table-layout: fixed;
+  border-collapse: collapse;
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+}
+.water-comparison caption {
+  text-align: left;
+  margin-bottom: 10px;
+  color: var(--ui-muted);
+}
+.water-comparison th,
+.water-comparison td {
+  white-space: normal;
+  overflow-wrap: anywhere;
+  padding: 7px 3px;
+  border-bottom: 1px solid var(--ui-line);
+  text-align: right;
+  font-weight: 400;
+}
+.water-comparison th:first-child {
+  text-align: left;
+}
+.water-compare-pair {
+  margin: 12px 0;
+  background: var(--ui-line);
+}
+.water-compare-pair span {
+  height: 5px;
+  display: block;
+  margin: 3px 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .water-budget-bar span {
+    transition: none;
+  }
+}

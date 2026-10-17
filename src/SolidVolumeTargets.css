@@ -1,0 +1,28 @@
+.solid-volume-targets {
+  grid-column: 1/-1;
+  border: 1px solid var(--ui-line);
+  border-radius: 8px;
+  padding: 20px;
+  background: var(--ui-surface);
+  color: var(--ui-ink);
+}
+.solid-volume-targets h3 {
+  font-size: 20px;
+  margin: 0 0 12px;
+  line-height: 1.5;
+}
+.solids-guide .solid-volume-targets p {
+  font-size: 15px;
+  color: var(--ui-muted);
+  line-height: 1.9;
+}
+.solids-guide .solid-volume-targets strong {
+  display: inline;
+  font-size: 16px;
+  color: var(--ui-ink);
+  margin: 0;
+}
+.solid-volume-targets button {
+  min-height: 44px;
+  font-size: 15px;
+}

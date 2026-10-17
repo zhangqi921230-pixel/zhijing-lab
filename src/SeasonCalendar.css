@@ -1,0 +1,120 @@
+.season-calendar {
+  margin-top: 20px;
+  border-top: 1px solid var(--ui-line);
+  padding-top: 18px;
+  color: var(--ui-ink);
+}
+.season-calendar header {
+  display: grid;
+  gap: 7px;
+  font-size: 14px;
+}
+.season-calendar header span {
+  font-size: 14px;
+  color: var(--ui-muted);
+}
+.season-calendar svg {
+  width: 100%;
+  display: block;
+  margin: 14px 0;
+  touch-action: none;
+  cursor: crosshair;
+}
+.season-calendar svg text {
+  fill: var(--ui-muted);
+  font:
+    14px "Microsoft YaHei",
+    sans-serif;
+}
+.season-grid {
+  stroke: var(--ui-line);
+  stroke-width: 1;
+}
+.season-current,
+.season-opposite {
+  fill: none;
+  stroke-width: 2.5;
+}
+.season-current {
+  stroke: var(--ui-primary);
+}
+.season-opposite {
+  stroke: var(--ui-gold);
+  stroke-dasharray: 6 4;
+}
+.season-cursor {
+  stroke: var(--ui-muted);
+  stroke-dasharray: 2 4;
+}
+.season-calendar svg:focus-visible {
+  outline: 3px solid var(--ui-gold);
+  outline-offset: 3px;
+}
+.season-legend,
+.season-lengths {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 14px;
+}
+.season-legend span:last-child {
+  color: var(--ui-gold);
+}
+.season-daybar {
+  height: 15px;
+  margin: 16px 0 8px;
+  background: #384957;
+  border-radius: 3px;
+  overflow: hidden;
+}
+.season-daybar i {
+  height: 100%;
+  display: block;
+  background: #c3a35c;
+}
+.season-calendar dl {
+  font-size: 14px;
+  margin-top: 20px;
+}
+.season-calendar dl > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--ui-line);
+}
+.season-calendar dd {
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+}
+.season-calendar p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--ui-muted);
+}
+
+.season-calendar {
+  padding: 24px;
+  border: 1px solid var(--ui-line);
+  border-radius: 8px;
+  background: var(--ui-surface);
+}
+.season-calendar header strong {
+  font-size: 22px;
+  line-height: 1.6;
+}
+.season-main-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 24px;
+  margin-top: 16px;
+}
+@media (max-width: 900px) {
+  .season-main-layout {
+    grid-template-columns: 1fr;
+  }
+  .season-calendar {
+    padding: 16px;
+  }
+}

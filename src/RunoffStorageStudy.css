@@ -1,0 +1,108 @@
+.runoff-storage-study {
+  padding: 24px;
+  margin-top: 24px;
+  border: 1px solid var(--ui-line);
+  border-radius: 8px;
+  background: var(--ui-surface);
+  color: var(--ui-ink);
+  min-width: 0;
+}
+.runoff-storage-study h2 {
+  font-size: 24px;
+  margin: 0 0 12px;
+}
+.runoff-storage-study p,
+.runoff-storage-study summary {
+  font-size: 16px;
+  line-height: 1.85;
+}
+.runoff-storage-scroll {
+  overflow: auto;
+}
+.runoff-storage-study svg {
+  width: 100%;
+  min-width: 600px;
+  display: block;
+  fill: var(--ui-ink);
+  font:
+    17px "Microsoft YaHei",
+    sans-serif;
+}
+.runoff-storage-study dl {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin: 20px 0;
+}
+.runoff-storage-study dl div {
+  flex: 1 1 150px;
+  background: var(--ui-paper);
+  padding: 12px;
+}
+.runoff-storage-study dd {
+  margin: 8px 0 0;
+  font-size: 20px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.runoff-storage-time {
+  display: grid;
+  gap: 10px;
+  margin-top: 16px;
+}
+.runoff-storage-time input {
+  width: 100%;
+}
+@media (max-width: 760px) {
+  .runoff-storage-study {
+    padding: 16px;
+  }
+}
+
+.runoff-water-locations {
+  margin-top: 20px;
+  padding: 16px;
+  background: var(--ui-paper);
+  border: 1px solid var(--ui-line);
+  border-radius: 6px;
+}
+.runoff-water-locations h3 {
+  font-size: 20px;
+  margin: 0 0 12px;
+}
+.runoff-water-strip {
+  height: 24px;
+  display: flex;
+  background: var(--ui-line);
+  overflow: hidden;
+  border-radius: 4px;
+}
+.runoff-water-strip span {
+  display: block;
+  flex-shrink: 0;
+}
+.runoff-water-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  margin-top: 16px;
+  font-size: 15px;
+}
+.runoff-water-legend i {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  margin-right: 6px;
+}
+.runoff-stage-label {
+  border-left: 3px solid var(--ui-primary);
+  padding-left: 12px;
+}
+
+.runoff-curve-comparison {
+  border-left: 3px solid var(--ui-gold);
+  padding: 4px 16px;
+  margin: 16px 0;
+  background: var(--ui-paper);
+}

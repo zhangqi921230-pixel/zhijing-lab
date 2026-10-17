@@ -1,0 +1,105 @@
+.dilution-plot {
+  margin: 16px 0;
+  padding: 20px;
+  border: 1px solid var(--ui-line);
+  border-radius: 10px;
+  background: var(--ui-surface);
+  color: var(--ui-ink);
+}
+.dilution-plot-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.dilution-plot h3 {
+  margin: 0;
+  font-size: 16px;
+}
+.dilution-plot-heading span {
+  color: var(--ui-gold);
+  font-size: 13px;
+}
+.dilution-plot svg {
+  width: 100%;
+  max-height: 300px;
+  display: block;
+  margin: 12px 0;
+}
+.dilution-plot svg text {
+  fill: var(--ui-ink);
+  font-size: 14px;
+}
+.dilution-grid {
+  stroke: var(--ui-line);
+  fill: none;
+}
+.dilution-axis {
+  stroke: var(--ui-muted);
+  fill: none;
+}
+.dilution-curve {
+  stroke: var(--ui-primary);
+  stroke-width: 2.5;
+  fill: none;
+}
+.dilution-probe {
+  stroke: var(--ui-gold);
+  stroke-dasharray: 4 4;
+  fill: none;
+}
+.dilution-current {
+  fill: var(--ui-gold);
+  stroke: var(--ui-surface);
+  stroke-width: 2;
+}
+.dilution-plot-samples {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+.dilution-plot-samples button {
+  background: var(--ui-paper);
+  color: var(--ui-ink);
+  border: 1px solid var(--ui-line);
+  border-radius: 6px;
+  padding: 9px;
+  font-size: 14px;
+}
+.dilution-plot-samples strong {
+  display: block;
+  margin-top: 4px;
+  font-size: 16px;
+}
+.dilution-plot-samples button[aria-pressed="true"] {
+  border-color: var(--ui-gold);
+  color: var(--ui-ink);
+  background: var(--ui-selected);
+}
+.dilution-plot-samples button:hover {
+  background: var(--ui-selected);
+  color: var(--ui-ink);
+  border-color: var(--ui-gold);
+}
+.dilution-plot-samples button:focus-visible {
+  outline: 2px solid var(--ui-gold);
+  outline-offset: 3px;
+}
+.dilution-plot p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--ui-muted);
+  margin-bottom: 0;
+}
+@media (max-width: 600px) {
+  .dilution-plot svg text {
+    font-size: 18px;
+  }
+  .dilution-plot {
+    padding: 14px;
+  }
+  .dilution-plot-samples {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

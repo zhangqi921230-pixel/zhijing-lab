@@ -1,0 +1,46 @@
+.photo-net-study {
+  border-top: 1px solid var(--ui-line);
+  margin-top: 20px;
+  padding-top: 16px;
+  color: var(--ui-ink);
+}
+.photo-net-study h3 {
+  font-size: 20px;
+}
+.photo-net-respiration {
+  display: block;
+  font-size: 15px;
+  line-height: 1.8;
+  margin: 16px 0;
+}
+.photo-net-respiration output {
+  float: right;
+  font-variant-numeric: tabular-nums;
+}
+.photo-net-respiration input {
+  display: block;
+  width: 100%;
+  accent-color: var(--ui-primary);
+}
+.photo-net-scroll {
+  overflow-x: auto;
+}
+.photo-net-scroll:focus-visible {
+  outline: 2px solid var(--ui-primary);
+  outline-offset: 3px;
+}
+.photo-response .photo-net-scroll svg {
+  min-width: 640px;
+  cursor: default;
+  touch-action: auto;
+}
+.photo-response .photo-net-scroll svg text {
+  font-size: 18px;
+}
+.photo-net-study .photo-net-balance {
+  border-left: 3px solid var(--ui-gold);
+  padding: 10px 14px;
+  background: var(--ui-surface);
+  color: var(--ui-ink);
+  font-size: 16px;
+}

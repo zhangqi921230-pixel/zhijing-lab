@@ -1,0 +1,103 @@
+.ecology-observation {
+  position: absolute;
+  left: 18px;
+  top: 62px;
+  width: 270px;
+  max-width: calc(100% - 90px);
+  z-index: 3;
+  background: #fafbf5ed;
+  border: 1px solid #cad1c3;
+  border-radius: 6px;
+  color: #314b3f;
+  box-shadow: 0 4px 16px #172b1810;
+}
+.ecology-observation-tabs {
+  display: flex;
+  padding: 5px;
+  gap: 3px;
+}
+.ecology-observation-tabs button {
+  flex: 1;
+  padding: 7px 3px;
+  border: 0;
+  border-radius: 3px;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+.ecology-observation-tabs button[aria-pressed="true"] {
+  background: #dce7d7;
+}
+.ecology-observation-tabs button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+.ecology-observation small {
+  display: block;
+  padding: 0 10px 9px;
+  font-size: 11px;
+}
+.ecology-observation-body {
+  border-top: 1px solid #dfe4d9;
+  padding: 10px 12px;
+  font-size: 12px;
+}
+.ecology-observation-body > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.ecology-observation-body > div button {
+  border: 0;
+  background: transparent;
+  font-size: 20px;
+  color: inherit;
+  cursor: pointer;
+}
+.ecology-observation-body p {
+  margin: 6px 0 10px;
+  line-height: 1.8;
+}
+.ecology-observation-body span {
+  display: block;
+  margin-bottom: 8px;
+  color: #647663;
+}
+
+@media (max-width: 760px) {
+  [data-scene="biodiversity"] .stage .three-wrap:not(.small) {
+    height: auto;
+    min-height: 0;
+    aspect-ratio: auto;
+  }
+  .scene-biodiversity:not(.small) > .three-host {
+    position: relative;
+    height: 330px;
+    inset: auto;
+  }
+  .scene-biodiversity .ecology-observation {
+    position: relative;
+    inset: auto;
+    width: auto;
+    max-width: none;
+    margin: 0;
+    border-radius: 0;
+    border-width: 1px 0 0;
+    box-shadow: none;
+  }
+  .scene-biodiversity .ecology-observation-tabs button,
+  .scene-biodiversity .ecology-observation-body button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  .scene-biodiversity .microscope-quality {
+    top: 282px;
+    bottom: auto;
+  }
+  .scene-biodiversity .orbit-hint {
+    top: 302px;
+    bottom: auto;
+    left: 10px;
+    font-size: 9px;
+  }
+}

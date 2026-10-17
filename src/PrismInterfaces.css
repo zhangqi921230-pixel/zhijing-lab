@@ -1,0 +1,41 @@
+.prism-interfaces {
+  margin: 20px 0;
+  padding: 18px;
+  border: 1px solid var(--ui-line);
+  background: var(--ui-paper);
+  color: var(--ui-ink);
+}
+.prism-interfaces summary {
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.7;
+}
+.prism-interfaces p {
+  font-size: 15px;
+  line-height: 1.8;
+}
+.prism-interface-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+.prism-interface-grid section {
+  min-width: 0;
+}
+.prism-interface-grid h3 {
+  font-size: 18px;
+}
+.prism-interface-grid svg {
+  width: 100%;
+  display: block;
+  fill: var(--ui-ink);
+  font:
+    16px "Microsoft YaHei",
+    sans-serif;
+}
+@media (max-width: 1000px) {
+  .prism-interface-grid {
+    grid-template-columns: 1fr;
+  }
+}

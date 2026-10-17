@@ -1,0 +1,119 @@
+.daylight-observer {
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid var(--ui-line);
+  color: var(--ui-ink);
+}
+.daylight-observer header {
+  display: grid;
+  gap: 8px;
+  font-size: 14px;
+}
+.daylight-observer header span {
+  font-size: 14px;
+  color: var(--ui-muted);
+}
+.daylight-status {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 18px 0;
+  font-size: 14px;
+}
+.daylight-status b {
+  color: var(--ui-primary);
+}
+.daylight-observer svg {
+  display: block;
+  width: 100%;
+  touch-action: none;
+  cursor: crosshair;
+}
+.daylight-observer svg text {
+  font:
+    14px "Microsoft YaHei",
+    sans-serif;
+  fill: var(--ui-muted);
+}
+.daylight-sky {
+  fill: var(--ui-selected);
+  opacity: 0.55;
+}
+.daylight-below {
+  fill: var(--ui-line);
+  opacity: 0.3;
+}
+.daylight-grid {
+  stroke: var(--ui-line);
+}
+.daylight-horizon {
+  stroke: var(--ui-muted);
+  stroke-width: 1.5;
+}
+.daylight-path {
+  fill: none;
+  stroke: var(--ui-primary);
+  stroke-width: 2.5;
+}
+.daylight-cursor {
+  stroke: var(--ui-gold);
+  stroke-dasharray: 3 4;
+}
+.daylight-times {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  margin: 14px 0;
+}
+.daylight-times button {
+  padding: 8px 4px;
+  min-height: 44px;
+  color: var(--ui-ink);
+  background: var(--ui-surface);
+  border: 1px solid var(--ui-line);
+  border-radius: 4px;
+  cursor: pointer;
+}
+.daylight-times small {
+  display: block;
+  font-size: 14px;
+  margin-top: 5px;
+}
+.daylight-times button[aria-pressed="true"] {
+  border-color: var(--ui-primary);
+  background: var(--ui-selected);
+}
+.daylight-observer :focus-visible {
+  outline: 3px solid var(--ui-gold);
+  outline-offset: 3px;
+}
+.daylight-observer p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--ui-muted);
+}
+
+.daylight-observer {
+  padding: 24px;
+  border: 1px solid var(--ui-line);
+  border-radius: 8px;
+  background: var(--ui-surface);
+}
+.daylight-observer header strong {
+  font-size: 22px;
+  line-height: 1.6;
+}
+.daylight-main-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 24px;
+  margin-top: 16px;
+}
+@media (max-width: 900px) {
+  .daylight-main-layout {
+    grid-template-columns: 1fr;
+  }
+  .daylight-observer {
+    padding: 16px;
+  }
+}

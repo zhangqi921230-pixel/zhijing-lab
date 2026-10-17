@@ -1,0 +1,32 @@
+.lissajous-cycle {
+  margin-top: 24px;
+  padding: 24px;
+  border: 1px solid var(--ui-line);
+  border-radius: 12px;
+  background: var(--ui-surface);
+}
+.lissajous-cycle h2 {
+  margin: 0;
+  font-size: 22px;
+}
+.lissajous-cycle svg {
+  display: block;
+  width: 100%;
+  max-width: 760px;
+  min-width: 560px;
+}
+.lissajous-cycle text {
+  fill: var(--ui-ink);
+  font:
+    16px "Microsoft YaHei",
+    sans-serif;
+}
+@media (max-width: 600px) {
+  .lissajous-cycle {
+    padding: 16px;
+  }
+}
+
+.lissajous-phase-scroll {
+  overflow-x: auto;
+}

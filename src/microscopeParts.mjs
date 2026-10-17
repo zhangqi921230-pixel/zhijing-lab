@@ -1,0 +1,50 @@
+export const microscopeParts = [
+  {
+    name: "目镜",
+    point: [-0.29, 2.85, 0.52],
+    text: "从这里观察物像。本模型使用 10× 目镜；总放大倍数还要乘以物镜倍数。",
+  },
+  {
+    name: "物镜转换器",
+    node: "microscope-turret",
+    point: [0, 0, 0],
+    cameraOffset: [1.6, 0.12, 4.2],
+    text: "转换器装载不同物镜。点击物镜可切换倍率；高倍观察前应先在低倍下找到并居中物像。",
+  },
+  {
+    name: "载物台",
+    node: "microscope-stage",
+    point: [-0.3, 0.36, 0.1],
+    text: "承托玻片，中间通光孔让照明光通过标本。右侧手轮控制玻片前后、左右移动。",
+  },
+  {
+    name: "粗准焦螺旋",
+    adjustment: { key: "coarse", label: "粗准焦", min: 0, max: 100, step: 5 },
+    node: "coarse-focus-knob",
+    point: [-0.08, 0, 0],
+    text: "较大幅度调整载物台高度，用于低倍初步找像。按住旋钮上下拖动调节；换到高倍后优先使用细准焦。",
+  },
+  {
+    name: "细准焦螺旋",
+    adjustment: { key: "focus", label: "细准焦", min: 0, max: 100, step: 1 },
+    node: "fine-focus-knob",
+    point: [-0.08, 0, 0],
+    text: "小幅调整载物台高度，使像更清晰。按住旋钮上拖增加、下拖减少；也可点击步进，Shift 加点击反向。",
+  },
+  {
+    name: "聚光镜与孔径光阑",
+    adjustment: {
+      key: "aperture",
+      label: "光阑开度",
+      min: 20,
+      max: 100,
+      step: 10,
+      fallback: 70,
+      unit: "%",
+    },
+    node: "microscope-condenser",
+    point: [0.2, -0.06, 0],
+    cameraOffset: [1.8, 0.08, 4.2],
+    text: "聚光镜位于载物台下方，侧面拨杆调节孔径光阑。点击拨杆开大，Shift 加点击收小；也可用右侧开度滑块。近看从载物台下方观察，透镜和光阑仍保留在壳体内。",
+  },
+];

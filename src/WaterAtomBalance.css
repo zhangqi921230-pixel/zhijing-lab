@@ -1,0 +1,58 @@
+.water-atom-balance {
+  min-width: 0;
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid var(--ui-line);
+  border-radius: 8px;
+  background: var(--ui-surface);
+  color: var(--ui-ink);
+}
+.water-atom-balance h3 {
+  font-size: 22px;
+  margin: 0 0 12px;
+}
+.water-atom-balance p,
+.water-atom-balance summary {
+  font-size: 15px;
+  line-height: 1.85;
+}
+.water-atom-scroll {
+  overflow-x: auto;
+}
+.water-atom-scroll svg {
+  display: block;
+  width: 100%;
+  min-width: 520px;
+  font-size: 18px;
+  fill: var(--ui-ink);
+}
+.water-atom-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.water-atom-actions button {
+  min-height: 44px;
+}
+.water-atom-actions label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-basis: 100%;
+  margin-top: 8px;
+}
+.water-atom-actions input {
+  flex: 1;
+  min-width: 80px;
+  accent-color: var(--ui-primary);
+}
+.water-atom-balance summary {
+  cursor: pointer;
+  min-height: 44px;
+}
+@media (max-width: 650px) {
+  .water-atom-balance {
+    padding: 12px;
+  }
+}

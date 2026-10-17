@@ -1,0 +1,69 @@
+.distillation-salt {
+  margin-top: 24px;
+  padding: 24px;
+  border: 1px solid var(--ui-line);
+  border-radius: 12px;
+  background: var(--ui-surface);
+  color: var(--ui-ink);
+}
+.distillation-salt h3 {
+  font-size: 23px;
+  margin: 0 0 12px;
+}
+.distillation-salt p,
+.distillation-salt details {
+  font-size: 15px;
+  line-height: 1.85;
+}
+.distillation-salt-scroll {
+  overflow-x: auto;
+}
+.distillation-salt svg {
+  display: block;
+  width: 100%;
+  min-width: 650px;
+  fill: var(--ui-ink);
+  font:
+    16px "Microsoft YaHei",
+    sans-serif;
+}
+.distillation-salt-readings {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 20px 0;
+}
+.distillation-salt-readings > div {
+  padding: 16px;
+  background: var(--ui-paper);
+  border-left: 3px solid var(--ui-primary);
+}
+.distillation-salt-readings span,
+.distillation-salt-readings small {
+  display: block;
+  font-size: 14px;
+  line-height: 1.7;
+}
+.distillation-salt-readings strong {
+  display: block;
+  font-size: 24px;
+  margin: 8px 0;
+  font-variant-numeric: tabular-nums;
+}
+.distillation-salt-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.distillation-salt-actions button {
+  font-size: 15px;
+  min-height: 44px;
+}
+@media (max-width: 700px) {
+  .distillation-salt {
+    padding: 16px;
+  }
+  .distillation-salt-readings {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,44 @@
+.buoyancy-weighing {
+  padding: 20px;
+  border: 1px solid var(--ui-line);
+  background: var(--ui-surface);
+  color: var(--ui-ink);
+}
+.buoyancy-weighing p {
+  line-height: 1.8;
+  color: var(--ui-muted);
+}
+.weighing-readings {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-block: 20px;
+}
+.weighing-readings div {
+  display: grid;
+  gap: 12px;
+}
+.weighing-readings strong {
+  font-size: 24px;
+  font-variant-numeric: tabular-nums;
+}
+.weighing-bar {
+  display: flex;
+  height: 22px;
+  border: 1px solid var(--ui-line);
+}
+.weighing-bar i {
+  background: var(--ui-primary);
+}
+.weighing-bar b {
+  background: #469bbc;
+}
+@media (max-width: 560px) {
+  .weighing-readings {
+    grid-template-columns: 1fr;
+  }
+  .weighing-readings div {
+    grid-template-columns: 1fr auto;
+    align-items: center;
+  }
+}

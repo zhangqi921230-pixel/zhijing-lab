@@ -1,0 +1,47 @@
+.radian-comparison {
+  border-top: 1px solid var(--ui-line);
+  padding-top: 24px;
+  margin-top: 24px;
+  color: var(--ui-ink);
+}
+.radian-comparison > span {
+  color: var(--ui-muted);
+  font-size: 14px;
+}
+.radian-comparison h3 {
+  font-size: 22px;
+  margin: 8px 0 18px;
+}
+.radian-comparison p {
+  font-size: 15px;
+  line-height: 1.8;
+}
+.radian-comparison-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.radian-comparison-scroll {
+  overflow-x: auto;
+  margin: 16px 0;
+}
+.radian-comparison-scroll:focus-visible {
+  outline: 2px solid var(--ui-primary);
+  outline-offset: 3px;
+}
+.radian-comparison-scroll svg {
+  display: block;
+  width: 100%;
+  min-width: 620px;
+  fill: var(--ui-ink);
+}
+.radian-comparison-scroll text {
+  font-size: 22px;
+  font-family: "Microsoft YaHei", sans-serif;
+}
+.radian-comparison .radian-comparison-conclusion {
+  border-left: 3px solid var(--ui-gold);
+  padding: 12px 16px;
+  background: var(--ui-surface);
+  font-size: 17px;
+}

@@ -1,0 +1,59 @@
+.sodium-spectrum {
+  margin-top: 20px;
+  padding: 22px;
+  border: 1px solid var(--ui-line);
+  border-radius: 8px;
+  background: var(--ui-surface);
+  color: var(--ui-ink);
+}
+.sodium-spectrum h3 {
+  font-size: 22px;
+  margin: 0 0 12px;
+}
+.sodium-spectrum p {
+  line-height: 1.8;
+  font-size: 15px;
+}
+.sodium-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.sodium-width {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  margin: 20px 0;
+}
+.sodium-width input {
+  grid-column: 1/-1;
+  width: 100%;
+  accent-color: var(--ui-primary);
+}
+.sodium-scroll {
+  overflow-x: auto;
+}
+.sodium-scroll svg {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  fill: var(--ui-ink);
+}
+.sodium-scroll text {
+  font-size: 20px;
+}
+.sodium-scroll:focus-visible {
+  outline: 2px solid var(--ui-primary);
+  outline-offset: 2px;
+}
+.sodium-spectrum a {
+  color: var(--ui-primary);
+}
+@media (max-width: 650px) {
+  .sodium-scroll svg {
+    min-width: 660px;
+  }
+  .sodium-spectrum {
+    padding: 14px;
+  }
+}

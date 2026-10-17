@@ -1,0 +1,27 @@
+.cylinder-area-study {
+  padding: 20px;
+  border: 1px solid var(--ui-line);
+  background: var(--ui-surface);
+  color: var(--ui-ink);
+}
+.cylinder-area-study p {
+  line-height: 1.8;
+  color: var(--ui-muted);
+}
+.cylinder-area-row {
+  display: grid;
+  gap: 12px;
+  margin-block: 20px;
+}
+.cylinder-area-bar {
+  display: flex;
+  height: 24px;
+  background: var(--ui-paper);
+  border: 1px solid var(--ui-line);
+}
+.cylinder-area-bar i {
+  background: var(--ui-primary);
+}
+.cylinder-area-bar b {
+  background: var(--ui-gold);
+}

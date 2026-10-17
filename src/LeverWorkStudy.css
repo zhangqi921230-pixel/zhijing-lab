@@ -1,0 +1,85 @@
+.lever-work-study {
+  min-width: 0;
+  grid-column: 1/-1;
+  padding: 24px;
+  border: 1px solid var(--ui-line);
+  border-radius: 8px;
+  background: var(--ui-surface);
+  color: var(--ui-ink);
+}
+.lever-work-study h3 {
+  font-size: 22px;
+  margin: 0 0 12px;
+}
+.lever-work-study p,
+.lever-work-study summary {
+  font-size: 15px;
+  line-height: 1.85;
+}
+.lever-work-scroll {
+  overflow-x: auto;
+}
+.lever-work-study svg {
+  display: block;
+  width: 100%;
+  min-width: 640px;
+}
+.lever-work-study svg text {
+  fill: var(--ui-ink);
+  font-size: 15px;
+}
+.lever-work-study label {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+}
+.lever-work-study input {
+  flex: 1;
+  min-width: 160px;
+  accent-color: var(--ui-primary);
+}
+.lever-work-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 16px 0;
+}
+.lever-work-actions button {
+  min-height: 44px;
+  padding: 8px 16px;
+  background: var(--ui-paper);
+  color: var(--ui-ink);
+  border: 1px solid var(--ui-line);
+  border-radius: 5px;
+}
+.lever-work-actions button[aria-pressed="true"] {
+  border-color: var(--ui-gold);
+  background: var(--ui-selected);
+}
+.lever-work-study :focus-visible {
+  outline: 2px solid var(--ui-gold);
+  outline-offset: 3px;
+}
+.lever-work-values {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.lever-work-values p {
+  padding: 16px;
+  background: var(--ui-paper);
+  border-left: 3px solid var(--ui-gold);
+}
+.lever-work-values strong {
+  display: block;
+  font-size: 18px;
+}
+@media (max-width: 750px) {
+  .lever-work-study {
+    padding: 16px;
+  }
+  .lever-work-values {
+    grid-template-columns: 1fr;
+  }
+}

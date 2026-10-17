@@ -1,0 +1,82 @@
+.rain-volume-study {
+  padding: 24px;
+  margin: 24px 0;
+  border: 1px solid var(--ui-line);
+  border-radius: 12px;
+  background: var(--ui-surface);
+  color: var(--ui-ink);
+}
+.rain-volume-study header {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.rain-volume-study header span {
+  font-size: 14px;
+  color: var(--ui-muted);
+}
+.rain-volume-study h2 {
+  font-size: 24px;
+  line-height: 1.5;
+  margin: 10px 0;
+}
+.rain-volume-study header > strong {
+  font-size: 27px;
+  color: var(--ui-primary);
+  font-variant-numeric: tabular-nums;
+}
+.rain-volume-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 14px 0;
+}
+.rain-volume-diagram {
+  overflow-x: auto;
+  margin: 24px 0;
+  background: var(--ui-paper);
+  border: 1px solid var(--ui-line);
+  border-radius: 8px;
+}
+.rain-volume-diagram svg {
+  display: block;
+  width: 100%;
+  min-width: 650px;
+}
+.rain-volume-diagram text {
+  fill: var(--ui-ink);
+  font:
+    17px "Microsoft YaHei",
+    sans-serif;
+}
+.rain-volume-study p {
+  font-size: 14px;
+  line-height: 1.9;
+  color: var(--ui-muted);
+}
+.rain-volume-study .rain-volume-equation {
+  padding: 16px;
+  background: var(--ui-paper);
+  font-size: 18px;
+  color: var(--ui-ink);
+}
+.rain-volume-diagram:focus-visible {
+  outline: 2px solid var(--ui-gold);
+  outline-offset: 3px;
+}
+@media (max-width: 700px) {
+  .rain-volume-study {
+    padding: 16px;
+  }
+  .rain-volume-study h2 {
+    font-size: 21px;
+  }
+}
+
+.rain-volume-actions button[aria-pressed="true"] {
+  background: var(--ui-selected);
+  border-color: var(--ui-primary);
+  box-shadow: inset 0 -2px var(--ui-primary);
+}

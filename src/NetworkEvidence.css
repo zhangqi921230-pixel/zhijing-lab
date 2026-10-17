@@ -1,0 +1,45 @@
+.network-evidence {
+  color: var(--ui-ink);
+}
+.network-evidence p {
+  line-height: 1.8;
+  font-size: 15px;
+}
+.network-values {
+  overflow-x: auto;
+}
+.network-values table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 400px;
+}
+.network-values th,
+.network-values td {
+  text-align: left;
+  padding: 12px;
+  border-bottom: 1px solid var(--ui-line);
+  font-variant-numeric: tabular-nums;
+  font-size: 15px;
+}
+.network-voltage {
+  padding: 16px 0;
+}
+.network-voltage > div {
+  display: grid;
+  grid-template-columns: 28px minmax(40px, 1fr) 115px;
+  gap: 12px;
+  align-items: center;
+  margin: 12px 0;
+  font-size: 14px;
+}
+.network-voltage-track {
+  height: 16px;
+  background: var(--ui-line);
+}
+.network-voltage-track > div {
+  height: 100%;
+  background: var(--ui-gold);
+}
+.network-voltage > div:nth-child(2) .network-voltage-track > div {
+  background: var(--ui-primary);
+}

@@ -1,0 +1,77 @@
+.secant-convergence {
+  padding: 22px;
+  margin: 18px;
+  border: 1px solid var(--ui-line);
+  border-radius: 8px;
+  background: var(--ui-surface);
+  color: var(--ui-ink);
+}
+.secant-convergence h3 {
+  font-size: 20px;
+  line-height: 1.5;
+  margin: 0 0 12px;
+}
+.secant-convergence p {
+  font-size: 15px;
+  line-height: 1.85;
+  color: var(--ui-muted);
+}
+.secant-convergence-scroll {
+  overflow-x: auto;
+}
+.secant-convergence table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 460px;
+  font-size: 15px;
+  font-variant-numeric: tabular-nums;
+}
+.secant-convergence caption {
+  text-align: left;
+  color: var(--ui-muted);
+  padding: 10px 0 16px;
+  font-size: 14px;
+}
+.secant-convergence th,
+.secant-convergence td {
+  padding: 10px;
+  border-bottom: 1px solid var(--ui-line);
+  text-align: center;
+}
+.secant-convergence button {
+  min-height: 44px;
+  min-width: 96px;
+  padding: 8px 12px;
+  border: 1px solid var(--ui-line);
+  border-radius: 4px;
+  color: var(--ui-ink);
+  background: var(--ui-paper);
+  cursor: pointer;
+  font: inherit;
+}
+.secant-convergence button[aria-pressed="true"] {
+  border-color: var(--ui-primary);
+  background: var(--ui-selected);
+  box-shadow: inset 0 -2px var(--ui-primary);
+}
+.secant-convergence button small {
+  display: block;
+  font-size: 13px;
+  color: var(--ui-muted);
+  margin-top: 4px;
+}
+.secant-convergence button:focus-visible,
+.secant-convergence-scroll:focus-visible {
+  outline: 2px solid var(--ui-gold);
+  outline-offset: 3px;
+}
+.secant-convergence .secant-convergence-result {
+  font-size: 18px;
+  color: var(--ui-ink);
+}
+@media (max-width: 650px) {
+  .secant-convergence {
+    margin: 12px;
+    padding: 14px;
+  }
+}

@@ -1,0 +1,35 @@
+.standing-probe {
+  margin-top: 24px;
+  padding: 24px;
+  border: 1px solid var(--ui-line);
+  border-radius: 12px;
+  background: var(--ui-surface);
+}
+.standing-probe h2 {
+  font-size: 22px;
+  margin: 0;
+}
+.standing-probe h3 {
+  font-size: 16px;
+}
+.standing-probe svg {
+  display: block;
+  width: 100%;
+  max-width: 680px;
+}
+.standing-probe text {
+  fill: var(--ui-ink);
+  font:
+    15px "Microsoft YaHei",
+    sans-serif;
+}
+@media (max-width: 600px) {
+  .standing-probe {
+    padding: 16px;
+  }
+}
+
+.standing-probe button[aria-pressed="true"] {
+  background: var(--ui-selected);
+  box-shadow: inset 0 0 0 2px var(--ui-primary);
+}

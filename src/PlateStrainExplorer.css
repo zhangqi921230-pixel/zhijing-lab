@@ -1,0 +1,74 @@
+.plate-strain {
+  padding: 22px;
+  background: var(--ui-paper);
+  color: var(--ui-ink);
+  border-top: 1px solid var(--ui-line);
+}
+.plate-strain header {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 14px;
+}
+.plate-strain header span,
+.plate-strain p {
+  color: var(--ui-muted);
+}
+.plate-sample-positions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+.plate-sample-positions button {
+  padding: 9px 14px;
+  border: 1px solid var(--ui-line);
+  background: var(--ui-surface);
+  color: var(--ui-ink);
+  border-radius: 5px;
+  cursor: pointer;
+}
+html[data-theme]
+  .plate-strain
+  .plate-sample-positions
+  button[aria-pressed="true"] {
+  border-color: var(--ui-primary);
+  background: var(--ui-selected);
+  color: var(--ui-ink);
+}
+.plate-sample-positions button:focus-visible {
+  outline: 2px solid var(--ui-primary);
+  outline-offset: 2px;
+}
+.plate-strain svg {
+  width: 100%;
+  display: block;
+}
+.plate-strain svg text {
+  fill: var(--ui-ink);
+  font-size: 16px;
+}
+.plate-strain-readouts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  font-size: 13px;
+}
+.plate-strain-readouts b {
+  margin-left: 8px;
+  color: var(--ui-primary);
+  font-variant-numeric: tabular-nums;
+}
+.plate-strain p {
+  font-size: 13px;
+  line-height: 1.8;
+}
+@media (max-width: 650px) {
+  .plate-strain {
+    padding: 16px;
+  }
+  .plate-strain svg text {
+    font-size: 24px;
+  }
+}

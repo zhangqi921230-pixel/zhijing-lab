@@ -1,0 +1,15 @@
+@import "./ModelStage.css";
+
+.cell-camera-options {
+  border-top: 1px solid var(--ui-line);
+}
+.cell-camera-options summary {
+  cursor: pointer;
+  padding: 10px 8px;
+  color: var(--ui-muted);
+  font-size: 14px;
+}
+.cell-camera-options summary:focus-visible {
+  outline: 2px solid var(--ui-primary);
+  outline-offset: 2px;
+}

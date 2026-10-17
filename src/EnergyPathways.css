@@ -1,0 +1,65 @@
+.energy-pathways {
+  margin-top: 24px;
+  padding: 24px;
+  border: 1px solid var(--ui-line);
+  border-radius: 8px;
+  background: var(--ui-paper);
+  color: var(--ui-ink);
+  min-width: 0;
+}
+.energy-pathways h3 {
+  font-size: 24px;
+  margin: 0 0 12px;
+}
+.energy-pathways p {
+  font-size: 16px;
+  line-height: 1.85;
+}
+.energy-pathway-values {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  padding: 16px 0;
+  font-size: 16px;
+}
+.energy-pathways-scroll {
+  overflow: auto;
+  margin-top: 16px;
+}
+.energy-pathways svg {
+  display: block;
+  width: 100%;
+  min-width: 640px;
+  fill: var(--ui-ink);
+  font:
+    18px "Microsoft YaHei",
+    sans-serif;
+}
+.energy-pathway-caption {
+  font-size: 15px;
+  fill: var(--ui-muted);
+}
+.energy-pathway-note {
+  padding: 16px;
+  border-left: 3px solid var(--ui-primary);
+  background: var(--ui-surface);
+  min-height: 6em;
+}
+.energy-pathways .is-tracing .is-active {
+  animation: energy-route-trace 1.2s linear infinite;
+}
+@keyframes energy-route-trace {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .energy-pathways .is-tracing .is-active {
+    animation: none;
+  }
+}
+@media (max-width: 760px) {
+  .energy-pathways {
+    padding: 16px;
+  }
+}

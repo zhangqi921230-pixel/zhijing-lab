@@ -1,0 +1,34 @@
+.exocytosis-detail {
+  margin-top: 16px;
+  padding: 16px;
+  border: 1px solid var(--ui-line);
+  border-radius: 8px;
+  background: var(--ui-surface);
+  color: var(--ui-ink);
+  min-width: 0;
+}
+.exocytosis-detail h3 {
+  font-size: 20px;
+  margin: 0 0 10px;
+}
+.exocytosis-detail p {
+  font-size: 15px;
+  line-height: 1.85;
+}
+.exocytosis-scroll {
+  overflow-x: auto;
+}
+.exocytosis-scroll svg {
+  width: 100%;
+  min-width: 480px;
+  display: block;
+  font-size: 16px;
+}
+.exocytosis-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.exocytosis-actions button {
+  min-height: 44px;
+}

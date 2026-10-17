@@ -1,0 +1,76 @@
+.projectile-comparison {
+  grid-column: 1 / -1;
+  min-width: 0;
+  margin-top: 24px;
+  padding: 24px;
+  border: 1px solid var(--ui-line);
+  border-radius: 12px;
+  background: var(--ui-surface);
+}
+.projectile-comparison h2 {
+  font-size: 22px;
+  margin: 0;
+}
+.projectile-comparison-table {
+  overflow-x: auto;
+}
+.projectile-comparison table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+}
+.projectile-comparison caption {
+  text-align: left;
+  color: var(--ui-muted);
+  padding: 12px 0;
+}
+.projectile-comparison th,
+.projectile-comparison td {
+  text-align: left;
+  padding: 14px 10px;
+  border-bottom: 1px solid var(--ui-line);
+  white-space: nowrap;
+}
+.projectile-comparison td {
+  font-variant-numeric: tabular-nums;
+}
+@media (max-width: 600px) {
+  .projectile-comparison {
+    padding: 16px;
+  }
+}
+
+.projectile-double-plot {
+  display: block;
+  width: 100%;
+  min-width: 660px;
+}
+.projectile-double-plot text {
+  fill: var(--ui-ink);
+  font-size: 15px;
+}
+.projectile-comparison [role="region"]:focus-visible {
+  outline: 2px solid var(--ui-gold);
+}
+
+.projectile-time-comparison {
+  padding: 16px;
+  margin: 16px 0;
+  background: var(--ui-paper);
+  border-left: 3px solid var(--ui-gold);
+  font-size: 15px;
+}
+.projectile-time-comparison > div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.projectile-time-comparison p {
+  line-height: 1.8;
+}
+@media (max-width: 600px) {
+  .projectile-time-comparison > div {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
