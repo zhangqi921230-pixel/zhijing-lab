@@ -1,0 +1,338 @@
+.mobile-learning-nav,
+.mobile-chapter-picker {
+  display: none;
+}
+.hero-terrain,
+.hero-terrain .spatial-preview {
+  height: 100%;
+  width: 100%;
+}
+.hero-terrain .preview-caption {
+  display: none;
+}
+.hero-terrain .hero-preview-start {
+  top: 12px;
+  bottom: auto;
+  left: 12px;
+  transform: none;
+  z-index: 3;
+  right: auto;
+}
+.hero-terrain button.hero-preview-start {
+  background: var(--primary);
+  color: #fff;
+}
+.hero-model::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  inset: auto 0 0;
+  height: 145px;
+  background: linear-gradient(transparent, #0b2529e8);
+  z-index: 1;
+}
+.hero-model .hero-caption,
+.hero-model .hero-go {
+  z-index: 2;
+}
+@media (max-width: 760px) {
+  .motion-lab {
+    display: block;
+  }
+  #root .refraction-workspace {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  #root .refraction-workspace > * {
+    min-width: 0;
+    max-width: 100%;
+  }
+  #root .apparent-depth svg {
+    min-width: 0;
+  }
+  #root .secant-convergence table {
+    min-width: 0;
+    table-layout: fixed;
+    font-size: 12px;
+  }
+  #root .secant-convergence :is(td, th) {
+    padding: 6px 3px;
+    overflow-wrap: anywhere;
+  }
+  #root .secant-convergence button {
+    min-width: 0;
+    width: 100%;
+    padding: 6px 2px;
+  }
+  #root .microscope-magnification-table table {
+    min-width: 0;
+    table-layout: fixed;
+    font-size: 11px;
+  }
+  #root .microscope-magnification-table :is(th, td) {
+    white-space: normal;
+    overflow-wrap: anywhere;
+    padding: 6px 3px;
+  }
+  #root .microscope-magnification-table button {
+    min-width: 0;
+    white-space: normal;
+    padding: 6px 3px;
+    font-size: 11px;
+  }
+  .library .subject-tabs {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    overflow: visible;
+    margin: 22px 0 12px;
+    padding-bottom: 16px;
+  }
+  .library .subject-tabs button {
+    min-width: 0;
+    min-height: 44px;
+    padding: 8px 6px;
+    gap: 6px;
+    font-size: 14px;
+    border: 1px solid var(--line);
+    background: var(--surface);
+  }
+  .library .subject-tabs button.active {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+  }
+  .library .subject-tabs small {
+    font-size: 11px;
+  }
+  .library .curriculum-filter {
+    gap: 5px;
+    font-size: 12px;
+  }
+  .library .curriculum-filter > span {
+    flex-basis: 100%;
+    margin-bottom: 3px;
+  }
+  .library .curriculum-filter button {
+    font-size: 12px;
+    line-height: 1.4;
+    min-height: 40px;
+    padding: 6px 9px;
+  }
+  .library .curriculum-notice {
+    font-size: 11px;
+  }
+  .library .hero-model {
+    height: 300px;
+  }
+  .library .hero-caption {
+    pointer-events: none;
+  }
+  .mobile-chapter-picker {
+    display: grid;
+    width: 100%;
+    gap: 6px;
+    color: inherit;
+    font-size: 12px;
+  }
+  .mobile-chapter-picker select {
+    width: 100%;
+    min-width: 0;
+    min-height: 44px;
+    padding: 8px;
+    font: inherit;
+    font-size: 14px;
+    color: var(--ink);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+  }
+  #root .microscope-chapters:has(.mobile-chapter-picker) {
+    display: block;
+    overflow: visible;
+    margin: 12px 0 0;
+    padding: 0;
+  }
+  #root
+    .microscope-chapters:has(.mobile-chapter-picker)
+    > :not(.mobile-chapter-picker) {
+    display: none;
+  }
+  #root .course-units {
+    display: grid;
+    grid-template-columns: 1fr;
+    overflow: visible;
+    gap: 4px;
+    margin-bottom: 8px;
+    padding: 8px 0;
+  }
+  #root .course-units button {
+    min-width: 0;
+    width: 100%;
+    white-space: normal;
+    padding: 6px 8px;
+    font-size: 12px;
+  }
+  #root .course-units .nav-heading {
+    margin: 0;
+    padding: 0 4px;
+    font-size: 11px;
+  }
+  .motion-nav h2,
+  .chem-brand,
+  .subject-identity {
+    display: none;
+  }
+  .motion-nav,
+  .chem-nav,
+  .exploration-nav,
+  .lesson-nav {
+    min-width: 0;
+    padding: 12px 14px;
+  }
+  .topic-picker,
+  .motion-nav .topic-picker {
+    margin: 10px 0 8px;
+  }
+  .curriculum-level {
+    font-size: 11px;
+  }
+  .motion-main,
+  .chem-main,
+  .exploration-main,
+  .lab-main {
+    min-width: 0;
+    padding: 18px 12px;
+  }
+  #root .motion-main .motion-diagram {
+    min-width: 0;
+    width: 100%;
+    height: auto;
+  }
+  .motion-stage {
+    overflow: visible;
+    margin-top: 14px;
+  }
+  .motion-main {
+    display: flex;
+    flex-direction: column;
+  }
+  .motion-main > header {
+    order: -3;
+  }
+  .motion-main > .motion-transport {
+    order: -2;
+    margin: 0 0 12px;
+  }
+  .stage,
+  .chem-apparatus,
+  .exploration-stage {
+    display: flex;
+    flex-direction: column;
+  }
+  .stage > .stage-tools,
+  .chem-apparatus > .chem-playbar,
+  .exploration-stage > .exploration-actions {
+    order: -1;
+  }
+  .stage-tools > div,
+  .chem-playbar,
+  .stage-tools .view-switch {
+    flex-wrap: wrap;
+    min-width: 0;
+  }
+  .stage-tools {
+    flex-shrink: 0;
+  }
+  .simulation-timeline {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .simulation-timeline > label {
+    flex-basis: 100%;
+  }
+  .motion-readouts,
+  .chem-readings,
+  .exploration-readings {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    flex-wrap: wrap;
+    overflow-wrap: anywhere;
+  }
+  .motion-readouts strong {
+    font-size: 16px;
+  }
+  .geo-workspace .geo-chapters {
+    display: block;
+    padding: 12px 14px;
+    overflow: visible;
+  }
+  .geo-chapters > .geo-chapter,
+  .geo-chapters > .geo-eyebrow {
+    display: none;
+  }
+  .geo-chapters .geo-session {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 8px;
+  }
+  .geo-session p {
+    flex-basis: 100%;
+    font-size: 11px;
+  }
+  .geo-workspace .geo-stage {
+    min-height: 400px;
+    height: 60dvh;
+  }
+  .mobile-learning-nav {
+    position: fixed;
+    z-index: 50;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.3fr 1fr;
+    gap: 4px;
+    padding: 8px 10px max(8px, env(safe-area-inset-bottom));
+    background: var(--surface);
+    border-top: 1px solid var(--line);
+    box-shadow: 0 -4px 16px #0001;
+  }
+  .mobile-learning-nav button {
+    min-height: 44px;
+    border-radius: 6px;
+    color: var(--ink);
+    font-size: 12px;
+    padding: 8px 4px;
+  }
+  .mobile-learning-nav .mobile-play-entry {
+    background: var(--primary);
+    color: white;
+  }
+  .mobile-learning-nav button:hover {
+    box-shadow: inset 0 0 0 2px var(--accent);
+  }
+  body:has(.mobile-learning-nav) {
+    padding-bottom: calc(76px + env(safe-area-inset-bottom));
+  }
+  :is(
+    .stage,
+    .stage-tools,
+    .motion-stage,
+    .motion-transport,
+    .chem-playbar,
+    .exploration-actions,
+    .control-panel,
+    .motion-notes,
+    .chem-notes,
+    .exploration-notes,
+    .geo-panel,
+    .geo-scan
+  ) {
+    scroll-margin-top: 12px;
+  }
+  :is(.motion-notes, .chem-notes, .exploration-notes, .control-panel) {
+    max-width: 100%;
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+}

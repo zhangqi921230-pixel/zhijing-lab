@@ -1,7 +1,8 @@
 import React, { useMemo } from "react";
 import ThreeScene from "./ThreeScene.jsx";
+import { CONTOUR_DEFAULTS } from "./contourSession.mjs";
 import { lessons } from "./lessons.mjs";
-export default function SpatialPreview({ id, onFailure }) {
+export default function SpatialPreview({ id, onFailure, playing = true }) {
   const p = useMemo(
     () => ({
       ...Object.fromEntries(
@@ -10,16 +11,27 @@ export default function SpatialPreview({ id, onFailure }) {
       quality: "fluent",
       labels: 0,
       ...(id === "contour"
-        ? { trees: 1, water: 1, contours: 1, rocks: 0, flow: 0 }
+        ? {
+            ...CONTOUR_DEFAULTS,
+            labels: false,
+            projection: false,
+            flow: playing,
+          }
         : {}),
       ...(id === "cube" ? { fold: 50 } : {}),
       ...(id === "incline" ? { forces: 1 } : {}),
     }),
-    [id],
+    [id, playing],
   );
   return (
     <div className="spatial-preview">
-      <ThreeScene id={id} p={p} small preview onPreviewError={onFailure} />
+      <ThreeScene
+        id={id}
+        p={p}
+        small
+        preview={playing}
+        onPreviewError={onFailure}
+      />
       <span className="preview-caption">三维结构 · 自动环视</span>
     </div>
   );

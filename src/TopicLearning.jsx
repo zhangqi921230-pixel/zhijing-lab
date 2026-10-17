@@ -1,3 +1,4 @@
+import { MobileChapterPicker } from "./MobileLearning.jsx";
 import { gradeFor } from "./curriculumLevels.mjs";
 import React, { useEffect, useRef } from "react";
 import { defaults, subjects } from "./lessons.mjs";
@@ -64,6 +65,11 @@ export function TopicPicker({ lesson, lessons, onSelect }) {
 export function TopicChapters({ chapters, chapter, onSelect }) {
   return (
     <nav className="microscope-chapters" aria-label="学习子主题">
+      <MobileChapterPicker
+        chapters={chapters}
+        chapter={chapter}
+        onSelect={onSelect}
+      />
       <span className="nav-heading">逐步探究 · {chapters.length} 节</span>
       {chapters.map((item, index) => (
         <button

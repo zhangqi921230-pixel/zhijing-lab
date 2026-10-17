@@ -1,3 +1,4 @@
+import { MobileChapterPicker } from "./MobileLearning.jsx";
 import React, { useEffect, useRef } from "react";
 import { ohmChapters } from "./ohmChapters.mjs";
 import "./MicroscopeGuide.css";
@@ -5,6 +6,11 @@ import "./MicroscopeGuide.css";
 export function OhmChapters({ chapter, onSelect }) {
   return (
     <nav className="microscope-chapters" aria-label="欧姆定律学习子主题">
+      <MobileChapterPicker
+        chapters={ohmChapters}
+        chapter={chapter}
+        onSelect={onSelect}
+      />
       <span className="nav-heading">CIRCUITLAB · 学习子主题</span>
       {ohmChapters.map((c, i) => (
         <button

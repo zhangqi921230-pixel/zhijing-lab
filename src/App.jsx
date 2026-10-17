@@ -10,10 +10,11 @@ import {
 import { curriculumNote } from "./curriculumLevels.mjs";
 import "./NatureScene.css";
 import React, { useState, useRef, useEffect, lazy, Suspense } from "react";
-import { ArrowUpRight, Search, X, Play, Compass } from "lucide-react";
+import { ArrowUpRight, Search, X, Compass } from "lucide-react";
 import { subjects, lessons } from "./topicMetadata.mjs";
 import { threeIds } from "./sceneCatalog.mjs";
-import ThreeScene from "./SceneLoader.jsx";
+import HeroTerrain from "./HeroTerrain.jsx";
+import MobileLearningNav from "./MobileLearning.jsx";
 import Button from "./LabButton.jsx";
 import Laboratory from "./LaboratoryLoader.jsx";
 import { workbenches, allExperiments, groupFor } from "./courseCatalog.mjs";
@@ -40,7 +41,6 @@ function Library({ open, subject, setSubject }) {
   const [baseOnly, setBaseOnly] = useState(false);
   const [query, setQuery] = useState("");
   const searchRef = useRef(null);
-  const [previewActive, setPreviewActive] = useState(false);
   let items = workbenches.filter(
     (l) =>
       (subject === "all" || l.subject === subject) &&
@@ -85,27 +85,7 @@ function Library({ open, subject, setSubject }) {
           </div>
         </div>
         <div className="hero-model">
-          {previewActive ? (
-            <ThreeScene id="contour" p={{ level: 400, interval: 200 }} small />
-          ) : (
-            <>
-              <img
-                className="hero-preview"
-                src="./previews/contour.webp"
-                alt="等高线与山体三维实验预览"
-                width="720"
-                height="384"
-                fetchPriority="high"
-              />
-              <button
-                className="hero-preview-start"
-                onClick={() => setPreviewActive(true)}
-              >
-                <Play size={16} />
-                旋转查看地形
-              </button>
-            </>
-          )}
+          <HeroTerrain />
           <div className="hero-caption">
             <span>FIELD NOTE / 001</span>
             <strong>从山川，读懂等高线</strong>
@@ -151,6 +131,7 @@ function Library({ open, subject, setSubject }) {
         </div>
         <div className="subject-tabs">
           <button
+            aria-pressed={subject === "all"}
             className={subject === "all" ? "active" : ""}
             onClick={() => setSubject("all")}
           >
@@ -160,6 +141,7 @@ function Library({ open, subject, setSubject }) {
             <button
               key={s.id}
               onClick={() => setSubject(s.id)}
+              aria-pressed={subject === s.id}
               className={subject === s.id ? "active" : ""}
             >
               <span>{s.symbol}</span>
@@ -331,6 +313,7 @@ function AppContent() {
       >
         <GeographyLab goHome={() => open("")} open={open} />
         <TopicCommunity topic={id} open={open} />
+        <MobileLearningNav />
       </Suspense>
     );
   return (
@@ -426,7 +409,12 @@ function AppContent() {
       ) : (
         <Library open={open} subject={subject} setSubject={setSubject} />
       )}
-      {lesson && <TopicCommunity topic={id} open={open} />}
+      {lesson && (
+        <>
+          <TopicCommunity topic={id} open={open} />
+          <MobileLearningNav />
+        </>
+      )}
     </>
   );
 }

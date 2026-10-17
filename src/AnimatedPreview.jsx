@@ -103,7 +103,7 @@ function PreviewPoster({ id, poster, title }) {
     </div>
   );
 }
-class PreviewBoundary extends React.Component {
+export class PreviewBoundary extends React.Component {
   state = { failed: false };
   static getDerivedStateFromError() {
     return { failed: true };

@@ -1,3 +1,4 @@
+import { MobileChapterPicker } from "./MobileLearning.jsx";
 import React, { useEffect, useRef } from "react";
 import { solubility } from "./models.mjs";
 import { saturationTemperature } from "./solubilityThreshold.mjs";
@@ -7,6 +8,11 @@ import "./MicroscopeGuide.css";
 export function SolubilityChapters({ chapter, onSelect }) {
   return (
     <nav className="microscope-chapters" aria-label="饱和与结晶学习子主题">
+      <MobileChapterPicker
+        chapters={solubilityChapters}
+        chapter={chapter}
+        onSelect={onSelect}
+      />
       <span className="nav-heading">CRYSTALLAB · 学习子主题</span>
       {solubilityChapters.map((item, i) => (
         <button

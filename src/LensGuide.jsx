@@ -1,3 +1,4 @@
+import { MobileChapterPicker } from "./MobileLearning.jsx";
 import LensScreenCheck from "./LensScreenCheck.jsx";
 import React, { useEffect, useRef } from "react";
 import { lensChapters } from "./lensChapters.mjs";
@@ -7,6 +8,11 @@ import LensPositions from "./LensPositions.jsx";
 export function LensChapters({ chapter, onSelect }) {
   return (
     <nav className="microscope-chapters" aria-label="凸透镜学习子主题">
+      <MobileChapterPicker
+        chapters={lensChapters}
+        chapter={chapter}
+        onSelect={onSelect}
+      />
       <span className="nav-heading">OPTICSLAB · 学习子主题</span>
       {lensChapters.map((c, i) => (
         <button

@@ -1,3 +1,4 @@
+import { MobileChapterPicker } from "./MobileLearning.jsx";
 import ContourQuiz from "./ContourQuiz.jsx";
 import { TopicPicker } from "./TopicLearning.jsx";
 import { lessons } from "./lessons.mjs";
@@ -203,6 +204,11 @@ export default function GeographyLab({ goHome, open }) {
         )}
         <ThemeSwitch />
         <p className="geo-eyebrow">CHAPTERS · 章节</p>
+        <MobileChapterPicker
+          chapters={chapters}
+          chapter={chapter}
+          onSelect={select}
+        />
         {chapters.map((item, i) => (
           <button
             key={item[0]}

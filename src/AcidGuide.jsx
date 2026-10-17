@@ -1,3 +1,4 @@
+import { MobileChapterPicker } from "./MobileLearning.jsx";
 import React, { useEffect, useRef } from "react";
 import { acidChapters } from "./acidChapters.mjs";
 import { ph } from "./models.mjs";
@@ -6,6 +7,11 @@ import "./MicroscopeGuide.css";
 export function AcidChapters({ chapter, onSelect }) {
   return (
     <nav className="microscope-chapters" aria-label="酸碱中和学习子主题">
+      <MobileChapterPicker
+        chapters={acidChapters}
+        chapter={chapter}
+        onSelect={onSelect}
+      />
       <span className="nav-heading">TITRATIONLAB · 学习子主题</span>
       {acidChapters.map((item, i) => (
         <button

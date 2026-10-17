@@ -18,7 +18,11 @@ for (const key of startup)
     `3D engine leaked into startup: ${key}`,
   );
 assert(
-  manifest["index.html"].dynamicImports?.includes("src/ThreeScene.jsx"),
+  manifest["src/ThreeScene.jsx"] &&
+    !startup.has("src/ThreeScene.jsx") &&
+    ["src/ThreeScene.jsx", "src/SpatialPreview.jsx"].some((key) =>
+      manifest["index.html"].dynamicImports?.includes(key),
+    ),
   "Missing lazy scene entry",
 );
 assert(

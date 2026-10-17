@@ -1,3 +1,4 @@
+import { MobileChapterPicker } from "./MobileLearning.jsx";
 import MicroscopeFocusTrial from "./MicroscopeFocusTrial.jsx";
 import MicroscopeQuiz from "./MicroscopeQuiz.jsx";
 import { microscopeFocusAdvice } from "./microscopeFocusAdvice.mjs";
@@ -8,6 +9,11 @@ import "./MicroscopeGuide.css";
 export function MicroscopeChapters({ chapter, onSelect }) {
   return (
     <nav className="microscope-chapters" aria-label="显微镜学习子主题">
+      <MobileChapterPicker
+        chapters={microscopeChapters}
+        chapter={chapter}
+        onSelect={onSelect}
+      />
       <span className="nav-heading">MICROLAB · 学习子主题</span>
       {microscopeChapters.map((c, i) => (
         <button

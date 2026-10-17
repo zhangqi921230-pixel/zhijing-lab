@@ -1,3 +1,4 @@
+import { MobileChapterPicker } from "./MobileLearning.jsx";
 import React, { useEffect, useRef } from "react";
 import { dilutionChapters } from "./dilutionChapters.mjs";
 import { DilutionTarget } from "./DilutionTarget.jsx";
@@ -6,6 +7,11 @@ import "./MicroscopeGuide.css";
 export function DilutionChapters({ chapter, onSelect }) {
   return (
     <nav className="microscope-chapters" aria-label="溶液稀释学习子主题">
+      <MobileChapterPicker
+        chapters={dilutionChapters}
+        chapter={chapter}
+        onSelect={onSelect}
+      />
       <span className="nav-heading">SOLUTIONLAB · 学习子主题</span>
       {dilutionChapters.map((item, index) => (
         <button
