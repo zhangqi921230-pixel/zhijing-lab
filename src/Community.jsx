@@ -76,7 +76,8 @@ export function CommunityProvider({ children }) {
     }
   }
   useEffect(() => {
-    refresh();
+    // Public feedback remains available via links while the embedded feed is paused.
+    if (!githubRepository) refresh();
   }, []);
   async function like(topic) {
     if (!ready || busy.current.has(topic)) return;
@@ -106,6 +107,9 @@ export function CommunityProvider({ children }) {
 }
 export const useCommunity = () => useContext(Context);
 export function CommunityTicker({ open }) {
+  return githubRepository ? null : <DatabaseCommunityTicker open={open} />;
+}
+function DatabaseCommunityTicker({ open }) {
   const { recent = [], ready, error, refresh } = useCommunity();
   const entries = recent.slice(0, 12);
   const [index, setIndex] = useState(0);
@@ -290,7 +294,7 @@ export function LikeButton({ topic }) {
 }
 export function CommunityNotice() {
   const { error, refresh } = useCommunity();
-  return error ? (
+  return !githubRepository && error ? (
     <div className="community-notice" role="alert">
       {error} <Button onClick={refresh}>重新连接</Button>
     </div>
@@ -376,8 +380,7 @@ function GitHubCommunityBoard({ topic, open }) {
         </a>
       </p>
       <p>
-        表单包含主题名称、实现要求和期望效果。最新反馈会在下方滚动展示（最多30条，读取受
-        GitHub 网络和接口额度影响）。课程点赞暂未开放。
+        表单包含主题名称、实现要求和期望效果。站内反馈速览暂时隐藏，请通过上方链接查看反馈与处理进度。课程点赞暂未开放。
       </p>
       <CommunityTicker open={open} />
     </main>
