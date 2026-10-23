@@ -16,18 +16,20 @@ import { threeIds } from "./sceneCatalog.mjs";
 import HeroTerrain from "./HeroTerrain.jsx";
 import MobileLearningNav from "./MobileLearning.jsx";
 import Button from "./LabButton.jsx";
-import Laboratory from "./LaboratoryLoader.jsx";
+import Laboratory, { LaboratoryBoundary } from "./LaboratoryLoader.jsx";
 import { workbenches, allExperiments, groupFor } from "./courseCatalog.mjs";
 import { explorations } from "./topicMetadata.mjs";
 import { ThemeProvider, ThemeSwitch } from "./Theme.jsx";
 import AnimatedPreview, { usePreviewPlayback } from "./AnimatedPreview.jsx";
 const ChemistryLab = lazy(() => import("./ChemistryLab.jsx"));
+const ScienceGallery = lazy(() => import("./science/ScienceGallery.jsx"));
 const MotionLab = lazy(() => import("./MotionLab.jsx"));
 import { motionTopics } from "./motionTopics.mjs";
 import { chemistryCatalog as chemistryTopics } from "./chemistryCatalog.mjs";
 const ExplorationLab = lazy(() => import("./ExplorationLab.jsx"));
 const initialId = () => {
   try {
+    if (location.hash.startsWith("#science")) return location.hash.slice(1);
     return decodeURIComponent(location.hash.slice(1));
   } catch {
     return "invalid";
@@ -290,17 +292,25 @@ function AppContent() {
     return () => window.removeEventListener("hashchange", change);
   }, []);
   const communityPage = id === "community" || id.startsWith("community?");
+  const sciencePage =
+    id === "science" || id.startsWith("science?") || id.startsWith("science/");
   const communityTopic = communityPage
     ? new URLSearchParams(id.split("?")[1]).get("topic") || ""
     : "";
   const lesson = allExperiments.find((l) => l.id === id);
   useEffect(() => {
-    document.title = communityPage
-      ? "教师共建 · 知境课堂"
-      : lesson
-        ? `${groupFor(id)?.title ?? lesson.title} · 知境课堂`
-        : "知境 · 互动教学实验室";
-    window.scrollTo(0, 0);
+    if (sciencePage) {
+      if (!id.startsWith("science/")) document.title = "科普馆 · 知境";
+      return;
+    }
+    document.title = sciencePage
+      ? "科普馆 · 知境"
+      : communityPage
+        ? "教师共建 · 知境课堂"
+        : lesson
+          ? `${groupFor(id)?.title ?? lesson.title} · 知境课堂`
+          : "知境 · 互动教学实验室";
+    if (!sciencePage) window.scrollTo(0, 0);
   }, [id]);
   function open(next) {
     location.hash = next;
@@ -334,9 +344,17 @@ function AppContent() {
         <div className="header-links">
           <button
             onClick={() => open("")}
-            aria-current={!lesson && !communityPage ? "page" : undefined}
+            aria-current={
+              !lesson && !communityPage && !sciencePage ? "page" : undefined
+            }
           >
             探索馆
+          </button>
+          <button
+            aria-current={sciencePage ? "page" : undefined}
+            onClick={() => open("science")}
+          >
+            科普馆
           </button>
           <button
             aria-current={communityPage ? "page" : undefined}
@@ -353,7 +371,25 @@ function AppContent() {
           <span className="live-dot" /> 让理解，看得见
         </div>
       </header>
-      {communityPage ? (
+      {sciencePage ? (
+        <LaboratoryBoundary
+          key="science"
+          fallback={
+            <main className="empty" role="alert">
+              <h1>科普馆暂时无法加载</h1>
+              <p>检查网络后重新加载，已保存的本机阅读记录会保留。</p>
+              <Button onClick={() => window.location.reload()}>重新加载</Button>
+              <Button onClick={() => open("")}>返回探索馆</Button>
+            </main>
+          }
+        >
+          <Suspense
+            fallback={<div className="scene-loading">正在准备科普馆…</div>}
+          >
+            <ScienceGallery route={id} open={open} />
+          </Suspense>
+        </LaboratoryBoundary>
+      ) : communityPage ? (
         <CommunityBoard
           key={communityTopic}
           topic={communityTopic}

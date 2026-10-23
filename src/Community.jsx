@@ -7,7 +7,7 @@ import React, {
 } from "react";
 import { Heart, MessageSquare } from "lucide-react";
 import Button from "./LabButton.jsx";
-import { allExperiments, groupFor, workbenches } from "./courseCatalog.mjs";
+import { allExperiments, groupFor, workbenches } from "./communityCatalog.mjs";
 import "./Community.css";
 const Context = createContext(null);
 const githubRepository = import.meta.env.VITE_GITHUB_REPOSITORY || "";

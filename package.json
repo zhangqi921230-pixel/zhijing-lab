@@ -1,6 +1,6 @@
 {
   "name": "zhijing-lab",
-  "version": "1.0.0",
+  "version": "1.5.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -10,12 +10,14 @@
     "format": "prettier --write src tests *.json *.md index.html",
     "format:check": "prettier --check src tests *.json *.md index.html",
     "check:startup": "node scripts/check-startup.mjs",
-    "prebuild": "node scripts/sync-topic-metadata.mjs && node scripts/sync-curriculum-index.mjs",
+    "prebuild": "node scripts/sync-topic-metadata.mjs && node scripts/sync-curriculum-index.mjs && node scripts/sync-science-index.mjs",
     "start": "node server/start.mjs",
     "community": "node server/manage-community.mjs"
   },
   "dependencies": {
+    "jsqr": "^1.4.0",
     "lucide-react": "^0.468.0",
+    "qrcode": "^1.5.4",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "three": "^0.180.0"

@@ -6,7 +6,7 @@ import {
   workbenches,
   allExperiments,
   groupFor,
-} from "../src/courseCatalog.mjs";
+} from "../src/communityCatalog.mjs";
 
 export const statuses = ["待评估", "已计划", "进行中", "已完成", "暂不采纳"];
 export function openStore(

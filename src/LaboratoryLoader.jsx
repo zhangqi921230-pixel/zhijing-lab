@@ -26,17 +26,15 @@ function Recovery({ goHome }) {
     </main>
   );
 }
-class LaboratoryBoundary extends React.Component {
+export class LaboratoryBoundary extends React.Component {
   state = { failed: false };
   static getDerivedStateFromError() {
     return { failed: true };
   }
   render() {
-    return this.state.failed ? (
-      <Recovery goHome={this.props.goHome} />
-    ) : (
-      this.props.children
-    );
+    return this.state.failed
+      ? this.props.fallback || <Recovery goHome={this.props.goHome} />
+      : this.props.children;
   }
 }
 

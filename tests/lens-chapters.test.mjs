@@ -1,0 +1,20 @@
+import { expect, it } from "vitest";
+import { lensChapters } from "../src/lensChapters.mjs";
+import { opticalState } from "../src/opticalModel.mjs";
+it("chapter presets represent the intended lens regimes and a genuine defocus task", () => {
+  const state = (index) => opticalState(lensChapters[index].preset);
+  expect(state(1).v).toBe(15);
+  expect(state(1).m).toBe(-0.5);
+  expect(state(2).v).toBe(20);
+  expect(state(2).m).toBe(-1);
+  expect(state(3).v).toBe(30);
+  expect(state(3).m).toBe(-2);
+  expect(state(4).v).toBeNull();
+  expect(state(4).focused).toBe(false);
+  expect(state(5).v).toBe(-15);
+  expect(state(5).m).toBe(2.5);
+  expect(state(5).focused).toBe(false);
+  expect(state(6).focused).toBe(false);
+  expect(state(6).v).toBeGreaterThan(5);
+  expect(state(6).v).toBeLessThan(80);
+});
