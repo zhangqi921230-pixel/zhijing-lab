@@ -60,11 +60,11 @@
   color: var(--ink);
   cursor: pointer;
 }
-.science-feature svg {
+.science-feature > svg {
   width: 100%;
   display: block;
 }
-.science-feature > div {
+.science-feature > .science-feature-copy {
   padding: 24px;
 }
 .science-feature span {
@@ -211,8 +211,8 @@
   overflow: hidden;
   background: #dae4e8;
 }
-.science-cover svg,
-.science-cover img {
+.science-cover > svg,
+.science-cover > img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -1335,5 +1335,193 @@
 @media print {
   .science-reading-guide {
     break-inside: avoid;
+  }
+}
+
+/* Gallery media has one frame; scene controls belong only on detail pages. */
+.science-feature,
+.science-featured-item,
+.science-card {
+  min-width: 0;
+}
+.science-feature strong {
+  gap: 16px;
+  line-height: 1.55;
+}
+.science-feature strong svg,
+.science-featured-item > span svg {
+  flex: 0 0 24px;
+  width: 24px;
+  height: 24px;
+}
+.science-feature-media,
+.science-featured-media {
+  aspect-ratio: 3/2;
+  overflow: hidden;
+  background: var(--paper);
+}
+.science-feature-media > img,
+.science-featured-media > img,
+.science-featured-media > svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}
+.science-feature-media .story-picture,
+.science-featured-media .story-picture,
+.science-cover .story-picture {
+  height: 100%;
+  aspect-ratio: auto !important;
+}
+.science-featured-item {
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--control);
+}
+.science-featured-media {
+  width: 100%;
+  flex-shrink: 0;
+}
+.science-featured-item > span {
+  flex: 1;
+  width: 100%;
+  line-height: 1.6;
+}
+.science-cover {
+  aspect-ratio: 3/2;
+  background: var(--paper);
+}
+.science-cover > img {
+  object-fit: contain;
+}
+.science-categories {
+  display: block;
+  margin: 28px 0;
+}
+.science-all-categories {
+  margin-bottom: 14px;
+}
+.science-category-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+.science-category.btn {
+  width: 100%;
+  position: relative;
+  padding: 18px 14px;
+  text-align: left;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--control);
+  color: var(--ink);
+}
+.science-category .lab-button-label {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+.science-category-icon {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 40px;
+  color: var(--primary);
+}
+.science-category-text {
+  flex: 1;
+  min-width: 0;
+}
+.science-category-text strong {
+  display: block;
+  font-size: 14px;
+  line-height: 1.6;
+  font-weight: 600;
+}
+.science-category-text small {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.7;
+  margin-top: 4px;
+}
+.science-category-count {
+  font-size: 13px;
+  color: var(--muted);
+}
+.science-category-unit {
+  display: none;
+}
+.science-category-check {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+.science-category.btn[aria-pressed="true"] {
+  background: var(--primary);
+  color: var(--surface);
+}
+.science-category.btn[aria-pressed="true"]
+  :is(
+    .science-category-icon,
+    .science-category-text small,
+    .science-category-count
+  ) {
+  color: inherit;
+}
+.science-category:hover {
+  border-color: var(--primary);
+}
+.science-gallery button:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 3px;
+}
+@media (max-width: 1050px) {
+  .science-category-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (max-width: 600px) {
+  .science-featured-item {
+    display: grid;
+    grid-template-columns: 36% minmax(0, 1fr);
+    align-items: stretch;
+  }
+  .science-featured-media {
+    align-self: center;
+  }
+  .science-featured-item > span {
+    padding: 12px;
+    font-size: 13px;
+  }
+  .science-category-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+  .science-category.btn {
+    padding: 12px 8px;
+    min-height: 78px;
+  }
+  .science-category .lab-button-label {
+    gap: 5px;
+  }
+  .science-category-icon {
+    width: 25px;
+  }
+  .science-category-text strong {
+    font-size: 12px;
+  }
+  .science-category-text small {
+    display: none;
+  }
+  .science-category-count {
+    font-size: 11px;
+  }
+  .science-feature strong {
+    font-size: 20px;
   }
 }

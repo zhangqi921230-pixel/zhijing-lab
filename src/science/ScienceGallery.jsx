@@ -7,6 +7,20 @@ import {
   X,
   Maximize,
   Printer,
+  Wrench,
+  Refrigerator,
+  TrainFront,
+  Rocket,
+  CloudSun,
+  Waves,
+  Flower2,
+  Bug,
+  HeartPulse,
+  CookingPot,
+  Radio,
+  Leaf,
+  Grid2X2,
+  Check,
 } from "lucide-react";
 import Button from "../LabButton.jsx";
 import { TopicCommunity } from "../Community.jsx";
@@ -50,12 +64,49 @@ import { supplementalVisuals } from "./supplementalVisuals.mjs";
 import ReadingGuide from "./ReadingGuide.jsx";
 import { storyboards } from "./storyboards.mjs";
 import "./science.css";
-const published = scienceTopics.filter((t) => contentGroups[t.id]);
+const categoryOrder = [
+  "objects",
+  "home",
+  "transport",
+  "space",
+  "weather",
+  "earth",
+  "plants",
+  "animals",
+  "body",
+  "kitchen",
+  "signals",
+  "materials",
+];
+const galleryCategories = categoryOrder.map((id) =>
+  categories.find((c) => c.id === id),
+);
+const categoryIcons = {
+  objects: Wrench,
+  home: Refrigerator,
+  transport: TrainFront,
+  space: Rocket,
+  weather: CloudSun,
+  earth: Waves,
+  plants: Flower2,
+  animals: Bug,
+  body: HeartPulse,
+  kitchen: CookingPot,
+  signals: Radio,
+  materials: Leaf,
+};
+const published = scienceTopics
+  .filter((t) => contentGroups[t.id])
+  .sort(
+    (a, b) =>
+      categoryOrder.indexOf(a.category) - categoryOrder.indexOf(b.category) ||
+      a.number - b.number,
+  );
 const views = new Map();
 let lastList = "science";
-function Cover({ topic }) {
+function Cover({ topic, thumbnail = true }) {
   if (storyboards[topic.id])
-    return <StoryPicture entry={storyboards[topic.id]} thumbnail />;
+    return <StoryPicture entry={storyboards[topic.id]} thumbnail={thumbnail} />;
   const atlas = structureAtlases[topic.id];
   if (atlas)
     return (
@@ -193,8 +244,10 @@ function Gallery({ route, raw, open, learning }) {
           </button>
         </div>
         <button className="science-feature" onClick={() => enter("sky-blue")}>
-          <OpticalDiagram id="sky-blue" />
-          <div>
+          <div className="science-feature-media">
+            <Cover topic={scienceById["sky-blue"]} thumbnail={false} />
+          </div>
+          <div className="science-feature-copy">
             <span>从一个日常问题开始</span>
             <strong>
               天空为什么是蓝色的？ <ArrowUpRight size={24} />
@@ -203,13 +256,15 @@ function Gallery({ route, raw, open, learning }) {
         </button>
       </section>
       <section className="science-featured-row" aria-label="本期推荐">
-        {["sky-blue", "rocket", "spring-flowers"].map((id) => (
+        {["rocket", "air-conditioner", "spring-flowers"].map((id) => (
           <button
             key={id}
             className="science-featured-item"
             onClick={() => enter(id)}
           >
-            <Cover topic={scienceById[id]} />
+            <div className="science-featured-media">
+              <Cover topic={scienceById[id]} />
+            </div>
             <span>
               {scienceById[id].title}
               <ArrowUpRight size={20} />
@@ -299,20 +354,45 @@ function Gallery({ route, raw, open, learning }) {
         </div>
         <nav className="science-categories" aria-label="科普领域">
           <Button
+            className="science-all-categories"
+            icon={Grid2X2}
             aria-pressed={route.category === "all"}
             onClick={() => update({ category: "all" })}
           >
-            全部领域
+            全部领域 · {published.length} 个主题
           </Button>
-          {categories.map((c) => (
-            <Button
-              key={c.id}
-              aria-pressed={route.category === c.id}
-              onClick={() => update({ category: c.id })}
-            >
-              {c.name}
-            </Button>
-          ))}
+          <div className="science-category-grid">
+            {galleryCategories.map((c) => {
+              const Icon = categoryIcons[c.id];
+              return (
+                <Button
+                  key={c.id}
+                  className="science-category"
+                  aria-pressed={route.category === c.id}
+                  onClick={() => update({ category: c.id })}
+                >
+                  <span className="science-category-icon">
+                    <Icon size={23} aria-hidden="true" />
+                  </span>
+                  <span className="science-category-text">
+                    <strong>{c.name}</strong>
+                    <small>{c.description}</small>
+                  </span>
+                  <span className="science-category-count">
+                    {published.filter((t) => t.category === c.id).length}
+                    <span className="science-category-unit"> 题</span>
+                  </span>
+                  {route.category === c.id && (
+                    <Check
+                      className="science-category-check"
+                      size={15}
+                      aria-hidden="true"
+                    />
+                  )}
+                </Button>
+              );
+            })}
+          </div>
         </nav>
         <p className="science-result" role="status">
           {route.q ? `“${route.q}” · ` : ""}
@@ -326,13 +406,7 @@ function Gallery({ route, raw, open, learning }) {
               onClick={() => enter(topic.id)}
             >
               <div className="science-cover">
-                {topic.id === "rocket" ? (
-                  <RocketAtlas />
-                ) : topic.id === "air-conditioner" ? (
-                  <AirConditionerAtlas />
-                ) : (
-                  <Cover topic={topic} />
-                )}
+                <Cover topic={topic} />
               </div>
               <div className="science-card-copy">
                 <small>

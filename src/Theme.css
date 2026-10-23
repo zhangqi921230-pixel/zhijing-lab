@@ -500,3 +500,16 @@ html[data-theme] .reaction-phase-buttons button[aria-pressed="true"] {
 html[data-theme] button.btn > span.lab-button-label {
   color: inherit !important;
 }
+
+/* Science uses the same global selected-state contract as the lesson controls. */
+html[data-theme]
+  :is(.science-gallery, .science-topic)
+  .btn:is([aria-pressed="true"], [aria-current="step"]) {
+  background: var(--ui-selected) !important;
+  color: var(--ui-ink) !important;
+  border-color: var(--ui-primary) !important;
+}
+html[data-theme] .science-categories .btn[aria-pressed="true"] {
+  background: var(--ui-primary) !important;
+  color: var(--ui-paper) !important;
+}
